@@ -1,0 +1,12 @@
+# Imagens baixadas do WordPress antigo (46 MB): recrie com scripts/exporta-wordpress.py
+legado/site-wordpress/imagens/
+
+# Next.js / Node
+node_modules/
+.next/
+out/
+.env*
+!.env.example
+*.log
+.DS_Store
+Thumbs.db
