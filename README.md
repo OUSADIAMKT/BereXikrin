@@ -11,7 +11,7 @@ Site novo de **berexikrin.org.br**, feito pela Ousadia Marketing em Next.js 16, 
 | `npm run build` | Gera o site final em `out/` |
 | `npm run deploy` | Gera o build e monta a branch `deploy`, que a Hostinger publica. O `git push origin deploy` fica para você conferir antes |
 
-**Ainda não publicado.** O domínio berexikrin.org.br hoje serve o WordPress antigo. Publicar o site novo substitui o WordPress, então só fazer depois da aprovação da Berê e com a hospedagem do domínio confirmada.
+**Publicação:** autorizada em 13/10/2026. A branch `deploy` já está no GitHub; a Hostinger publica a partir dela (Implante de GitHub → repositório `OUSADIAMKT/BereXikrin`, branch `deploy`, diretório `public_html`). Para publicar mudanças depois: commit na `main`, `npm run deploy` e `git push origin deploy`.
 
 ## Código
 

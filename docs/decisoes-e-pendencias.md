@@ -9,6 +9,7 @@
 | 13/10/2026 | Mapa do site aprovado (`mapa-do-site.md`). **Belo Monte vai dentro do menu Projetos.** |
 | 13/10/2026 | **Produtos e Loja** entram no site. No lançamento, catálogo com "em breve"; a venda abre logo depois. |
 | 13/10/2026 | Números da home confirmados: 16 aldeias · 387 pessoas · 111 famílias. |
+| 13/10/2026 | **Publicação autorizada.** Branch `deploy` enviada ao GitHub (commit c3f4823, fonte 09205e0). Falta ligar na Hostinger: backup do WordPress, esvaziar `public_html`, Implante de GitHub (repo OUSADIAMKT/BereXikrin, branch `deploy`). |
 | 13/10/2026 | **Os 300 ha do Restaura Amazônia saem do site** a pedido do cliente (números, resumo do projeto, notícia e texto da página). |
 | 13/10/2026 | Versão em **inglês** fica para a 2ª fase. |
 | 13/10/2026 | Redes no site: Instagram, TikTok, YouTube e LinkedIn (links em `organizacao.md`). |
