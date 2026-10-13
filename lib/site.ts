@@ -41,7 +41,13 @@ export type Projeto = {
   periodo?: string;
   foto: string;
   alt: string;
+  /** Fotos do acervo da Associação, vindas do site antigo. */
+  galeria?: Foto[];
 };
+
+export type Foto = { src: string; alt: string };
+
+export const CREDITO_ACERVO = "Fotos: acervo da Associação Indígena Berê Xikrin";
 
 export const PROJETOS: Projeto[] = [
   {
@@ -53,8 +59,8 @@ export const PROJETOS: Projeto[] = [
     resumo:
       "Desde os anos 70 enfrentamos grandes obras no Médio Xingu. Hoje acompanhamos e coexecutamos as compensações da UHE Belo Monte, para que as decisões sobre a nossa terra passem por nós.",
     parceiros: "Norte Energia (PBA-CI)",
-    foto: "/img/aldeia-e-rio.webp",
-    alt: "Aldeia na mata, com o rio em primeiro plano",
+    foto: "/img/projetos/belo-monte-usina.webp",
+    alt: "Vista aérea da barragem da Usina Hidrelétrica Belo Monte, no Rio Xingu",
   },
   {
     slug: "restaura-amazonia",
@@ -76,8 +82,14 @@ export const PROJETOS: Projeto[] = [
     resumo:
       "A construção da Ngàb, no centro da aldeia, onde nos reunimos para decidir, celebrar e aprender com os Kubengêt.",
     parceiros: "PBA-CI, programas cultural e de fortalecimento institucional",
-    foto: "/img/ngab-comunidade.webp",
-    alt: "Comunidade reunida em frente à Ngàb, a Casa do Guerreiro",
+    foto: "/img/projetos/casa-do-guerreiro-1.webp",
+    alt: "A Ngàb recém-construída: grande casa aberta coberta de palha de babaçu",
+    galeria: [
+      { src: "/img/projetos/casa-do-guerreiro-3.webp", alt: "Homem carrega nas costas uma folha de palmeira para a cobertura" },
+      { src: "/img/projetos/casa-do-guerreiro-4.webp", alt: "Canoa no rio carregada de palha de babaçu" },
+      { src: "/img/projetos/casa-do-guerreiro-5.webp", alt: "Palha de babaçu espalhada no chão, pronta para ser trançada" },
+      { src: "/img/projetos/casa-do-guerreiro-2.webp", alt: "Homens trabalhando na estrutura de madeira e palha da Ngàb" },
+    ],
   },
   {
     slug: "rituais-tradicionais",
@@ -88,8 +100,14 @@ export const PROJETOS: Projeto[] = [
       "Desde 2018 apoiamos os rituais do calendário Xikrin, que garantem a passagem de conhecimento entre as gerações.",
     parceiros: "Programa de Patrimônio Cultural Material e Imaterial",
     periodo: "desde 2018",
-    foto: "/img/aldeia-circular-vista-de-cima.webp",
-    alt: "Aldeia circular vista de cima: casas ao redor de um grande pátio de terra",
+    foto: "/img/projetos/rituais-5.webp",
+    alt: "Mulher Xikrin pinta o corpo de uma jovem com jenipapo",
+    galeria: [
+      { src: "/img/projetos/rituais-5.webp", alt: "Mulher Xikrin pinta o corpo de uma jovem com jenipapo" },
+      { src: "/img/projetos/rituais-1.webp", alt: "Mulheres e crianças reunidas durante a preparação de um ritual" },
+      { src: "/img/projetos/rituais-2.webp", alt: "Grupo reunido com adornos e faixas cerimoniais" },
+      { src: "/img/projetos/rituais-3.webp", alt: "Comunidade reunida sob a cobertura da Ngàb" },
+    ],
   },
   {
     slug: "monitoramento-do-pescado",
@@ -98,8 +116,12 @@ export const PROJETOS: Projeto[] = [
     status: "Em andamento",
     resumo:
       "Jovens de cinco aldeias capacitados para registrar os peixes e acompanhar as mudanças no Rio Bacajá depois de Belo Monte.",
-    foto: "/img/aldeia-e-rio.webp",
-    alt: "Aldeia na mata, com o rio em primeiro plano",
+    foto: "/img/projetos/pescado-2.webp",
+    alt: "Jovem pesa um peixe com balança de mão, de pé numa canoa no rio",
+    galeria: [
+      { src: "/img/projetos/pescado-2.webp", alt: "Jovem pesa um peixe com balança de mão, de pé numa canoa no rio" },
+      { src: "/img/projetos/pescado-1.webp", alt: "Mãos medem um peixe com fita métrica para o registro" },
+    ],
   },
   {
     slug: "internet-nas-aldeias",
@@ -109,8 +131,14 @@ export const PROJETOS: Projeto[] = [
     resumo:
       "Internet para aproximar as aldeias, agilizar alertas de invasão aos órgãos de proteção e acompanhar os projetos.",
     parceiros: "Fundo Casa Socioambiental",
-    foto: "/img/aldeia-circular-por-do-sol.webp",
-    alt: "Vista aérea de uma aldeia Xikrin circular ao entardecer",
+    foto: "/img/projetos/internet-1.webp",
+    alt: "Placa solar instalada no telhado para alimentar a internet da aldeia",
+    galeria: [
+      { src: "/img/projetos/internet-1.webp", alt: "Placa solar instalada no telhado para alimentar a internet da aldeia" },
+      { src: "/img/projetos/internet-2.webp", alt: "Controlador de carga e tomadas instalados na parede" },
+      { src: "/img/projetos/internet-3.webp", alt: "Técnico instala o equipamento de energia na parede" },
+      { src: "/img/projetos/internet-4.webp", alt: "Comunidade reunida na Ngàb" },
+    ],
   },
   {
     slug: "mudas-citricas",
@@ -119,8 +147,13 @@ export const PROJETOS: Projeto[] = [
     status: "Concluído",
     resumo: "Mil mudas de limão, tangerina e laranja distribuídas entre as aldeias associadas.",
     parceiros: "Prefeitura de Anapu, EMATER Anapu",
-    foto: "/img/aldeia-entardecer.webp",
-    alt: "Casas da aldeia diante da floresta",
+    foto: "/img/projetos/mudas-3.webp",
+    alt: "Mudas de plantas cítricas agrupadas na grama, prontas para o plantio",
+    galeria: [
+      { src: "/img/projetos/mudas-1.webp", alt: "Mudas sendo separadas sob um abrigo para a distribuição" },
+      { src: "/img/projetos/mudas-2.webp", alt: "Mulher Xikrin com mudas no terreno da aldeia" },
+      { src: "/img/projetos/mudas-3.webp", alt: "Mudas de plantas cítricas agrupadas na grama, prontas para o plantio" },
+    ],
   },
 ];
 

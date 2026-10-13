@@ -23,7 +23,7 @@ export default function Projetos() {
         rotulo="Projetos"
         titulo={<>O que <span className="destaque">fazemos</span></>}
         lead="Projetos propostos e conduzidos pela Associação, com parceiros, para proteger o território e fortalecer a vida nas aldeias."
-        foto="/img/aldeia-entardecer.webp"
+        foto="/img/capas/aldeia-aerea.webp"
         trilha={[{ rotulo: "Projetos", href: "/projetos/" }]}
       />
 

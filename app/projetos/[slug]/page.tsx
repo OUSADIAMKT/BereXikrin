@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CardProjeto } from "@/components/CardProjeto";
+import { Galeria } from "@/components/Galeria";
 import { PaginaHero } from "@/components/PaginaHero";
-import { PROJETOS } from "@/lib/site";
+import { CREDITO_ACERVO, PROJETOS } from "@/lib/site";
 import { TEXTOS_PROJETOS } from "@/lib/textos-projetos";
 
 /** Exportação estática: só existem as páginas listadas aqui. */
@@ -71,6 +72,7 @@ export default async function PaginaProjeto({ params }: PageProps<"/projetos/[sl
               <p key={par.slice(0, 40)}>{par}</p>
             ))}
           </div>
+          {projeto.galeria && <Galeria fotos={projeto.galeria} credito={CREDITO_ACERVO} />}
           <p>
             <Link className="btn btn--marca" href="/apoie/">
               Apoie este trabalho

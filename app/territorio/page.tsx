@@ -14,7 +14,7 @@ export default function Territorio() {
         rotulo="Território"
         titulo={<>TI <span className="destaque">Trincheira-Bacajá</span></>}
         lead="Terra cortada pelo Rio Bacajá, que deságua no Xingu, no Pará. É onde ficam as 16 aldeias representadas pela Berê."
-        foto="/img/aldeia-e-rio.webp"
+        foto="/img/capas/rio-pedras.webp"
         trilha={[{ rotulo: "Território", href: "/territorio/" }]}
       />
       <section className="secao">
@@ -42,6 +42,28 @@ export default function Territorio() {
           />
         </div>
       </section>
+      <section className="secao" style={{ paddingTop: 0 }} aria-labelledby="t-mapa">
+        <div className="container">
+          <span className="eyebrow">Mapa</span>
+          <h2 id="t-mapa" className="titulo-md" style={{ margin: "1rem 0 1.5rem" }}>
+            A Terra Indígena e as aldeias da Associação
+          </h2>
+          <figure className="galeria">
+            <a href="/img/territorio/mapa-ti.webp" target="_blank" rel="noopener">
+              <img
+                src="/img/territorio/mapa-ti.webp"
+                alt="Mapa da Terra Indígena Trincheira-Bacajá com os limites da TI, os rios, as estradas e a localização das aldeias, destacando as aldeias da Associação"
+                width={1800}
+                height={1450}
+                loading="lazy"
+                style={{ aspectRatio: "auto", background: "var(--branco)" }}
+              />
+            </a>
+            <figcaption>Mapa do Plano de Vida da TI Trincheira-Bacajá. Clique para ampliar.</figcaption>
+          </figure>
+        </div>
+      </section>
+
       <section className="secao" style={{ paddingTop: 0 }} aria-labelledby="t-aldeias">
         <div className="container" style={{ display: "grid", gap: "1.5rem" }}>
           <div>

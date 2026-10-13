@@ -9,6 +9,7 @@
 | 13/10/2026 | Mapa do site aprovado (`mapa-do-site.md`). **Belo Monte vai dentro do menu Projetos.** |
 | 13/10/2026 | **Produtos e Loja** entram no site. No lançamento, catálogo com "em breve"; a venda abre logo depois. |
 | 13/10/2026 | Números da home confirmados: 16 aldeias · 387 pessoas · 111 famílias. |
+| 13/10/2026 | **Conteúdo antes de subir:** fotos reais do site antigo em todo o site (galeria por projeto, diretoria com fotos, Plano de Vida, mapa da TI, artesanato das menire, capas); rascunhos de Cultura. A branch deploy NÃO foi atualizada: ainda tem a versão anterior. |
 | 13/10/2026 | **Publicação autorizada.** Branch `deploy` enviada ao GitHub (commit c3f4823, fonte 09205e0). Falta ligar na Hostinger: backup do WordPress, esvaziar `public_html`, Implante de GitHub (repo OUSADIAMKT/BereXikrin, branch `deploy`). |
 | 13/10/2026 | **Os 300 ha do Restaura Amazônia saem do site** a pedido do cliente (números, resumo do projeto, notícia e texto da página). |
 | 13/10/2026 | Versão em **inglês** fica para a 2ª fase. |
@@ -21,9 +22,9 @@
 
 - [ ] Nome, localização e fotos das **16 aldeias**
 - [x] **Logo:** 3 versões SVG recebidas em 13/10/2026 (exportação do Canva, pesadas). Versões leves geradas em `Logo/leves/` (PNG 2000 px, WebP, ícones e avatar). Se existir o vetorial original do designer, ainda vale guardar
-- [ ] **Fotos** fortes do território, das aldeias, das pessoas e dos rituais (o material de drone está em `D:\BKP DRONE`)
+- [~] **Fotos:** 54 fotos do site antigo importadas (scripts/importa-fotos-legado.cjs). Ainda vale receber fotos novas do território, das aldeias, das pessoas e dos rituais (o material de drone está em `D:\BKP DRONE`)
 - [ ] Cores ou grafismos que a Berê já usa, ou que quer evitar
-- [ ] Textos de Cultura: pinturas, artesanato, língua, caça e pesca, anciões, culinária
+- [ ] **Revisar os rascunhos de Cultura** (lib/cultura.ts, revisado: false): Pinturas corporais, Artesanato e adornos, Língua Mẽbêngôkre, Caça pesca e coleta, Kubengêt e as histórias, Comida e roça. Escritos em 13/10/2026 a partir do ISA (Povos Indígenas no Brasil) e de Lux Vidal; parte das fontes fala dos Kayapó/Xikrin em geral, não só do Bacajá. A página mostra aviso de revisão até todos virarem revisado: true
 - [ ] Documentos da Transparência: prestações de contas, estatuto, CNPJ, atas
 - [ ] Dados para o **Apoie**: chave PIX e conta bancária da associação
 - [ ] PDF do **Plano de Vida**, se já puder ser publicado

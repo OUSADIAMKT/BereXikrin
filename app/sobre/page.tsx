@@ -8,16 +8,17 @@ export const metadata: Metadata = {
   description: "Quem são os Mẽbêngôkre-Xikrin da TI Trincheira-Bacajá, a história da Associação Berê, a diretoria e o Plano de Vida.",
 };
 
-const DIRETORIA = [
-  ["Bep Kamati Xikrin", "Presidente"],
-  ["Kadjore Xikrin", "Vice-presidente"],
-  ["Bep Ketoj Xikrin", "1º Secretário"],
-  ["Kangore Xikrin", "1º Tesoureiro"],
-  ["Piydjo Xikrin", "2º Secretário"],
-  ["Bep Djyre Xikrin", "2º Tesoureiro"],
+/** Fotos na mesma ordem do site antigo; Koitunggri não tinha foto lá. */
+const DIRETORIA: [nome: string, cargo: string, foto?: string][] = [
+  ["Bep Kamati Xikrin", "Presidente", "bep-kamati"],
+  ["Kadjore Xikrin", "Vice-presidente", "kadjore"],
+  ["Bep Ketoj Xikrin", "1º Secretário", "bep-ketoj"],
+  ["Kangore Xikrin", "1º Tesoureiro", "kangore"],
+  ["Piydjo Xikrin", "2º Secretário", "piydjo"],
+  ["Bep Djyre Xikrin", "2º Tesoureiro", "bep-djyre"],
   ["Koitunggri Xikrin", "Titular"],
-  ["Irekoti Xikrin", "Titular"],
-  ["Nhoko Xikrin", "Suplente"],
+  ["Irekoti Xikrin", "Titular", "irekoti"],
+  ["Nhoko Xikrin", "Suplente", "nhoko"],
 ];
 
 export default function Sobre() {
@@ -27,6 +28,7 @@ export default function Sobre() {
         rotulo="Sobre a Berê"
         titulo={<>Gente da <span className="destaque">água grande</span></>}
         lead="Somos Mẽbêngôkre-Xikrin da Terra Indígena Trincheira-Bacajá, no Pará, e nos organizamos na Associação Berê desde 2018."
+        foto="/img/capas/reuniao-ngab.webp"
         trilha={[{ rotulo: "Sobre", href: "/sobre/" }]}
       />
 
@@ -104,11 +106,18 @@ export default function Sobre() {
           <h2 id="t-diretoria" className="titulo-md" style={{ margin: "1rem 0 2rem" }}>
             Quem conduz a Berê
           </h2>
-          <ul className="diretoria">
-            {DIRETORIA.map(([nome, cargo]) => (
+          <ul className="diretoria diretoria--fotos">
+            {DIRETORIA.map(([nome, cargo, foto]) => (
               <li key={nome}>
-                <strong>{nome}</strong>
-                <span>{cargo}</span>
+                {foto ? (
+                  <img src={`/img/diretoria/${foto}.webp`} alt={`Retrato de ${nome}`} width={480} height={520} loading="lazy" />
+                ) : (
+                  <div className="sem-foto" aria-hidden="true">Foto em breve</div>
+                )}
+                <div className="nome">
+                  <strong>{nome}</strong>
+                  <span>{cargo}</span>
+                </div>
               </li>
             ))}
           </ul>
@@ -116,7 +125,8 @@ export default function Sobre() {
       </section>
 
       <section id="plano-de-vida" className="escuro secao" aria-labelledby="t-plano">
-        <div className="container prosa">
+        <div className="container duas-colunas">
+        <div className="prosa">
           <span className="eyebrow">Plano de Vida</span>
           <h2 id="t-plano" className="titulo-md">O futuro que escolhemos</h2>
           <p className="lead">
@@ -134,6 +144,18 @@ export default function Sobre() {
               Belo Monte e o PBA-CI
             </Link>
           </p>
+        </div>
+        <figure className="galeria">
+          <img
+            className="foto-arredondada"
+            src="/img/sobre/plano-de-vida-capa.webp"
+            alt="Capa do Plano de Vida da Terra Indígena Trincheira-Bacajá, com grafismo em dourado"
+            width={929}
+            height={660}
+            loading="lazy"
+          />
+          <figcaption>Capa do Plano de Vida. Oficinas com cada aldeia, a partir de 2017.</figcaption>
+        </figure>
         </div>
       </section>
     </>

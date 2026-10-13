@@ -97,6 +97,9 @@ main { flex: 1; }
 .foto-arredondada { border-radius: var(--raio-lg); width: 100%; object-fit: cover; }
 .prosa > * + * { margin-top: 1rem; }
 .prosa { max-width: var(--largura-texto); }
+/* Num .container, o texto fica alinhado à esquerda como o resto da página, em vez de centralizado. */
+.container.prosa { max-width: var(--largura-max); }
+.container.prosa > * { max-width: var(--largura-texto); }
 
 .faixa-cultura { position: relative; overflow: hidden; }
 .faixa-cultura .fundo { position: absolute; inset: 0; color: var(--palha); opacity: 0.06; -webkit-mask-size: auto 64px; mask-size: auto 64px; -webkit-mask-repeat: repeat; mask-repeat: repeat; }
@@ -132,3 +135,27 @@ main { flex: 1; }
 .rodape a { text-decoration: none; }
 .rodape a:hover { text-decoration: underline; text-underline-offset: 3px; }
 .rodape__fim { margin-top: 2.5rem; padding-top: 1.25rem; border-top: 1px solid rgb(247 239 227 / 0.15); font-size: var(--texto-xs); color: rgb(247 239 227 / 0.72); display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; justify-content: space-between; }
+
+/* ===== Galeria de fotos ===== */
+.galeria ul { list-style: none; padding: 0; display: grid; gap: 0.75rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr)); }
+.galeria a { display: block; border-radius: var(--raio-md); overflow: hidden; }
+.galeria img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; transition: transform .25s ease; }
+.galeria a:hover img { transform: scale(1.03); }
+.galeria figcaption { margin-top: 0.75rem; font-size: var(--texto-xs); color: var(--cor-texto-suave); }
+.escuro .galeria figcaption { color: rgb(247 239 227 / 0.75); }
+
+/* ===== Diretoria com foto ===== */
+.diretoria--fotos li { padding: 0; overflow: hidden; display: grid; }
+.diretoria--fotos img, .diretoria--fotos .sem-foto { width: 100%; aspect-ratio: 12 / 13; object-fit: cover; object-position: top; }
+.diretoria--fotos .sem-foto { background: var(--palha-escura); display: grid; place-items: center; color: var(--cor-texto-suave); font-size: var(--texto-xs); }
+.diretoria--fotos .nome { padding: 0.9rem 1.1rem 1.1rem; }
+
+/* ===== Temas da Cultura ===== */
+.temas { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); }
+.tema { background: var(--branco); border: 1px solid var(--palha-escura); border-radius: var(--raio-lg); overflow: hidden; display: flex; flex-direction: column; }
+.tema img, .tema__grafismo { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
+.tema__grafismo { color: var(--urucum); background-color: var(--jenipapo); -webkit-mask: none; mask: none; position: relative; }
+.tema__grafismo::after { content: ""; position: absolute; inset: 0; background: var(--urucum-claro); opacity: 0.35;
+  -webkit-mask: var(--graf-listras) repeat center / 48px auto; mask: var(--graf-listras) repeat center / 48px auto; }
+.tema__corpo { padding: var(--espaco-6); display: grid; gap: 0.6rem; align-content: start; }
+.tema__corpo p { color: var(--cor-texto-suave); }
