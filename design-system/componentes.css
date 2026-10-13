@@ -1,0 +1,117 @@
+/* Berê Xikrin — componentes base (v2). Depende de tokens.css. */
+
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  font-family: var(--fonte-texto);
+  font-size: var(--texto-base);
+  line-height: var(--entrelinha);
+  color: var(--cor-texto);
+  background: var(--cor-fundo);
+}
+img { max-width: 100%; height: auto; display: block; }
+h1, h2, h3, h4, p { overflow-wrap: break-word; }
+h1, h2, h3, h4 { font-family: var(--fonte-display); line-height: var(--entrelinha-titulo); font-weight: 700; letter-spacing: -0.01em; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--cor-foco); outline-offset: 3px; border-radius: 4px; }
+.escuro :focus-visible { outline-color: var(--pequi); }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+
+.container { width: 100%; max-width: var(--largura-max); margin-inline: auto; padding-inline: clamp(1rem, 0.5rem + 2.5vw, 2rem); }
+.secao { padding-block: var(--secao); }
+.escuro { background: var(--jenipapo); color: var(--palha); }
+.texto-corrido { max-width: var(--largura-texto); }
+.visualmente-oculto { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* ---- Grafismo como máscara ---- */
+.graf {
+  background-color: currentColor;
+  -webkit-mask: var(--graf) repeat-x left center / auto 100%;
+          mask: var(--graf) repeat-x left center / auto 100%;
+}
+.graf--faixa { --graf: var(--graf-faixa); }
+.graf--zigue-zague { --graf: var(--graf-zigue-zague); }
+.graf--quadrados { --graf: var(--graf-quadrados); }
+.graf--listras { --graf: var(--graf-listras); }
+@supports not ((mask-image: none) or (-webkit-mask-image: none)) { .graf { background: none; } }
+
+/* Divisor: faixa entre seções. Altura fixa para o desenho não esticar. */
+.divisor { height: 20px; color: var(--urucum); }
+.divisor--grosso { height: 32px; }
+
+/* Rótulo acima do título, com a pequena seta em zigue-zague */
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  font-family: var(--fonte-display); font-size: var(--texto-xs); font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--urucum);
+}
+.eyebrow::before {
+  content: ""; width: 28px; height: 16px; flex: none; background: currentColor;
+  -webkit-mask: var(--graf-seta) no-repeat center / contain; mask: var(--graf-seta) no-repeat center / contain;
+}
+.escuro .eyebrow { color: var(--urucum-claro); }
+
+.titulo-lg { font-size: var(--titulo-lg); }
+.titulo-md { font-size: var(--titulo-md); }
+.titulo-sm { font-size: var(--titulo-sm); }
+.destaque { color: var(--pequi); }
+.lead { font-size: var(--texto-lg); color: var(--cor-texto-suave); }
+.escuro .lead { color: rgb(247 239 227 / 0.82); }
+
+/* ---- Lista com marcador de quadrados concêntricos ---- */
+.lista-grafismo { list-style: none; padding: 0; display: grid; gap: var(--espaco-3); }
+.lista-grafismo li { display: flex; gap: var(--espaco-3); align-items: baseline; }
+.lista-grafismo li::before {
+  content: ""; width: 0.9em; height: 0.9em; flex: none; transform: translateY(0.12em);
+  background: var(--urucum);
+  -webkit-mask: var(--graf-marcador) no-repeat center / contain; mask: var(--graf-marcador) no-repeat center / contain;
+}
+.escuro .lista-grafismo li::before { background: var(--pequi); }
+
+/* ---- Botões ---- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+  min-height: 48px; padding: 0.75rem 1.5rem; border-radius: var(--raio-pilula);
+  font-family: var(--fonte-display); font-weight: 600; font-size: var(--texto-sm);
+  text-decoration: none; border: 2px solid transparent; cursor: pointer;
+  transition: transform .15s ease, background-color .15s ease;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn--marca { background: var(--urucum); color: var(--branco); }
+.btn--marca:hover { background: #A81A15; }
+.btn--destaque { background: var(--pequi); color: var(--jenipapo); }
+.btn--destaque:hover { background: #FFC933; }
+.btn--contorno { border-color: currentColor; color: var(--jenipapo); background: transparent; }
+.escuro .btn--contorno, .sobre-foto .btn--contorno { color: var(--palha); }
+
+/* ---- Etiquetas ---- */
+.tag { display: inline-block; font-size: var(--texto-xs); font-weight: 700; padding: 0.2rem 0.7rem; border-radius: var(--raio-pilula); color: var(--branco); background: var(--floresta); }
+.tag--urucum { background: var(--urucum); }
+.tag--arara { background: var(--arara); }
+.tag--jenipapo { background: var(--jenipapo); }
+
+/* ---- Card ---- */
+.card { background: var(--cor-superficie); border-radius: var(--raio-lg); overflow: hidden; box-shadow: var(--sombra-card); display: flex; flex-direction: column; }
+.card__img { aspect-ratio: 4 / 3; width: 100%; object-fit: cover; }
+.card__corpo { padding: var(--espaco-6); display: grid; gap: var(--espaco-2); }
+.card__corpo p { color: var(--cor-texto-suave); }
+.card__link { margin-top: var(--espaco-2); font-weight: 700; color: var(--urucum); text-decoration-thickness: 2px; text-underline-offset: 4px; }
+.card::before { content: ""; height: 10px; background: var(--urucum-vivo); -webkit-mask: var(--graf-zigue-zague) repeat-x left center / auto 100%; mask: var(--graf-zigue-zague) repeat-x left center / auto 100%; order: 1; }
+.card__img { order: 0; } .card__corpo { order: 2; }
+
+.grade { display: grid; gap: var(--espaco-6); grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); }
+
+/* ---- Números ---- */
+.numeros { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: var(--espaco-8); }
+.numero strong { display: block; font-family: var(--fonte-display); font-size: var(--numero); line-height: 1; color: var(--pequi); white-space: nowrap; }
+.numero strong small { font-size: 0.45em; margin-left: 0.15em; }
+.numero span { display: block; margin-top: var(--espaco-2); color: rgb(247 239 227 / 0.85); }
+.numero { padding-left: var(--espaco-4); border-left: 3px solid var(--urucum-claro); }
+
+/* ---- Citação ---- */
+.citacao { border-left: 6px solid var(--urucum); padding: var(--espaco-2) 0 var(--espaco-2) var(--espaco-6); font-family: var(--fonte-display); font-size: var(--titulo-sm); line-height: 1.35; }
+.citacao cite { display: block; margin-top: var(--espaco-3); font-family: var(--fonte-texto); font-size: var(--texto-sm); font-style: normal; color: var(--cor-texto-suave); }
+
+/* ---- Foto com crédito ---- */
+.credito { font-size: var(--texto-xs); color: rgb(247 239 227 / 0.8); }

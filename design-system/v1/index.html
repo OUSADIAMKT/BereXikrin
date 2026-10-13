@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Berê Xikrin — Design System v1 (rascunho)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=Be+Vietnam+Pro:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --urucum:#E3141B; --urucum-escuro:#A50F14;
+  --jenipapo:#111111;
+  --arara:#1D4ED8; --pequi:#FFC400; --floresta:#16A34A; --brasa:#FF6B00;
+  --palha:#FFF6E5; --branco:#fff;
+  --fonte-display:"Unbounded",sans-serif; --fonte-texto:"Be Vietnam Pro",sans-serif;
+}
+*{box-sizing:border-box;margin:0}
+body{font-family:var(--fonte-texto);background:var(--palha);color:var(--jenipapo);line-height:1.6}
+img{max-width:100%;display:block}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:var(--fonte-display);line-height:1.1}
+.g{background:currentColor;-webkit-mask-repeat:repeat-x;mask-repeat:repeat-x;-webkit-mask-size:auto 100%;mask-size:auto 100%}
+.g-faixa{-webkit-mask-image:url(grafismos/faixa.png);mask-image:url(grafismos/faixa.png)}
+.g-ajuawuiaki{-webkit-mask-image:url(grafismos/ajuawuiaki.png);mask-image:url(grafismos/ajuawuiaki.png)}
+.g-eiremaywa{-webkit-mask-image:url(grafismos/eiremaywa.png);mask-image:url(grafismos/eiremaywa.png)}
+.g-awatiputyra{-webkit-mask-image:url(grafismos/awatiputyra.png);mask-image:url(grafismos/awatiputyra.png)}
+.g-kumana{-webkit-mask-image:url(grafismos/kumana.png);mask-image:url(grafismos/kumana.png)}
+.g-jawarajuryna{-webkit-mask-image:url(grafismos/jawarajuryna.png);mask-image:url(grafismos/jawarajuryna.png)}
+.g-ywrywaaka{-webkit-mask-image:url(grafismos/ywrywaaka.png);mask-image:url(grafismos/ywrywaaka.png)}
+.divisor{height:28px;margin:48px 0}
+
+header{background:var(--jenipapo);color:#fff}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
+header img{height:40px;filter:invert(1)}
+nav a{color:#fff;text-decoration:none;margin-left:22px;font-size:14px}
+.btn{display:inline-block;font-family:var(--fonte-display);font-weight:600;padding:14px 26px;border-radius:999px;text-decoration:none;font-size:15px}
+.btn-urucum{background:var(--urucum);color:#fff}
+.btn-pequi{background:var(--pequi);color:var(--jenipapo)}
+.btn-contorno{border:2px solid currentColor;color:var(--jenipapo)}
+
+.hero{position:relative;min-height:640px;background:url(../img/v1-rio-ia.webp) center/cover;color:#fff;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.75),rgba(0,0,0,.1))}
+.hero .wrap{position:relative;padding-top:140px}
+.hero h1{font-size:64px;max-width:700px}
+.hero h1 span{color:var(--pequi)}
+.hero p{font-size:20px;max-width:520px;margin:20px 0 32px}
+.hero .arara{position:absolute;right:-40px;top:40px;width:460px}
+.hero .onca{position:absolute;right:60px;bottom:-30px;width:520px}
+
+section{padding:80px 0}
+.eyebrow{font-family:var(--fonte-display);font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--urucum);font-weight:600}
+.titulo{font-size:40px;margin:10px 0 24px}
+.paleta{display:grid;grid-template-columns:repeat(8,1fr);gap:12px}
+.cor{border-radius:16px;height:150px;padding:14px;display:flex;flex-direction:column;justify-content:flex-end;font-size:13px;font-weight:700}
+.tipos h1{font-size:56px}.tipos h2{font-size:36px}.tipos h3{font-size:24px}
+.numeros{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;background:var(--urucum);color:#fff;border-radius:24px;padding:40px}
+.numeros strong{font-family:var(--fonte-display);font-size:56px;display:block;color:var(--pequi)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.card{background:#fff;border-radius:24px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.08)}
+.card img{height:220px;width:100%;object-fit:cover}
+.card div{padding:24px}
+.card .tag{display:inline-block;background:var(--floresta);color:#fff;font-size:12px;padding:4px 12px;border-radius:999px;margin-bottom:10px}
+ul.marcadores{list-style:none;padding:0}
+ul.marcadores li{display:flex;gap:14px;align-items:center;margin:12px 0;font-size:18px}
+ul.marcadores li::before{content:"";width:36px;height:18px;background:var(--urucum);-webkit-mask:url(grafismos/eiremaywa.png) left/auto 100%;mask:url(grafismos/eiremaywa.png) left/auto 100%;flex:none}
+.cultura{position:relative;background:url(../img/v1-folhagens-ia.webp) center/cover;color:#fff}
+.cultura::before{content:"";position:absolute;inset:0;background:rgba(10,60,30,.7)}
+.cultura .wrap{position:relative}
+.cultura .cesto{position:absolute;right:0;top:-80px;width:300px}
+footer{background:var(--jenipapo);color:#ddd;padding:60px 0 30px}
+footer .g{color:var(--urucum);height:24px;margin-bottom:40px}
+.grafs{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.grafs div{background:#fff;border-radius:16px;padding:20px}
+.grafs .g{height:40px;margin-bottom:10px}
+</style>
+</head>
+<body>
+<header><div class="wrap"><img src="../img/logotipo-nome.webp" alt="Berê Xikrin"><nav><a href="#">Sobre</a><a href="#">Cultura</a><a href="#">Território</a><a href="#">Projetos</a><a href="#">Produtos</a><a href="#">Conteúdos</a><a href="#">Transparência</a> <a class="btn btn-urucum" href="#" style="margin-left:22px">Apoie</a></nav></div></header>
+
+<div class="hero">
+  <div class="wrap">
+    <h1>A floresta é a <span>nossa casa</span></h1>
+    <p>Associação Indígena Berê Xikrin da TI Trincheira-Bacajá. Povo Mẽbêngôkre, guardiões do Rio Bacajá.</p>
+    <a class="btn btn-pequi" href="#">Conheça a Berê</a> <a class="btn btn-contorno" style="color:#fff" href="#">Apoie</a>
+  </div>
+  <img class="arara" src="../img/v1-arara-ia.webp" alt="">
+  <img class="onca" src="../img/v1-onca-ia.webp" alt="">
+</div>
+
+<div class="wrap"><div class="g g-faixa divisor" style="color:var(--jenipapo)"></div></div>
+
+<section><div class="wrap">
+  <span class="eyebrow">Cores</span><h2 class="titulo">Paleta vibrante</h2>
+  <div class="paleta">
+    <div class="cor" style="background:var(--urucum);color:#fff">Urucum<br>#E3141B</div>
+    <div class="cor" style="background:var(--urucum-escuro);color:#fff">Urucum escuro<br>#A50F14</div>
+    <div class="cor" style="background:var(--jenipapo);color:#fff">Jenipapo<br>#111111</div>
+    <div class="cor" style="background:var(--arara);color:#fff">Arara<br>#1D4ED8</div>
+    <div class="cor" style="background:var(--pequi)">Pequi<br>#FFC400</div>
+    <div class="cor" style="background:var(--floresta);color:#fff">Floresta<br>#16A34A</div>
+    <div class="cor" style="background:var(--brasa);color:#fff">Brasa<br>#FF6B00</div>
+    <div class="cor" style="background:var(--palha);border:1px solid #ddd">Palha<br>#FFF6E5</div>
+  </div>
+</div></section>
+
+<div class="wrap"><div class="g g-awatiputyra divisor" style="color:var(--floresta)"></div></div>
+
+<section><div class="wrap tipos">
+  <span class="eyebrow">Tipografia</span>
+  <h1>Unbounded — Mẽbêngôkre</h1>
+  <h2>Nossa terra, nossa cultura</h2>
+  <h3>Kukradjà: viver com a floresta</h3>
+  <p style="max-width:640px;margin-top:16px">Be Vietnam Pro no texto corrido. Nos autodenominamos Mẽbêngôkre, que significa “gente do buraco d’água ou gente da água grande”, e ocupamos hoje a Terra Indígena Trincheira Bacajá.</p>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+  <div class="numeros"><div><strong>16</strong>aldeias</div><div><strong>387</strong>pessoas</div><div><strong>111</strong>famílias</div><div><strong>300 ha</strong>em restauração</div></div>
+</div></section>
+
+<div class="wrap"><div class="g g-kumana divisor" style="color:var(--urucum)"></div></div>
+
+<section><div class="wrap">
+  <span class="eyebrow">Projetos</span><h2 class="titulo">Cards</h2>
+  <div class="cards">
+    <div class="card"><img src="../img/aldeia-entardecer.webp" alt=""><div><span class="tag">Território</span><h3>Restaura Amazônia</h3><p>300 hectares de floresta voltando a crescer.</p></div></div>
+    <div class="card"><img src="../img/ngab-comunidade.webp" alt=""><div><span class="tag" style="background:var(--urucum)">Cultura</span><h3>Casa do Guerreiro</h3><p>A Ngàb no centro da aldeia.</p></div></div>
+    <div class="card"><img src="../img/aldeia-e-rio.webp" alt=""><div><span class="tag" style="background:var(--arara)">Rio</span><h3>Monitoramento do Pescado</h3><p>Jovens cuidando do Rio Bacajá.</p></div></div>
+  </div>
+</div></section>
+
+<section class="cultura"><div class="wrap">
+  <img class="cesto" src="../img/v1-cestaria-ia.webp" alt="">
+  <span class="eyebrow" style="color:var(--pequi)">Cultura</span><h2 class="titulo">Kukradjà</h2>
+  <ul class="marcadores"><li>Pinturas corporais</li><li>Artesanato das menire</li><li>Língua Mẽbêngôkre</li><li>Rituais e calendário tradicional</li></ul>
+</div></section>
+
+<section><div class="wrap">
+  <span class="eyebrow">Grafismos</span><h2 class="titulo">Divisores e marcadores</h2>
+  <div class="grafs">
+    <div><div class="g g-ajuawuiaki" style="color:var(--urucum)"></div>Ajuawuiaki — ramos de árvore</div>
+    <div><div class="g g-eiremaywa" style="color:var(--arara)"></div>Eirema'ywa — favo de mel</div>
+    <div><div class="g g-awatiputyra" style="color:var(--floresta)"></div>Awatiputyra — espiga de milho</div>
+    <div><div class="g g-kumana" style="color:var(--brasa)"></div>Kumana — feijão</div>
+    <div><div class="g g-jawarajuryna" style="color:var(--jenipapo)"></div>Jawarajuryna — pescoço do jaguar</div>
+    <div><div class="g g-ywrywaaka" style="color:var(--urucum-escuro)"></div>Ywrywaaka — pintura da lagarta</div>
+  </div>
+</div></section>
+
+<footer><div class="wrap"><div class="g g-jawarajuryna"></div>
+  <p>Associação Indígena Berê Xikrin da TI Bacajá · Aldeia Krãnh, Anapu/PA · xikrinbere@gmail.com</p>
+</div></footer>
+</body>
+</html>

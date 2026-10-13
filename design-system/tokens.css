@@ -1,0 +1,88 @@
+/* ==========================================================================
+   Berê Xikrin — Design tokens (v2)
+   Cores tiradas do logotipo e dos pigmentos usados na pintura corporal
+   (urucum e jenipapo). Grafismos derivados do próprio logo.
+   Todas as combinações de texto listadas em "Pares aprovados" passam no
+   WCAG 2.1 AA (contraste >= 4,5:1).
+   ========================================================================== */
+
+:root {
+  /* ---- Paleta bruta ---- */
+  --urucum: #C8201A;          /* vermelho do logo, um tom mais fundo para texto branco passar AA */
+  --urucum-vivo: #E3141B;     /* vermelho original do logo: só em grafismo e ilustração, nunca atrás de texto pequeno */
+  --urucum-claro: #FF5A43;    /* vermelho para texto e detalhe sobre fundo escuro */
+  --jenipapo: #15110E;        /* preto quente da tinta de jenipapo */
+  --carvao: #2A231D;          /* superfície escura secundária */
+  --palha: #F7EFE3;           /* fundo base, quente */
+  --palha-escura: #EADFCC;    /* bordas e superfícies sobre palha */
+  --branco: #FFFFFF;
+  --pequi: #F6B800;           /* amarelo das penas do logo: destaque sobre escuro */
+  --arara: #1F3A93;           /* azul das penas do logo */
+  --floresta: #0B6E3F;        /* verde da mata do Bacajá */
+  --texto-suave: #5A5047;     /* texto secundário sobre palha */
+
+  /* ---- Papéis semânticos ---- */
+  --cor-fundo: var(--palha);
+  --cor-superficie: var(--branco);
+  --cor-texto: var(--jenipapo);
+  --cor-texto-suave: var(--texto-suave);
+  --cor-marca: var(--urucum);
+  --cor-destaque: var(--pequi);
+  --cor-borda: var(--palha-escura);
+  --cor-foco: var(--arara);
+
+  /* ---- Tipografia ----
+     As duas famílias têm o subconjunto vietnamita do Google Fonts, que traz o
+     "ẽ" de Mẽbêngôkre. Fonte sem esse glifo quebra o nome do povo. */
+  --fonte-display: "Unbounded", system-ui, sans-serif;
+  --fonte-texto: "Be Vietnam Pro", system-ui, sans-serif;
+
+  --texto-xs: 0.8125rem;                          /* 13px — legendas, créditos */
+  --texto-sm: 0.9375rem;                          /* 15px */
+  --texto-base: 1.0625rem;                        /* 17px — corpo */
+  --texto-lg: clamp(1.125rem, 1rem + 0.5vw, 1.375rem);
+  --titulo-sm: clamp(1.25rem, 1.1rem + 0.6vw, 1.625rem);
+  --titulo-md: clamp(1.75rem, 1.4rem + 1.5vw, 2.75rem);
+  --titulo-lg: clamp(2.25rem, 1.6rem + 3vw, 4.25rem);
+  --numero: clamp(2.5rem, 2rem + 2.5vw, 4rem);
+
+  --peso-texto: 400;
+  --peso-forte: 700;
+  --entrelinha: 1.65;
+  --entrelinha-titulo: 1.08;
+
+  /* ---- Espaço e forma ---- */
+  --espaco-1: 0.25rem; --espaco-2: 0.5rem; --espaco-3: 0.75rem; --espaco-4: 1rem;
+  --espaco-6: 1.5rem; --espaco-8: 2rem; --espaco-12: 3rem; --espaco-16: 4rem;
+  --secao: clamp(4rem, 3rem + 5vw, 7.5rem);
+  --largura-max: 1200px;
+  --largura-texto: 68ch;
+  --raio-sm: 6px;
+  --raio-md: 14px;
+  --raio-lg: 24px;
+  --raio-pilula: 999px;
+  --sombra-card: 0 1px 2px rgb(21 17 14 / 0.06), 0 12px 32px rgb(21 17 14 / 0.08);
+
+  /* ---- Grafismos ----
+     Desenhos pretos sobre transparente, usados como máscara: a cor vem de
+     background-color, então qualquer cor da paleta tinge o mesmo desenho. */
+  --graf-faixa: url("grafismos/faixa.svg");
+  --graf-zigue-zague: url("grafismos/zigue-zague.svg");
+  --graf-quadrados: url("grafismos/quadrados.svg");
+  --graf-listras: url("grafismos/listras.svg");
+  --graf-marcador: url("grafismos/marcador.svg");
+  --graf-seta: url("grafismos/seta.svg");
+}
+
+/* ---- Pares de cor aprovados para texto (AA) ----
+   jenipapo sobre palha ........ 16,5:1
+   branco sobre urucum ......... 5,7:1
+   palha sobre urucum .......... 5,0:1
+   urucum sobre palha .......... 5,0:1
+   pequi sobre jenipapo ........ 10,5:1
+   jenipapo sobre pequi ........ 10,5:1
+   branco sobre arara .......... 10,1:1
+   branco sobre floresta ....... 6,3:1
+   urucum-claro sobre jenipapo . 6,1:1
+   texto-suave sobre palha ..... 6,9:1
+   Proibido: pequi sobre branco/palha (1,6:1) e urucum-vivo atrás de texto pequeno. */

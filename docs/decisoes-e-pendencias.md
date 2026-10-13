@@ -11,6 +11,8 @@
 | 13/10/2026 | Números da home confirmados: 16 aldeias · 387 pessoas · 111 famílias. |
 | 13/10/2026 | Versão em **inglês** fica para a 2ª fase. |
 | 13/10/2026 | Redes no site: Instagram, TikTok, YouTube e LinkedIn (links em `organizacao.md`). |
+| 13/10/2026 | **Design system v2** em `design-system/`: paleta urucum/jenipapo/palha + acentos pequi/arara/floresta, Unbounded + Be Vietnam Pro, grafismos derivados do logo. Autocrítica em `design-system/critica.md`. |
+| 13/10/2026 | A prancha de grafismos recebida (Ajuawuiaki, Kumana, Jawarajuryna…) **não é usada**: os nomes são tupi, provavelmente Asurini do Xingu, não Mẽbêngôkre. Imagens geradas por IA (onça, arara, rio, folhagens, cestaria) também ficaram de fora. |
 
 ## Aguardando o cliente
 
@@ -24,6 +26,10 @@
 - [ ] PDF do **Plano de Vida**, se já puder ser publicado
 - [ ] Logos dos parceiros
 - [ ] Confirmar a grafia: Kukradjà ou Kukradjá
+- [ ] **Validar os grafismos do design system** (derivados do logo) com a Associação e os anciões: têm nome e significado? Podem ser usados como divisor? Se houver grafismos Xikrin próprios (pintura com jenipapo), enviar com nome e significado
+- [ ] **Autorização coletiva por escrito de uso de imagem** (fotos de drone com pessoas e crianças)
+- [ ] Crédito das fotos de drone: Ousadia Marketing ou nome do piloto?
+- [ ] Selo do logo em versão negativa (contorno branco) com o designer
 
 ## A decidir depois
 
@@ -35,7 +41,7 @@
 
 ## Próximo passo
 
-Identidade visual (cores, tipografia, grafismos Mẽbêngôkre) e depois a construção da home.
+Design system v2 pronto. Próximo: criar o projeto Next.js e construir a home com ele.
 
 ## Observações sobre o site atual
 

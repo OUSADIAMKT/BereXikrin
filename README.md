@@ -11,12 +11,14 @@ Site novo de **berexikrin.org.br**, feito pela Ousadia Marketing. O código do s
 | `docs/referencia-pykore.md` | Análise do pykore.org.br, o site de inspiração |
 | `docs/decisoes-e-pendencias.md` | O que já foi decidido, o que falta receber do cliente e o que ainda vai ser decidido |
 | `Logo/` | Logo da Berê: SVGs originais do Canva e versões leves em `Logo/leves/` |
+| `design-system/` | Cores, fontes, grafismos e componentes (v2) + autocrítica. Ver `design-system/README.md` |
+| `referencias/` | Material de identidade recebido do cliente |
 | `scripts/` | Scripts de apoio: exportação do WordPress antigo e geração dos logos |
 | `legado/site-wordpress/` | Cópia dos textos e das imagens do site atual em WordPress |
 
 ## Situação em 13/10/2026
 
-Mapa do site aprovado. Próximo passo: identidade visual e construção da home.
+Mapa do site aprovado e design system v2 pronto. Próximo passo: criar o projeto Next.js e construir a home.
 
 ## Logo
 
