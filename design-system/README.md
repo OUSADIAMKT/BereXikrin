@@ -9,6 +9,7 @@
 | `img/` | Fotos reais do drone em WebP (as `v1-*` são as imagens de IA do rascunho, só para comparação) |
 | `critica.md` | Autocrítica v1 → v2 e checagem para público internacional |
 | `v1/` | Primeiro rascunho, mantido para comparação. **Não usar.** |
+| `../scripts/publica-design-system.py` | Gera a cópia autocontida usada na página publicada (claude.ai/artifact/Xwgb2XpYZ9nL2VFJQQUCbx) |
 | `capturas/` | Capturas de tela do v1 e do v2 (computador e celular) e `teste-celular.html` (abre a página num quadro de 390 px) |
 
 Para ver localmente: na pasta `D:\CLAUDE\bere`, rode `python -m http.server 8766` e abra `http://127.0.0.1:8766/design-system/`. Abrir o HTML direto pelo arquivo não funciona, porque o navegador bloqueia as máscaras de grafismo fora de um servidor.

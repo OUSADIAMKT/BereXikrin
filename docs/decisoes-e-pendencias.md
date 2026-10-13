@@ -29,6 +29,7 @@
 - [ ] **Validar os grafismos do design system** (derivados do logo) com a Associação e os anciões: têm nome e significado? Podem ser usados como divisor? Se houver grafismos Xikrin próprios (pintura com jenipapo), enviar com nome e significado
 - [ ] **Autorização coletiva por escrito de uso de imagem** (fotos de drone com pessoas e crianças)
 - [ ] Crédito das fotos de drone: Ousadia Marketing ou nome do piloto?
+- [ ] **Escolher o divisor entre seções** (5 opções no design system: Fita do R, Quadrados do selo, Pontas de flecha, Listras em V, Triângulos alternados)
 - [ ] Selo do logo em versão negativa (contorno branco) com o designer
 
 ## A decidir depois

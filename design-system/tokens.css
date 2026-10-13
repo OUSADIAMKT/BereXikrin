@@ -72,6 +72,11 @@
   --graf-listras: url("grafismos/listras.svg");
   --graf-marcador: url("grafismos/marcador.svg");
   --graf-seta: url("grafismos/seta.svg");
+  /* Divisores entre seções (5 opções em avaliação) */
+  --graf-div-quadrados: url("grafismos/div-quadrados.svg");
+  --graf-div-flechas: url("grafismos/div-flechas.svg");
+  --graf-div-listras: url("grafismos/div-listras.svg");
+  --graf-div-dentes: url("grafismos/div-dentes.svg");
 }
 
 /* ---- Pares de cor aprovados para texto (AA) ----

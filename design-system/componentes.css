@@ -36,6 +36,18 @@ a { color: inherit; }
 .graf--listras { --graf: var(--graf-listras); }
 @supports not ((mask-image: none) or (-webkit-mask-image: none)) { .graf { background: none; } }
 
+/* ---- Divisores entre seções (5 opções) ----
+   Ficam na costura entre duas seções, ocupando a largura toda.
+   Opção 1 é bicolor: fita vermelha com o zigue-zague do "R" vazado em palha. */
+.divisor-secao { display: block; width: 100%; }
+.divisor-secao--fita { background: var(--urucum-vivo); padding-block: 7px; }
+.divisor-secao--fita > span { display: block; height: 26px; color: var(--palha); background-color: currentColor;
+  -webkit-mask: var(--graf-zigue-zague) repeat-x left center / auto 100%; mask: var(--graf-zigue-zague) repeat-x left center / auto 100%; }
+.divisor-secao--quadrados { --graf: var(--graf-div-quadrados); height: 34px; }
+.divisor-secao--flechas { --graf: var(--graf-div-flechas); height: 30px; }
+.divisor-secao--listras { --graf: var(--graf-div-listras); height: 30px; }
+.divisor-secao--dentes { --graf: var(--graf-div-dentes); height: 32px; }
+
 /* Divisor: faixa entre seções. Altura fixa para o desenho não esticar. */
 .divisor { height: 20px; color: var(--urucum); }
 .divisor--grosso { height: 32px; }

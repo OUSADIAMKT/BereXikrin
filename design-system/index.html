@@ -52,6 +52,19 @@
   .graf-card h3 { font-size: var(--texto-base); margin-bottom: 0.35rem; }
   .graf-card p { font-size: var(--texto-sm); color: var(--cor-texto-suave); }
 
+
+  .opcoes { display: grid; gap: 3rem; }
+  .opcao h3 { font-size: var(--titulo-sm); }
+  .opcao h3 span { color: var(--urucum); }
+  .opcao p { color: var(--cor-texto-suave); font-size: var(--texto-sm); margin: 0.35rem 0 1rem; max-width: var(--largura-texto); }
+  .costura { border-radius: var(--raio-md); overflow: hidden; border: 1px solid var(--palha-escura); }
+  .costura .claro, .costura .escuro { min-height: 72px; display: flex; align-items: center; padding-inline: 1.25rem; font-size: var(--texto-xs); font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+  .costura .claro { background: var(--palha); color: var(--cor-texto-suave); }
+  .costura .escuro { color: rgb(247 239 227 / 0.7); }
+  .costura .divisor-secao.graf { color: var(--urucum); background-color: var(--urucum); }
+  .costura .sobre-escuro { background: var(--jenipapo); }
+  .costura .sobre-escuro .divisor-secao.graf { background-color: var(--pequi); }
+
   .demo-linha { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; }
 
   .cultura { position: relative; overflow: hidden; }
@@ -141,6 +154,41 @@
         <p style="margin-top:2rem"><a class="btn btn--destaque" href="#">Explore a cultura</a></p>
       </div>
       <img src="img/ngab-comunidade.webp" alt="Comunidade Xikrin reunida na aldeia" loading="lazy">
+    </div>
+  </section>
+
+  <section class="secao" aria-labelledby="t-divisores">
+    <div class="container">
+      <span class="eyebrow">Divisores entre seções</span>
+      <h2 id="t-divisores" class="titulo-md" style="margin:1rem 0 0.75rem">5 opções para costurar as seções</h2>
+      <p class="lead texto-corrido" style="margin-bottom:2.5rem">Todos saem de um padrão do logo. Cada um aparece na passagem do claro para o escuro e do escuro para o claro: em urucum sobre palha e em pequi sobre jenipapo. Escolha um como padrão; um segundo pode entrar só em momentos especiais.</p>
+      <div class="opcoes">
+        <div class="opcao">
+          <h3><span>Opção 1</span> · Fita do R</h3>
+          <p><strong>De onde vem:</strong> a faixa vermelha com zigue-zague e triângulos dentro do “R” de Berê. <strong>Melhor uso:</strong> a mais marcante. Ótima como assinatura entre as seções principais da home.</p>
+          <div class="costura"><div class="claro">Seção clara</div><div class="divisor-secao divisor-secao--fita" aria-hidden="true"><span></span></div><div class="escuro">Seção escura</div><div class="divisor-secao divisor-secao--fita" aria-hidden="true"><span></span></div><div class="claro">Seção clara</div></div>
+        </div>
+        <div class="opcao">
+          <h3><span>Opção 2</span> · Quadrados do selo</h3>
+          <p><strong>De onde vem:</strong> os quadrados concêntricos da metade de baixo do selo, ligados por um traço. <strong>Melhor uso:</strong> páginas institucionais (Sobre, Transparência). É a mais sóbria das cinco.</p>
+          <div class="costura"><div class="claro">Seção clara</div><div class="divisor-secao divisor-secao--quadrados graf" aria-hidden="true"></div><div class="escuro">Seção escura</div><div class="sobre-escuro"><div class="divisor-secao divisor-secao--quadrados graf" aria-hidden="true"></div></div><div class="claro">Seção clara</div></div>
+        </div>
+        <div class="opcao">
+          <h3><span>Opção 3</span> · Pontas de flecha</h3>
+          <p><strong>De onde vem:</strong> as flechas que atravessam o selo, reduzidas a pontas duplas. <strong>Melhor uso:</strong> passagem que conduz a uma ação, como antes de “Apoie” ou de “Projetos”.</p>
+          <div class="costura"><div class="claro">Seção clara</div><div class="divisor-secao divisor-secao--flechas graf" aria-hidden="true"></div><div class="escuro">Seção escura</div><div class="sobre-escuro"><div class="divisor-secao divisor-secao--flechas graf" aria-hidden="true"></div></div><div class="claro">Seção clara</div></div>
+        </div>
+        <div class="opcao">
+          <h3><span>Opção 4</span> · Listras em V</h3>
+          <p><strong>De onde vem:</strong> as listras diagonais em V do centro do selo, presas entre duas linhas. <strong>Melhor uso:</strong> seções de Cultura e Território. Lembra a pintura de traço fino.</p>
+          <div class="costura"><div class="claro">Seção clara</div><div class="divisor-secao divisor-secao--listras graf" aria-hidden="true"></div><div class="escuro">Seção escura</div><div class="sobre-escuro"><div class="divisor-secao divisor-secao--listras graf" aria-hidden="true"></div></div><div class="claro">Seção clara</div></div>
+        </div>
+        <div class="opcao">
+          <h3><span>Opção 5</span> · Triângulos alternados</h3>
+          <p><strong>De onde vem:</strong> os triângulos da faixa geométrica e do “R”, um para cima e um para baixo. <strong>Melhor uso:</strong> rodapé e fechamento de páginas. Tem bastante presença sem pesar.</p>
+          <div class="costura"><div class="claro">Seção clara</div><div class="divisor-secao divisor-secao--dentes graf" aria-hidden="true"></div><div class="escuro">Seção escura</div><div class="sobre-escuro"><div class="divisor-secao divisor-secao--dentes graf" aria-hidden="true"></div></div><div class="claro">Seção clara</div></div>
+        </div>
+      </div>
     </div>
   </section>
 
