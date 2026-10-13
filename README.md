@@ -1,8 +1,30 @@
 # Site da Associação Indígena Berê Xikrin
 
-Site novo de **berexikrin.org.br**, feito pela Ousadia Marketing. O código do site (Next.js) ainda vai ser criado nesta pasta.
+Site novo de **berexikrin.org.br**, feito pela Ousadia Marketing em Next.js 16, exportado como site estático para a Hostinger (mesmo modelo do site da Ousadia).
 
-## Onde está cada coisa
+## Rodar e publicar
+
+| Comando | O que faz |
+|---|---|
+| `npm install` | Instala as dependências (Node 24) |
+| `npm run dev` | Abre o site em http://localhost:3000 enquanto você edita |
+| `npm run build` | Gera o site final em `out/` |
+| `npm run deploy` | Gera o build e monta a branch `deploy`, que a Hostinger publica. O `git push origin deploy` fica para você conferir antes |
+
+**Ainda não publicado.** O domínio berexikrin.org.br hoje serve o WordPress antigo. Publicar o site novo substitui o WordPress, então só fazer depois da aprovação da Berê e com a hospedagem do domínio confirmada.
+
+## Código
+
+| Caminho | O que é |
+|---|---|
+| `app/` | Páginas: início, sobre, cultura, território, projetos (+ uma por projeto), produtos, conteúdos, transparência, apoie, contato, privacidade |
+| `components/` | Cabeçalho, rodapé, divisor (Fita do R), hero das páginas, card de projeto, aviso de página em construção |
+| `lib/site.ts` | **Fonte única dos dados:** organização, redes, números, projetos, menu, notícias, parceiros |
+| `lib/textos-projetos.ts` | Texto completo de cada projeto |
+| `app/globals.css` | Importa `design-system/tokens.css` e `componentes.css` direto: o design system continua sendo a fonte das cores, fontes e grafismos |
+| `public/.htaccess` | Redireciona os endereços do WordPress antigo para as páginas novas, cache e cabeçalhos de segurança |
+
+## Documentação
 
 | Caminho | O que é |
 |---|---|
@@ -18,7 +40,7 @@ Site novo de **berexikrin.org.br**, feito pela Ousadia Marketing. O código do s
 
 ## Situação em 13/10/2026
 
-Mapa do site aprovado e design system v2 pronto. Próximo passo: criar o projeto Next.js e construir a home.
+Mapa do site e design system aprovados. Site em Next.js construído (home e todas as páginas do menu), ainda não publicado. Páginas que dependem de material da Berê mostram um aviso de "em construção".
 
 ## Logo
 

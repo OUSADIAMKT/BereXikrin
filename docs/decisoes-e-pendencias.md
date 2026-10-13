@@ -12,6 +12,7 @@
 | 13/10/2026 | Versão em **inglês** fica para a 2ª fase. |
 | 13/10/2026 | Redes no site: Instagram, TikTok, YouTube e LinkedIn (links em `organizacao.md`). |
 | 13/10/2026 | **Design system v2** em `design-system/`: paleta urucum/jenipapo/palha + acentos pequi/arara/floresta, Unbounded + Be Vietnam Pro, grafismos derivados do logo. Autocrítica em `design-system/critica.md`. |
+| 13/10/2026 | Design system aprovado; site começado em Next.js, sem Tailwind, usando o CSS do design system. |
 | 13/10/2026 | A prancha de grafismos recebida (Ajuawuiaki, Kumana, Jawarajuryna…) **não é usada**: os nomes são tupi, provavelmente Asurini do Xingu, não Mẽbêngôkre. Imagens geradas por IA (onça, arara, rio, folhagens, cestaria) também ficaram de fora. |
 
 ## Aguardando o cliente
@@ -29,7 +30,7 @@
 - [ ] **Validar os grafismos do design system** (derivados do logo) com a Associação e os anciões: têm nome e significado? Podem ser usados como divisor? Se houver grafismos Xikrin próprios (pintura com jenipapo), enviar com nome e significado
 - [ ] **Autorização coletiva por escrito de uso de imagem** (fotos de drone com pessoas e crianças)
 - [ ] Crédito das fotos de drone: Ousadia Marketing ou nome do piloto?
-- [ ] **Escolher o divisor entre seções** (5 opções no design system: Fita do R, Quadrados do selo, Pontas de flecha, Listras em V, Triângulos alternados)
+- [x] Divisor entre seções: aprovado em 13/10 sem escolha explícita; aplicada a **Opção 1, Fita do R** (`components/Divisor.tsx`). Trocar é mudar um arquivo. Opções: (5 opções no design system: Fita do R, Quadrados do selo, Pontas de flecha, Listras em V, Triângulos alternados)
 - [ ] Selo do logo em versão negativa (contorno branco) com o designer
 
 ## A decidir depois
@@ -42,7 +43,7 @@
 
 ## Próximo passo
 
-Design system v2 pronto. Próximo: criar o projeto Next.js e construir a home com ele.
+Site em Next.js construído em 13/10/2026 (home + todas as páginas do menu + 7 páginas de projeto), não publicado. Próximo: revisão do cliente, depois conteúdo pendente (aldeias, cultura, transparência, PIX) e newsletter/formulário de contato.
 
 ## Observações sobre o site atual
 
