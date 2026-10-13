@@ -31,6 +31,8 @@
 
 ## O que ainda depende da Berê (para o "aprovado" valer)
 
+> **Atualização 13/10/2026:** os itens 1 (grafismos) e 2 (autorização de imagem) foram confirmados pelo cliente. Com isso o veredito do v2 passa a **aprovado**, restando a versão em inglês (2ª fase) e os ajustes menores.
+
 1. **Validar os grafismos com a Associação e os anciões.** Os do v2 vêm do logo, mas falta confirmar se os padrões têm nome e significado, e se podem ser usados como divisor decorativo. Se a Berê tiver grafismos próprios de pintura com jenipapo, eles devem substituir ou complementar estes, com nome e significado escritos pela própria comunidade.
 2. **Autorização de uso de imagem.** As fotos de drone mostram pessoas, inclusive crianças. Para uso público e internacional, a Associação precisa autorizar por escrito, de forma coletiva, e o ideal é registrar isso na página de Transparência.
 3. **Crédito das fotos.** Confirmar se fica "Ousadia Marketing para a Associação Berê Xikrin" ou o nome de quem pilotou o drone.

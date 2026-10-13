@@ -29,7 +29,6 @@ export const NUMEROS = [
   { valor: "16", rotulo: "aldeias representadas" },
   { valor: "387", rotulo: "pessoas" },
   { valor: "111", rotulo: "famílias" },
-  { valor: "300", unidade: "ha", rotulo: "de floresta em restauração" },
 ] as const;
 
 export type Projeto = {
@@ -63,7 +62,7 @@ export const PROJETOS: Projeto[] = [
     tema: "Território",
     status: "Em andamento",
     resumo:
-      "300 hectares de floresta voltando a crescer com agroflorestas, cadeias do cacau, da castanha e do babaçu, artesanato das menire e brigadas Xikrin.",
+      "Floresta voltando a crescer com agroflorestas, cadeias do cacau, da castanha e do babaçu, artesanato das menire e brigadas Xikrin.",
     parceiros: "CI-Brasil, Fundo Amazônia/BNDES",
     periodo: "ago/2026 a jul/2030",
     foto: "/img/aldeia-entardecer.webp",
@@ -160,7 +159,7 @@ export const NOTICIAS = [
     dataTexto: "2 de setembro de 2026",
     categoria: "Projetos",
     titulo: "Berê assina contrato do Restaura Amazônia",
-    resumo: "Projeto proposto e liderado pela Associação vai restaurar 300 hectares em 48 meses, com apoio da CI-Brasil e do Fundo Amazônia.",
+    resumo: "Projeto proposto e liderado pela Associação vai restaurar a floresta em 48 meses, com apoio da CI-Brasil e do Fundo Amazônia.",
   },
 ];
 

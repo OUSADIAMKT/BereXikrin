@@ -10,7 +10,7 @@ export const TEXTOS_PROJETOS: Record<string, string[]> = {
   ],
   "restaura-amazonia": [
     "“Restauração Ecológica, Fortalecimento Produtivo e Sustentabilidade Xikrin na TI Trincheira-Bacajá” é um projeto proposto e liderado pela própria Associação, apoiado pela iniciativa Restaura Amazônia, da CI-Brasil, com recursos do Fundo Amazônia/BNDES.",
-    "O projeto restaura 300 hectares com sistemas agroflorestais e regeneração da floresta, fortalece as cadeias do cacau, da castanha-do-pará, do babaçu e do artesanato das menire, forma Agentes Ambientais e brigadas Xikrin e cuida da água das aldeias. Atende as 16 aldeias, 387 pessoas e 111 famílias representadas pela Berê.",
+    "O projeto restaura áreas da floresta com sistemas agroflorestais e regeneração da floresta, fortalece as cadeias do cacau, da castanha-do-pará, do babaçu e do artesanato das menire, forma Agentes Ambientais e brigadas Xikrin e cuida da água das aldeias. Atende as 16 aldeias, 387 pessoas e 111 famílias representadas pela Berê.",
     "São 48 meses de trabalho, de agosto de 2026 a julho de 2030. O contrato foi assinado em 2 de setembro de 2026, e a primeira expedição de campo às 16 aldeias acontece de 7 a 23 de outubro de 2026.",
     "A ideia central é a floresta que volta a crescer e a produzir, cuidada por quem sempre viveu nela: o kukradjà, modo de vida Xikrin, “viver com a floresta, junto à floresta e para a floresta” (PGTA Xikrin).",
   ],

@@ -16,7 +16,6 @@ Dados institucionais reunidos para o site novo. Fonte: site atual (berexikrin.or
 | Aldeias representadas | 16 |
 | Pessoas | 387 |
 | Famílias | 111 |
-| Área em restauração (Restaura Amazônia) | 300 ha |
 | Apoio a rituais tradicionais | desde 2018 |
 
 ## Aldeias

@@ -19,7 +19,7 @@ Submenu **Projetos ▾**
 ### 1. Início `/`
 1. **Abertura:** foto ou vídeo de drone do território com a frase "A floresta é a nossa casa" (tirada do texto da própria Berê).
 2. **Apresentação** da Associação (criada em 2018) e botão "Conheça a Berê".
-3. **Números:** 16 aldeias · 387 pessoas · 111 famílias · 300 ha em restauração.
+3. **Números:** 16 aldeias · 387 pessoas · 111 famílias. (Os 300 ha do Restaura Amazônia foram retirados a pedido do cliente em 13/10/2026.)
 4. **Quem somos:** Mẽbêngôkre, "gente da água grande", com foto.
 5. **Projetos em destaque:** 3 cards (Restaura Amazônia, Casa do Guerreiro, Monitoramento do Pescado).
 6. **Faixa da Cultura (Kukradjà)** com imagem de fundo, levando para /cultura.

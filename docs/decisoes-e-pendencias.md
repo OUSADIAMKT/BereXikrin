@@ -9,6 +9,7 @@
 | 13/10/2026 | Mapa do site aprovado (`mapa-do-site.md`). **Belo Monte vai dentro do menu Projetos.** |
 | 13/10/2026 | **Produtos e Loja** entram no site. No lançamento, catálogo com "em breve"; a venda abre logo depois. |
 | 13/10/2026 | Números da home confirmados: 16 aldeias · 387 pessoas · 111 famílias. |
+| 13/10/2026 | **Os 300 ha do Restaura Amazônia saem do site** a pedido do cliente (números, resumo do projeto, notícia e texto da página). |
 | 13/10/2026 | Versão em **inglês** fica para a 2ª fase. |
 | 13/10/2026 | Redes no site: Instagram, TikTok, YouTube e LinkedIn (links em `organizacao.md`). |
 | 13/10/2026 | **Design system v2** em `design-system/`: paleta urucum/jenipapo/palha + acentos pequi/arara/floresta, Unbounded + Be Vietnam Pro, grafismos derivados do logo. Autocrítica em `design-system/critica.md`. |
@@ -27,8 +28,8 @@
 - [ ] PDF do **Plano de Vida**, se já puder ser publicado
 - [ ] Logos dos parceiros
 - [ ] Confirmar a grafia: Kukradjà ou Kukradjá
-- [ ] **Validar os grafismos do design system** (derivados do logo) com a Associação e os anciões: têm nome e significado? Podem ser usados como divisor? Se houver grafismos Xikrin próprios (pintura com jenipapo), enviar com nome e significado
-- [ ] **Autorização coletiva por escrito de uso de imagem** (fotos de drone com pessoas e crianças)
+- [x] **Grafismos do design system validados** pelo cliente em 13/10/2026 (derivados do logo, uso como divisor e marcador liberado). Se surgirem grafismos Xikrin próprios (pintura com jenipapo), entram com nome e significado
+- [x] **Autorizações de uso de imagem**: o cliente confirmou em 13/10/2026 que a Associação tem as autorizações
 - [ ] Crédito das fotos de drone: Ousadia Marketing ou nome do piloto?
 - [x] Divisor entre seções: aprovado em 13/10 sem escolha explícita; aplicada a **Opção 1, Fita do R** (`components/Divisor.tsx`). Trocar é mudar um arquivo. Opções: (5 opções no design system: Fita do R, Quadrados do selo, Pontas de flecha, Listras em V, Triângulos alternados)
 - [ ] Selo do logo em versão negativa (contorno branco) com o designer
@@ -39,7 +40,7 @@
   1. pedido pelo WhatsApp: o mais simples, sem custo;
   2. link de pagamento do Mercado Pago ou PagSeguro em cada produto;
   3. Shopify embutido no site: o mais completo, com mensalidade.
-- **Onde fica a hospedagem** do site novo. Hoje o WordPress está num servidor próprio ligado pelo Jetpack; falta confirmar se é Hostinger.
+- ~~Onde fica a hospedagem~~: **Hostinger**, confirmado em 13/10/2026. Publicação pelo mesmo fluxo do site da Ousadia (branch `deploy`, Implante de GitHub no painel). Publicar substitui o WordPress atual.
 
 ## Próximo passo
 

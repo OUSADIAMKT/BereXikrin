@@ -88,7 +88,6 @@ export default function Home() {
             <div className="numero" key={n.rotulo}>
               <strong>
                 {n.valor}
-                {"unidade" in n && <small>{n.unidade}</small>}
               </strong>
               <span>{n.rotulo}</span>
             </div>
