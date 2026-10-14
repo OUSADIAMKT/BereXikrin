@@ -72,3 +72,17 @@ Há fotos da diretoria em `legado/site-wordpress/imagens/` (arquivos `2024_11_di
 | Menire | mulheres (artesanato das menire) |
 
 > A grafia aparece com variações no site atual (Kukradjá / kukradjà). Confirmar a forma correta com a Berê.
+
+## Fundação (ata da assembleia de 23/10/2018)
+
+Fonte: ata de constituição, eleição e posse da 1ª Diretoria, enviada pelo cliente em 14/10/2026. **O documento original contém CPF, RG e data de nascimento de todos os fundadores: não publicar nem guardar no repositório.** Se for para a Transparência, só em versão com esses dados tarjados.
+
+- **Data e local:** 23/10/2018, das 15h às 19h, na casa do guerreiro (Ngàb) da Aldeia Krãnh, TI Trincheira Bacajá, Anapu/PA.
+- **Aldeias fundadoras:** Kabakrô, Krãnh, Pyudjan (Piudjan) e Prindjan (Prindjam).
+- **Assembleia:** presidida por Bep Kamaty Xikrin, secretariada por Bep Moipa Xikrin. Estatuto aprovado por unanimidade.
+- **Objetivo registrado na fundação:** representar e defender o povo Xikrin diante dos impactos dos grandes empreendimentos que surgiram na região e afetam sua terra.
+- **Sede estatutária em 2018:** Aldeia Krãnh (o Panorama de 25/09/2026 informa sede atual em Altamira; confirmar no estatuto consolidado de 2023).
+- **Contribuição dos associados:** R$ 10 mensais por família, proposta por Katen-djo Kayapó, aprovada por unanimidade.
+- **1ª Diretoria (mandato de 2 anos):** Presidente Bekre Xikrin; Vice Tekokmare Xikrin; 1º Secretário Bep Kamroti Xikrin; 2º Secretário Bep Djam Xikrin; 1º Tesoureiro Bep Moipa Xikrin; 2º Tesoureiro Kangore Xikrin. Conselho Fiscal: Bep Djare, Noryre e Bep Nhonh Xikrin; suplentes Kroitungri, Kengoti e Bep Ngri Xikrin Kayapó.
+- **Registro:** Cartório do Único Ofício da Comarca de Anapu/PA, Registro nº 14, Ficha 01/02, Livro A (RCPJ), em 17/01/2019.
+- O CNPJ não consta na ata; continua pendente.
