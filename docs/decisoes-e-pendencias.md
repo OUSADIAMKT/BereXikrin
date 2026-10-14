@@ -31,15 +31,16 @@
 - [ ] Cores ou grafismos que a Berê já usa, ou que quer evitar
 - [ ] **Revisar os rascunhos de Cultura** (lib/cultura.ts, revisado: false): Pinturas corporais, Artesanato e adornos, Língua Mẽbêngôkre, Caça pesca e coleta, Kubengêt e as histórias, Comida e roça. Escritos em 13/10/2026 a partir do ISA (Povos Indígenas no Brasil) e de Lux Vidal; parte das fontes fala dos Kayapó/Xikrin em geral, não só do Bacajá. A página mostra aviso de revisão até todos virarem revisado: true
 - [ ] Documentos da Transparência: prestações de contas, estatuto, CNPJ, atas
-- [ ] **Ligar a newsletter do rodapé**: na conta Google da Berê, criar uma planilha, colar `docs/apps-script/newsletter-bere.gs` em Extensões > Apps Script, implantar como App da Web (Executar como: Eu; Acesso: Qualquer pessoa) e mandar a URL /exec. Até lá o formulário avisa que a newsletter está sendo ligada e indica o e-mail.
+- [ ] **Newsletter: em espera (decisão do cliente em 14/10/2026).** Três implantações do Apps Script continuaram pedindo login do Google (provável "Qualquer pessoa com Conta do Google" ou conta de organização). Plano B sugerido: Formulário Google como destino. Enquanto isso o formulário do rodapé avisa e indica o e-mail. Histórico:: na conta Google da Berê, criar uma planilha, colar `docs/apps-script/newsletter-bere.gs` em Extensões > Apps Script, implantar como App da Web (Executar como: Eu; Acesso: Qualquer pessoa) e mandar a URL /exec. Até lá o formulário avisa que a newsletter está sendo ligada e indica o e-mail.
 - [ ] Dados para o **Apoie**: chave PIX e conta bancária da associação
 - [ ] PDF do **Plano de Vida**, se já puder ser publicado
 - [ ] Logos dos parceiros
 - [ ] Confirmar a grafia: Kukradjà ou Kukradjá
 - [x] **Grafismos do design system validados** pelo cliente em 13/10/2026 (derivados do logo, uso como divisor e marcador liberado). Se surgirem grafismos Xikrin próprios (pintura com jenipapo), entram com nome e significado
 - [x] **Autorizações de uso de imagem**: o cliente confirmou em 13/10/2026 que a Associação tem as autorizações
-- [ ] Endereço completo da sede em Altamira e confirmação no estatuto de 2023 (a ata de 2018 registra a Krãnh)
-- [ ] Diretoria atual com fotos (Panorama traz a nova composição)
+- [x] Banco de dados do WordPress apagado pelo cliente (14/10/2026)
+- [ ] (depois) Endereço completo da sede em Altamira e confirmação no estatuto de 2023 (a ata de 2018 registra a Krãnh)
+- [ ] (depois) Diretoria atual com fotos (Panorama traz a nova composição)
 - [ ] Autorização de Pedro Rafael Pojo S. para o mapa (crédito já publicado)
 - [ ] Valores do Restaura e nomes da equipe: publicar? Régua de logos e manual da CI
 - [ ] Crédito das fotos de drone: Ousadia Marketing ou nome do piloto?
