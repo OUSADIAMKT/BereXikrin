@@ -51,6 +51,8 @@ function doPost(e) {
     if (!nome) return json({ ok: false, erro: "nome vazio" });
     if (dados.consentimento !== true) return json({ ok: false, erro: "sem consentimento" });
 
+    if (!dentroDoLimite()) return json({ ok: false, erro: "muitos cadastros, tente mais tarde" });
+
     lock.waitLock(30000);
     var aba = SpreadsheetApp.getActiveSpreadsheet().getSheets()[0];
     if (aba.getLastRow() === 0) aba.appendRow(COLUNAS);
@@ -81,6 +83,17 @@ function doPost(e) {
 function texto(valor, max) {
   var t = String(valor || "").replace(/\s+/g, " ").trim().slice(0, max);
   return /^[=+\-@]/.test(t) ? "'" + t : t;
+}
+
+/** Limite de cadastros por hora, para ninguém encher a planilha com envios automáticos. */
+var CADASTROS_POR_HORA = 60;
+function dentroDoLimite() {
+  var cache = CacheService.getScriptCache();
+  var chave = "cadastros:" + Utilities.formatDate(new Date(), "America/Belem", "yyyyMMddHH");
+  var n = Number(cache.get(chave) || 0);
+  if (n >= CADASTROS_POR_HORA) return false;
+  cache.put(chave, String(n + 1), 3600);
+  return true;
 }
 
 function podeAvisar() {

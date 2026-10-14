@@ -88,9 +88,6 @@ export function Cabecalho() {
               ),
             )}
           </ul>
-          <span className="idioma" title="Versão em inglês na 2ª fase">
-            <b>PT</b> · EN
-          </span>
           <Link className="btn btn--marca" href="/apoie/">
             Apoie
           </Link>

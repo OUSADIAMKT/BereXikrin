@@ -1,13 +1,18 @@
-import type { Metadata } from "next";
 import Link from "next/link";
+import { Foto } from "@/components/Foto";
 import { PaginaHero } from "@/components/PaginaHero";
+import { metaPagina } from "@/lib/meta";
+import { CITACAO_BEPTOK, FRENTES, MISSAO, PARTICIPACOES, REDE_BERE, SITE, TRAJETORIA, VISAO } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Sobre",
-  description: "Quem são os Mẽbêngôkre-Xikrin da TI Trincheira-Bacajá, a história da Associação Berê, a diretoria e o Plano de Vida.",
-};
+export const metadata = metaPagina({
+  titulo: "Sobre a Associação",
+  descricao:
+    "O povo Mẽbêngôkre-Xikrin do Bacajá e a Associação Indígena Berê Xikrin: missão, quem decide, a Rede Berê, a trajetória desde 2018 e a diretoria.",
+  caminho: "/sobre/",
+  foto: "/img/capas/reuniao-ngab.webp",
+});
 
-/** Fotos na mesma ordem do site antigo; Koitunggri não tinha foto lá. */
+/** Diretoria como estava no site antigo; o cliente vai atualizar depois (14/10/2026). */
 const DIRETORIA: [nome: string, cargo: string, foto?: string][] = [
   ["Bep Kamati Xikrin", "Presidente", "bep-kamati"],
   ["Kadjore Xikrin", "Vice-presidente", "kadjore"],
@@ -20,40 +25,49 @@ const DIRETORIA: [nome: string, cargo: string, foto?: string][] = [
   ["Nhoko Xikrin", "Suplente", "nhoko"],
 ];
 
+const iniciais = (nome: string) =>
+  nome
+    .split(" ")
+    .filter((p) => p !== "Xikrin")
+    .map((p) => p[0])
+    .join("")
+    .slice(0, 2);
+
 export default function Sobre() {
   return (
     <>
       <PaginaHero
         rotulo="Sobre a Berê"
-        titulo={<>Gente da <span className="destaque">água grande</span></>}
-        lead="Somos Mẽbêngôkre-Xikrin da Terra Indígena Trincheira-Bacajá, no Pará, e nos organizamos na Associação Berê desde 2018."
+        titulo={<>Povo do <span className="destaque">buraco d’água</span></>}
+        lead="A Associação Indígena Berê Xikrin reúne 16 aldeias Mẽbêngôkre-Xikrin da Terra Indígena Trincheira Bacajá, no Pará, desde 2018."
         foto="/img/capas/reuniao-ngab.webp"
         trilha={[{ rotulo: "Sobre", href: "/sobre/" }]}
       />
 
-      <section className="secao" aria-labelledby="t-quem">
+      <section className="secao" aria-labelledby="t-povo">
         <div className="container duas-colunas">
           <div className="prosa">
-            <span className="eyebrow">Quem somos</span>
-            <h2 id="t-quem" className="titulo-md">Mẽbêngôkre</h2>
+            <span className="eyebrow">O povo</span>
+            <h2 id="t-povo" className="titulo-md">Mẽbêngôkre-Xikrin do Bacajá</h2>
             <p>
-              Nos autodenominamos Mẽbêngôkre, que significa “gente do buraco d’água” ou “gente da água grande”, e
-              ocupamos hoje a Terra Indígena Trincheira-Bacajá, cortada pelo Rio Bacajá, que deságua no Rio Xingu.
-              Vivemos em aldeias de diferentes tamanhos, geralmente circulares.
+              Os Xikrin se autodenominam <strong>Mẽbêngôkre</strong>, “povo do buraco d’água”. A relação com a água está
+              no centro da cultura: a maioria das aldeias fica às margens do Rio Bacajá, e as demais junto a grotas e
+              igarapés. A língua é o Mẽbêngôkre, a mesma dos Kayapó, e boa parte da comunidade se comunica principalmente
+              nela.
             </p>
             <p>
-              No centro das aldeias fica a <strong>Ngàb</strong>, a Casa do Guerreiro, onde nos encontramos para
-              reuniões, para conviver e para decidir sobre nosso futuro. Lá fazemos festas e rituais, transmitimos
-              experiências e aprendemos com os <strong>Kubengêt</strong>, os anciões, sobre costumes, histórias,
-              músicas, danças e pinturas.
+              O <strong>kukradjà</strong> é o modo de ser e de viver Xikrin: “viver com a floresta, junto à floresta e para
+              a floresta”, como diz o Plano de Gestão Territorial e Ambiental do povo. É algo vivido hoje, não uma herança
+              do passado a ser guardada.
             </p>
-            <p>
-              O <strong>Kukradjà</strong>, nossa cultura, aparece nos jeitos de caçar, pescar, fazer artesanato,
-              ornamentos e pinturas do corpo. Esses saberes são ensinados desde cedo às crianças, para que cresçam
-              fortes e bonitas.
-            </p>
+            <blockquote className="citacao" style={{ marginTop: "1.5rem" }}>
+              “{CITACAO_BEPTOK.texto}”
+              <cite>
+                {CITACAO_BEPTOK.autor} · {CITACAO_BEPTOK.fonte}
+              </cite>
+            </blockquote>
           </div>
-          <img
+          <Foto
             className="foto-arredondada"
             style={{ aspectRatio: "4 / 5" }}
             src="/img/aldeia-circular-vista-de-cima.webp"
@@ -65,40 +79,99 @@ export default function Sobre() {
         </div>
       </section>
 
-      <section className="escuro secao" aria-labelledby="t-luta">
-        <div className="container prosa">
-          <span className="eyebrow">Nossa luta</span>
-          <h2 id="t-luta" className="titulo-md">A floresta é a nossa casa</h2>
-          <p className="lead">
-            Desde o contato com o homem branco, que chamamos de kuben, muito do nosso território foi perdido e muitos
-            parentes se foram. Por isso lutamos contra as invasões de fazendeiros, madeireiros e garimpeiros, e pela
-            conservação da floresta e da biodiversidade.
-          </p>
-          <p className="lead">
-            É na floresta que nascemos, crescemos e criamos nossos filhos. É ela que nos dá alimento e remédio.
-            Proteger a floresta é cuidar da nossa casa e preservar nossa vida.
-          </p>
+      <section className="escuro secao" aria-labelledby="t-missao">
+        <div className="container" style={{ display: "grid", gap: "2.5rem" }}>
+          <div className="duas-colunas" style={{ alignItems: "start" }}>
+            <div className="prosa">
+              <span className="eyebrow">Missão</span>
+              <h2 id="t-missao" className="visualmente-oculto">Missão e visão</h2>
+              <p className="lead">{MISSAO}</p>
+            </div>
+            <div className="prosa">
+              <span className="eyebrow">Visão</span>
+              <p className="lead">{VISAO}</p>
+            </div>
+          </div>
+          <ul className="frentes">
+            {FRENTES.map((f) => (
+              <li key={f.nome}>
+                <strong>{f.nome}</strong>
+                <span>{f.texto}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
-      <section className="secao" aria-labelledby="t-associacao">
-        <div className="container prosa">
-          <span className="eyebrow">A Associação</span>
-          <h2 id="t-associacao" className="titulo-md">Associação Indígena Berê Xikrin</h2>
-          <p>
-            Criada em 2018, a Associação Indígena Berê Xikrin é uma organização indígena sem fins lucrativos. Seu
-            objetivo é fortalecer as comunidades por meio das políticas indigenistas, com mais participação na
-            formação de políticas públicas de promoção e proteção dos nossos direitos.
-          </p>
-          <p>
-            A Berê promove projetos de segurança alimentar, fortalecimento cultural, saúde, educação, geração de renda
-            e proteção territorial. Captando e gerindo recursos, faz a mediação entre o povo Mẽbêngôkre e os não
-            indígenas, com projetos, atividades produtivas e culturais.
-          </p>
+      <section className="secao" aria-labelledby="t-decide">
+        <div className="container" style={{ display: "grid", gap: "2rem" }}>
+          <div className="prosa">
+            <span className="eyebrow">Governança</span>
+            <h2 id="t-decide" className="titulo-md">Quem decide</h2>
+            <p>As decisões seguem a organização tradicional Xikrin, com consentimento livre, prévio e informado das aldeias.</p>
+          </div>
+          <ul className="frentes frentes--claro">
+            <li>
+              <strong>Kubengêt</strong>
+              <span>Os anciãos, “aqueles que sabem de verdade”. O conselho de anciãos e caciques é a instância máxima de decisão coletiva.</span>
+            </li>
+            <li>
+              <strong>Ngàb</strong>
+              <span>A casa do guerreiro, espaço político das decisões locais em cada aldeia.</span>
+            </li>
+            <li>
+              <strong>Assembleias gerais</strong>
+              <span>Onde as 16 aldeias deliberam juntas.</span>
+            </li>
+          </ul>
         </div>
       </section>
 
-      <section className="secao" style={{ paddingTop: 0 }} aria-labelledby="t-diretoria">
+      <section className="secao" style={{ paddingTop: 0 }} aria-labelledby="t-rede">
+        <div className="container duas-colunas" style={{ alignItems: "start" }}>
+          <div className="prosa">
+            <span className="eyebrow">Articulação</span>
+            <h2 id="t-rede" className="titulo-md">Rede Berê</h2>
+            <p>A Berê coordena a Rede Berê de Sociobiodiversidade Xikrin, que articula três associações da TI Trincheira Bacajá:</p>
+            <ul className="lista-grafismo">
+              {REDE_BERE.map((r) => (
+                <li key={r.nome}>
+                  <span>
+                    <strong>{r.nome}</strong> · {r.aldeias}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="prosa">
+            <span className="eyebrow">Participa de</span>
+            <ul className="lista-grafismo" style={{ marginTop: "1rem" }}>
+              {PARTICIPACOES.map((p) => (
+                <li key={p}>{p}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section className="escuro secao" aria-labelledby="t-trajetoria">
+        <div className="container">
+          <span className="eyebrow">Trajetória</span>
+          <h2 id="t-trajetoria" className="titulo-md" style={{ margin: "1rem 0 2rem" }}>
+            Desde {SITE.fundacao}, e antes dela
+          </h2>
+          <ol className="linha-tempo">
+            {TRAJETORIA.map((t) => (
+              <li key={t.ano}>
+                <strong>{t.ano}</strong>
+                <p>{t.texto}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      <section className="secao" aria-labelledby="t-diretoria">
         <div className="container">
           <span className="eyebrow">Diretoria</span>
           <h2 id="t-diretoria" className="titulo-md" style={{ margin: "1rem 0 2rem" }}>
@@ -110,7 +183,9 @@ export default function Sobre() {
                 {foto ? (
                   <img src={`/img/diretoria/${foto}.webp`} alt={`Retrato de ${nome}`} width={480} height={520} loading="lazy" />
                 ) : (
-                  <div className="sem-foto" aria-hidden="true">Foto em breve</div>
+                  <div className="sem-foto" aria-hidden="true">
+                    {iniciais(nome)}
+                  </div>
                 )}
                 <div className="nome">
                   <strong>{nome}</strong>
@@ -124,36 +199,35 @@ export default function Sobre() {
 
       <section id="plano-de-vida" className="escuro secao" aria-labelledby="t-plano">
         <div className="container duas-colunas">
-        <div className="prosa">
-          <span className="eyebrow">Plano de Vida</span>
-          <h2 id="t-plano" className="titulo-md">O futuro que escolhemos</h2>
-          <p className="lead">
-            Em 2017 começamos, com todas as aldeias, a construir o Plano de Vida da Terra Indígena Trincheira-Bacajá:
-            um documento que reúne nossos anseios, metas e estratégias, feito em oficinas com cada aldeia, lideranças e
-            comunidades.
-          </p>
-          <p className="lead">
-            Ele serve de instrumento de planejamento e de parcerias de longo prazo, e deve ser revisto a cada cinco
-            anos. Mesmo antes de publicado, já fortalece nossa cultura, nossa organização e a busca por projetos de
-            renda nas comunidades.
-          </p>
-          <p>
-            <Link className="btn btn--destaque" href="/projetos/belo-monte/">
-              Belo Monte e o PBA-CI
-            </Link>
-          </p>
-        </div>
-        <figure className="galeria">
-          <img
-            className="foto-arredondada"
-            src="/img/sobre/plano-de-vida-capa.webp"
-            alt="Capa do Plano de Vida da Terra Indígena Trincheira-Bacajá, com grafismo em dourado"
-            width={929}
-            height={660}
-            loading="lazy"
-          />
-          <figcaption>Capa do Plano de Vida. Oficinas com cada aldeia, a partir de 2017.</figcaption>
-        </figure>
+          <div className="prosa">
+            <span className="eyebrow">Planejamento</span>
+            <h2 id="t-plano" className="titulo-md">Plano de Vida e PGTA</h2>
+            <p className="lead">
+              Desde 2013, as aldeias constroem o Plano de Gestão Territorial e Ambiental “Aben Kaben Marimei”, “o saber
+              por todos compartilhado”. Em 2021 veio o Plano de Vida Xikrin, feito em oficinas com cada aldeia, lideranças e
+              comunidades.
+            </p>
+            <p className="lead">
+              Os dois documentos orientam a gestão do território, as parcerias de longo prazo e os projetos da Associação,
+              como o Restaura Amazônia.
+            </p>
+            <p>
+              <Link className="btn btn--destaque" href="/projetos/restaura-amazonia/">
+                Conheça o Restaura Amazônia
+              </Link>
+            </p>
+          </div>
+          <figure className="galeria">
+            <Foto
+              className="foto-arredondada"
+              src="/img/sobre/plano-de-vida-capa.webp"
+              alt="Capa do Plano de Vida da Terra Indígena Trincheira Bacajá, com grafismo em dourado"
+              width={929}
+              height={660}
+              loading="lazy"
+            />
+            <figcaption>Capa do Plano de Vida Xikrin.</figcaption>
+          </figure>
         </div>
       </section>
     </>

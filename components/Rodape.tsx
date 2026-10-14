@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { IconeRede } from "@/components/IconeRede";
 import { Newsletter } from "@/components/Newsletter";
+import { versao } from "@/lib/imagens";
 import { MENU, REDES, SITE } from "@/lib/site";
 
 /** Links secundários do rodapé (a coluna da direita). */
@@ -8,14 +9,14 @@ const LINKS_APOIO = [
   { rotulo: "Apoie", href: "/apoie/" },
   { rotulo: "Contato", href: "/contato/" },
   { rotulo: "Política de privacidade", href: "/privacidade/" },
-  { rotulo: "Mapa do site", href: "/sitemap.xml" },
+  { rotulo: "Glossário Mẽbêngôkre", href: "/glossario/" },
 ];
 
 export function Rodape() {
   return (
     <footer
       className="escuro rodape"
-      style={{ ["--fundo-rodape" as string]: "url(/img/capas/aldeia-aerea.webp)" }}
+      style={{ ["--fundo-rodape" as string]: `url(${versao("/img/capas/aldeia-aerea.webp", 1280)})` }}
     >
       <div className="container">
         <div className="rodape__grade">

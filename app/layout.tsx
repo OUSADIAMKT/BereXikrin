@@ -23,14 +23,14 @@ const vietnam = Be_Vietnam_Pro({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
-  title: { default: `${SITE.nome} | TI Trincheira-Bacajá`, template: `%s | ${SITE.nomeCurto}` },
+  title: { default: SITE.nome, template: `%s | ${SITE.nome}` },
   description: SITE.descricao,
   openGraph: {
     type: "website",
     locale: "pt_BR",
     siteName: SITE.nome,
     url: SITE.url,
-    images: [{ url: "/img/aldeia-circular-por-do-sol.webp", width: 1920, height: 1440 }],
+    images: [{ url: "/og/aldeia-circular-por-do-sol.jpg", width: 1200, height: 630 }],
   },
   twitter: { card: "summary_large_image" },
 };
@@ -43,14 +43,13 @@ const organizacaoJsonLd = {
   name: SITE.nome,
   url: SITE.url,
   email: SITE.email,
-  foundingDate: String(SITE.fundacao),
+  legalName: SITE.nomeCompleto,
+  foundingDate: "2018-10-23",
   description: SITE.descricao,
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Aldeia Indígena Krãnh, TI Trincheira-Bacajá",
-    addressLocality: "Anapu",
+    addressLocality: "Altamira",
     addressRegion: "PA",
-    postalCode: "68365-000",
     addressCountry: "BR",
   },
   sameAs: REDES.map((r) => r.url),

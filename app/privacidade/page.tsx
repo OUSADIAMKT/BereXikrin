@@ -1,16 +1,18 @@
-import type { Metadata } from "next";
 import { PaginaHero } from "@/components/PaginaHero";
 import { SITE } from "@/lib/site";
+import { metaPagina } from "@/lib/meta";
 
-export const metadata: Metadata = {
-  title: "Privacidade",
-  description: "Como o site da Associação Indígena Berê Xikrin trata dados pessoais.",
-};
+export const metadata = metaPagina({
+  titulo: "Política de privacidade",
+  descricao: "Como o site da Associação Indígena Berê Xikrin trata dados pessoais, de acordo com a LGPD.",
+  caminho: "/privacidade/",
+  foto: "/img/cultura/floresta.webp",
+});
 
 export default function Privacidade() {
   return (
     <>
-      <PaginaHero rotulo="Privacidade" titulo="Política de privacidade" trilha={[{ rotulo: "Privacidade", href: "/privacidade/" }]} />
+      <PaginaHero rotulo="Privacidade" titulo="Política de privacidade" foto="/img/cultura/floresta.webp" trilha={[{ rotulo: "Privacidade", href: "/privacidade/" }]} />
       <section className="secao">
         <div className="container prosa">
           <h2 className="titulo-sm">Navegação</h2>

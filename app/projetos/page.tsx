@@ -1,13 +1,16 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { CardProjeto } from "@/components/CardProjeto";
 import { PaginaHero } from "@/components/PaginaHero";
 import { PROJETOS } from "@/lib/site";
+import { Foto } from "@/components/Foto";
+import { metaPagina } from "@/lib/meta";
 
-export const metadata: Metadata = {
-  title: "Projetos",
-  description: "Restauração da floresta, cultura, monitoramento do Rio Bacajá e o acompanhamento de Belo Monte: os projetos da Associação Berê Xikrin.",
-};
+export const metadata = metaPagina({
+  titulo: "Projetos",
+  descricao: "Restaura Amazônia, Belo Monte, Casa do Guerreiro, rituais, monitoramento do Rio Bacajá e mais: os projetos da Associação Berê Xikrin.",
+  caminho: "/projetos/",
+  foto: "/img/capas/aldeia-aerea.webp",
+});
 
 export default function Projetos() {
   const beloMonte = PROJETOS.find((p) => p.slug === "belo-monte")!;
@@ -22,7 +25,7 @@ export default function Projetos() {
       <PaginaHero
         rotulo="Projetos"
         titulo={<>O que <span className="destaque">fazemos</span></>}
-        lead="Projetos propostos e conduzidos pela Associação, com parceiros, para proteger o território e fortalecer a vida nas aldeias."
+        lead="Projetos propostos e conduzidos pela Associação, com parceiros, para proteger o território, fortalecer a cultura e gerar renda a partir da floresta."
         foto="/img/capas/aldeia-aerea.webp"
         trilha={[{ rotulo: "Projetos", href: "/projetos/" }]}
       />
@@ -39,7 +42,7 @@ export default function Projetos() {
               </Link>
             </p>
           </div>
-          <img
+          <Foto
             className="foto-arredondada"
             style={{ aspectRatio: "4 / 3" }}
             src={beloMonte.foto}

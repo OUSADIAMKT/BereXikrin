@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Projeto } from "@/lib/site";
+import { Foto } from "@/components/Foto";
 
 const COR_TAG: Record<Projeto["tema"], string> = {
   Território: "tag",
@@ -14,7 +15,7 @@ export function CardProjeto({ projeto, titulo = "h3" }: { projeto: Projeto; titu
   const Titulo = titulo;
   return (
     <article className="card">
-      <img className="card__img" src={projeto.foto} alt={projeto.alt} loading="lazy" width={1600} height={1200} />
+      <Foto sizes="(max-width: 700px) 100vw, 33vw" className="card__img" src={projeto.foto} alt={projeto.alt} loading="lazy" width={1600} height={1200} />
       <div className="card__corpo">
         <span>
           <span className={COR_TAG[projeto.tema]}>{projeto.tema}</span>

@@ -1,6 +1,13 @@
 import Link from "next/link";
 import { CardProjeto } from "@/components/CardProjeto";
-import { CREDITO_FOTO, DESTAQUES_HOME, NOTICIAS, NUMEROS, PARCEIROS, PROJETOS, REDES } from "@/lib/site";
+import { CITACAO_BEPTOK, CREDITO_FOTO, DESTAQUES_HOME, FONTE_NUMEROS, NOTICIAS, NUMEROS, PARCEIROS, PROJETOS, REDES, SITE } from "@/lib/site";
+import { metaPagina } from "@/lib/meta";
+import { Foto } from "@/components/Foto";
+
+export const metadata = {
+  ...metaPagina({ titulo: "Associação Indígena Berê Xikrin", descricao: SITE.descricao, caminho: "/" }),
+  title: { absolute: "Associação Indígena Berê Xikrin | Povo Mẽbêngôkre-Xikrin, TI Trincheira Bacajá" },
+};
 
 export default function Home() {
   const destaques = DESTAQUES_HOME.map((slug) => PROJETOS.find((p) => p.slug === slug)!);
@@ -9,7 +16,8 @@ export default function Home() {
     <>
       {/* 1. Abertura */}
       <section className="hero sobre-foto" aria-labelledby="hero-titulo">
-        <img
+        <Foto
+          sizes="100vw"
           className="hero__foto"
           src="/img/aldeia-circular-por-do-sol.webp"
           alt="Vista aérea de uma aldeia Xikrin circular ao entardecer, cercada pela floresta, com o Rio Bacajá ao fundo"
@@ -18,20 +26,20 @@ export default function Home() {
           fetchPriority="high"
         />
         <div className="container">
-          <span className="eyebrow">Povo Mẽbêngôkre-Xikrin · TI Trincheira-Bacajá</span>
+          <span className="eyebrow">Povo Mẽbêngôkre-Xikrin · TI Trincheira Bacajá</span>
           <h1 id="hero-titulo" className="titulo-lg">
-            A floresta é a <span className="destaque">nossa casa</span>
+            A floresta, cuidada por <span className="destaque">quem sempre viveu nela</span>
           </h1>
           <p className="lead">
-            Somos a Associação Indígena Berê Xikrin. Desde 2018 defendemos nosso território, nossa cultura e o futuro
-            das 16 aldeias do Rio Bacajá.
+            Organização indígena que reúne 16 aldeias Mẽbêngôkre-Xikrin da Terra Indígena Trincheira Bacajá, no Pará,
+            na defesa de direitos, na gestão do território e no etnodesenvolvimento.
           </p>
           <div className="acoes">
             <Link className="btn btn--destaque" href="/sobre/">
               Conheça a Berê
             </Link>
             <Link className="btn btn--contorno" href="/apoie/">
-              Apoie nossa luta
+              Apoie a Berê
             </Link>
           </div>
           <p className="credito">Aldeia na TI Trincheira-Bacajá, set/2026 · {CREDITO_FOTO}</p>
@@ -42,32 +50,35 @@ export default function Home() {
       <section className="secao" aria-labelledby="t-quem">
         <div className="container duas-colunas">
           <div>
-            <span className="eyebrow">Quem somos</span>
+            <span className="eyebrow">O povo e a Associação</span>
             <h2 id="t-quem" className="titulo-md" style={{ margin: "1rem 0 1.25rem" }}>
-              Gente da água grande
+              Povo do buraco d’água
             </h2>
             <div className="prosa">
               <p>
-                Nos autodenominamos <strong>Mẽbêngôkre</strong>, “gente do buraco d’água ou gente da água grande”.
-                Vivemos em aldeias circulares, e no centro de cada uma fica a <strong>Ngàb</strong>, a Casa do
-                Guerreiro, onde nos reunimos para decidir nosso futuro.
+                Os Xikrin se autodenominam <strong>Mẽbêngôkre</strong>, “povo do buraco d’água”. A maioria das aldeias
+                fica às margens do Rio Bacajá, e no centro de cada uma está a <strong>Ngàb</strong>, a casa do guerreiro,
+                espaço político onde a aldeia toma suas decisões.
               </p>
               <p>
-                A Associação Berê nasceu em 2018 para fortalecer as comunidades, buscar políticas públicas e levar
-                adiante projetos de segurança alimentar, cultura, saúde, educação, renda e proteção do território.
+                Fundada em 23 de outubro de 2018, a Associação Berê representa 16 das 53 aldeias da Terra Indígena e
+                coordena a Rede Berê de Sociobiodiversidade Xikrin, com projetos de restauração da floresta, cultura,
+                renda e proteção do território.
               </p>
             </div>
             <blockquote className="citacao" style={{ marginTop: "2rem" }}>
-              “Proteger e defender a floresta é cuidar da nossa casa e preservar nossa vida.”
-              <cite>Associação Indígena Berê Xikrin</cite>
+              “{CITACAO_BEPTOK.texto}”
+              <cite>
+                {CITACAO_BEPTOK.autor} · {CITACAO_BEPTOK.fonte}
+              </cite>
             </blockquote>
             <p style={{ marginTop: "2rem" }}>
               <Link className="btn btn--marca" href="/sobre/">
-                Conheça nossa história
+                Conheça a história
               </Link>
             </p>
           </div>
-          <img
+          <Foto
             className="foto-arredondada"
             style={{ aspectRatio: "4 / 5" }}
             src="/img/aldeia-circular-vista-de-cima.webp"
@@ -90,6 +101,7 @@ export default function Home() {
               <span>{n.rotulo}</span>
             </div>
           ))}
+          <p className="fonte-dado" style={{ gridColumn: "1 / -1" }}>Fontes: {FONTE_NUMEROS}</p>
         </div>
       </section>
 
@@ -121,16 +133,16 @@ export default function Home() {
           <div>
             <span className="eyebrow">Cultura</span>
             <h2 id="t-cultura" className="titulo-md" style={{ margin: "1rem 0 1.25rem" }}>
-              Kukradjà, nosso modo de viver
+              Kukradjà, o modo de viver Xikrin
             </h2>
             <p className="lead" style={{ marginBottom: "1.75rem" }}>
               Viver com a floresta, junto à floresta e para a floresta.
             </p>
             <ul className="lista-grafismo">
-              <li>Pinturas corporais com urucum e jenipapo</li>
-              <li>Artesanato das menire</li>
-              <li>Língua Mẽbêngôkre</li>
+              <li>A Ngàb, a casa do guerreiro</li>
               <li>Rituais e calendário tradicional</li>
+              <li>As menire e o grafismo</li>
+              <li>Os Kubengêt, os anciãos</li>
             </ul>
             <p style={{ marginTop: "2rem" }}>
               <Link className="btn btn--destaque" href="/cultura/">
@@ -138,7 +150,7 @@ export default function Home() {
               </Link>
             </p>
           </div>
-          <img
+          <Foto
             className="foto-arredondada"
             style={{ aspectRatio: "4 / 3" }}
             src="/img/ngab-comunidade.webp"
@@ -202,7 +214,7 @@ export default function Home() {
               Fortaleça quem protege a floresta
             </h2>
             <p className="lead">
-              Sua doação apoia a proteção do território, os rituais e a renda das famílias Xikrin.
+              O apoio fortalece a proteção do território, os rituais e a renda que vem da floresta, com as decisões nas mãos das aldeias.
             </p>
           </div>
           <div style={{ display: "grid", gap: "1.25rem", justifyItems: "start" }}>

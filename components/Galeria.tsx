@@ -1,22 +1,11 @@
-import type { Foto } from "@/lib/site";
+import { GaleriaVisor } from "@/components/GaleriaVisor";
+import { srcset } from "@/lib/imagens";
+import type { Foto as FotoTipo } from "@/lib/site";
 
 /**
- * Grade de fotos com legenda de crédito. Cada foto abre em tamanho cheio
- * numa aba nova: sem script, funciona na exportação estática.
+ * Grade de fotos com legenda de crédito. Clicar abre a foto em tela cheia,
+ * com legenda e setas (GaleriaVisor). Os srcset são montados aqui, no build.
  */
-export function Galeria({ fotos, credito }: { fotos: Foto[]; credito: string }) {
-  return (
-    <figure className="galeria">
-      <ul>
-        {fotos.map((f) => (
-          <li key={f.src}>
-            <a href={f.src} target="_blank" rel="noopener">
-              <img src={f.src} alt={f.alt} loading="lazy" width={1200} height={800} />
-            </a>
-          </li>
-        ))}
-      </ul>
-      <figcaption>{credito}</figcaption>
-    </figure>
-  );
+export function Galeria({ fotos, credito }: { fotos: FotoTipo[]; credito: string }) {
+  return <GaleriaVisor credito={credito} fotos={fotos.map((f) => ({ ...f, srcSet: srcset(f.src) }))} />;
 }

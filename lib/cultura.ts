@@ -1,7 +1,8 @@
 /**
  * Temas da página Cultura.
  *
- * Os textos com `revisado: false` são RASCUNHOS escritos a partir de fontes
+ * Textos com `revisado: true` vêm do site antigo ou do Panorama oficial da
+ * Coordenação (25/09/2026). Os com `revisado: false` são RASCUNHOS escritos a partir de fontes
  * públicas (ver `fontes`), a pedido do cliente em 13/10/2026, e precisam da
  * revisão da Associação e dos Kubengêt antes de valerem como texto oficial.
  * Enquanto houver rascunho, a página mostra o aviso de revisão.
@@ -18,7 +19,7 @@ export const TEMAS_CULTURA: TemaCultura[] = [
   {
     nome: "Ngàb, a Casa do Guerreiro",
     texto:
-      "No centro da aldeia circular fica a Ngàb. É lá que nos reunimos para decidir sobre o nosso futuro, fazemos festas e rituais e aprendemos com os Kubengêt sobre costumes, histórias, músicas, danças e pinturas.",
+      "No centro da aldeia fica a Ngàb, a casa do guerreiro: o espaço político onde cada aldeia toma suas decisões. É lá que acontecem reuniões, festas e rituais, e onde os mais novos aprendem com os Kubengêt sobre costumes, histórias, músicas, danças e pinturas.",
     foto: { src: "/img/capas/ngab.webp", alt: "A Ngàb, grande casa aberta coberta de palha no centro da aldeia" },
     link: { href: "/projetos/casa-do-guerreiro/", rotulo: "Projeto Casa do Guerreiro" },
     revisado: true,
@@ -39,12 +40,12 @@ export const TEMAS_CULTURA: TemaCultura[] = [
     revisado: false,
   },
   {
-    nome: "Artesanato e adornos",
+    nome: "Menire e o grafismo",
     texto:
-      "Os homens fazem a maior parte dos adornos, cestos, arcos, flechas, bordunas e instrumentos musicais. As menire fiam e tecem o algodão e hoje também pintam nossos grafismos em tecidos e costuram bolsas nas oficinas das aldeias. Penas, contas e algodão estão nos cocares, colares e braçadeiras.",
+      "As menire, as mulheres Xikrin, aprendem o grafismo desde meprire, a infância: treinam em bonecas de barro e, na adolescência, pintam umas às outras. O grafismo é milenar; a pintura em tecido é mais recente. Cerca de 69 artesãs produzem biojoias, telas pintadas e peças com sementes e fibras do território. A Escola Livre Menires Xikrin é certificada pelo Ministério da Cultura.",
     foto: { src: "/img/menire/menire-6.webp", alt: "Três artesãs Xikrin mostram bolsas com grafismos" },
     link: { href: "/produtos/", rotulo: "Artesanato das menire" },
-    revisado: false,
+    revisado: true,
   },
   {
     nome: "Língua Mẽbêngôkre",
@@ -62,9 +63,9 @@ export const TEMAS_CULTURA: TemaCultura[] = [
   {
     nome: "Kubengêt e as histórias",
     texto:
-      "Os Kubengêt, os mais velhos, contam as histórias do nosso povo em narrativas, cantos e falas na Ngàb. Ao longo da vida, cada pessoa recebe muitos nomes, em cerimônias que marcam sua passagem pelas idades. Aprender com os anciões é o que mantém vivo o Kukradjà.",
+      "Os Kubengêt são os anciãos, “aqueles que sabem de verdade”. O conselho de anciãos e caciques é a instância máxima de decisão coletiva. Num povo jovem, em que os anciãos são menos de 3% das pessoas nas aldeias da Associação, a Berê os reconhece como Patrimônio Vivo.",
     foto: { src: "/img/cultura/kubenget.webp", alt: "Ancião Xikrin com cocar de penas" },
-    revisado: false,
+    revisado: true,
   },
   {
     nome: "Comida e roça",

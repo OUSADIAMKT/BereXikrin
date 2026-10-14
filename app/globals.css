@@ -231,3 +231,45 @@ main { flex: 1; }
 
 /* A tira de zigue-zague dos cards era o mesmo grafismo da faixa: sai também. */
 .card::before { display: none; }
+
+/* ===== Visualizador de fotos ===== */
+.galeria button { display: block; width: 100%; padding: 0; border: 0; background: none; cursor: zoom-in; border-radius: var(--raio-md); overflow: hidden; }
+.galeria button:hover img { transform: scale(1.03); }
+.visor { width: 100vw; height: 100dvh; max-width: none; max-height: none; margin: 0; padding: 0; border: 0; background: rgb(21 17 14 / 0.94); color: var(--palha); }
+.visor::backdrop { background: rgb(21 17 14 / 0.6); }
+.visor__conteudo { position: relative; height: 100%; display: grid; grid-template-rows: 1fr auto; place-items: center; padding: 3.5rem 4rem 1.5rem; gap: 1rem; }
+.visor__conteudo > img { max-width: 100%; max-height: 100%; object-fit: contain; border-radius: var(--raio-sm); }
+.visor__legenda { text-align: center; max-width: 70ch; font-size: var(--texto-sm); }
+.visor__legenda span { display: block; margin-top: 0.25rem; font-size: var(--texto-xs); color: rgb(247 239 227 / 0.7); }
+.visor button { position: absolute; width: 48px; height: 48px; border-radius: 50%; border: 2px solid var(--palha); background: rgb(21 17 14 / 0.5); color: var(--palha); font-size: 28px; line-height: 1; cursor: pointer; display: grid; place-items: center; }
+.visor button:hover { background: var(--pequi); border-color: var(--pequi); color: var(--jenipapo); }
+.visor__fechar { top: 1rem; right: 1rem; }
+.visor__seta { top: 50%; transform: translateY(-50%); }
+.visor__seta--ant { left: 0.75rem; }
+.visor__seta--prox { right: 0.75rem; }
+@media (max-width: 600px) { .visor__conteudo { padding: 4rem 0.75rem 1rem; } .visor__seta { top: auto; bottom: 1rem; transform: none; } }
+
+/* ===== Frentes, governança e linha do tempo (Sobre) ===== */
+.frentes { list-style: none; padding: 0; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); }
+.frentes li { border-top: 3px solid var(--urucum-claro); padding-top: 1rem; display: grid; gap: 0.4rem; }
+.frentes strong { font-family: var(--fonte-display); font-size: var(--titulo-sm); color: var(--pequi); }
+.frentes span { color: rgb(247 239 227 / 0.85); }
+.frentes--claro li { border-top-color: var(--urucum); }
+.frentes--claro strong { color: var(--urucum); }
+.frentes--claro span { color: var(--cor-texto-suave); }
+.linha-tempo { list-style: none; padding: 0; display: grid; gap: 0; }
+.linha-tempo li { display: grid; grid-template-columns: 8.5rem minmax(0, 1fr); gap: 1.5rem; padding: 1.1rem 0; border-top: 1px solid rgb(247 239 227 / 0.15); }
+.linha-tempo strong { font-family: var(--fonte-display); color: var(--pequi); font-size: var(--texto-lg); }
+.linha-tempo p { color: rgb(247 239 227 / 0.88); max-width: 70ch; }
+@media (max-width: 600px) { .linha-tempo li { grid-template-columns: 1fr; gap: 0.25rem; } }
+.diretoria--fotos .sem-foto { font: 700 2.2rem var(--fonte-display); color: var(--urucum); }
+.fonte-dado { font-size: var(--texto-xs); color: rgb(247 239 227 / 0.65); margin-top: 1.5rem; }
+
+/* ===== Glossário ===== */
+.glossario { display: grid; gap: 0; margin: 0; max-width: 900px; }
+.glossario > div { display: grid; grid-template-columns: minmax(0, 14rem) minmax(0, 1fr); gap: 1.5rem; padding: 1.25rem 0; border-top: 1px solid var(--palha-escura); }
+.glossario dt { font-family: var(--fonte-display); font-weight: 700; font-size: var(--texto-lg); color: var(--urucum); }
+.glossario dd { margin: 0; }
+.glossario small { display: block; margin-top: 0.35rem; font-size: var(--texto-xs); color: var(--cor-texto-suave); }
+@media (max-width: 600px) { .glossario > div { grid-template-columns: 1fr; gap: 0.35rem; } }
+.prosa--espaco > * + * { margin-top: 1rem; }

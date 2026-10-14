@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { CardProjeto } from "@/components/CardProjeto";
 import { Galeria } from "@/components/Galeria";
 import { PaginaHero } from "@/components/PaginaHero";
+import { metaPagina } from "@/lib/meta";
 import { CREDITO_ACERVO, PROJETOS } from "@/lib/site";
 import { TEXTOS_PROJETOS } from "@/lib/textos-projetos";
 
@@ -17,7 +18,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps<"/projetos/[slug]">): Promise<Metadata> {
   const { slug } = await params;
   const p = PROJETOS.find((x) => x.slug === slug);
-  return p ? { title: p.nome, description: p.resumo } : {};
+  return p ? metaPagina({ titulo: p.nome, descricao: p.resumo, caminho: `/projetos/${p.slug}/`, foto: p.foto }) : {};
 }
 
 export default async function PaginaProjeto({ params }: PageProps<"/projetos/[slug]">) {

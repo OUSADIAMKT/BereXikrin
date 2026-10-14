@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { Foto } from "@/components/Foto";
 
 type Props = {
   rotulo: string;
@@ -19,7 +20,7 @@ export function PaginaHero({
 }: Props) {
   return (
       <section className="pagina-hero sobre-foto">
-        <img src={foto} alt="" />
+        <Foto sizes="100vw" src={foto} alt="" />
         <div className="container">
           <nav className="trilha" aria-label="Você está em">
             <Link href="/">Início</Link>

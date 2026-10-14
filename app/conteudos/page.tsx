@@ -1,12 +1,14 @@
-import type { Metadata } from "next";
 import { EmConstrucao } from "@/components/EmConstrucao";
 import { PaginaHero } from "@/components/PaginaHero";
 import { NOTICIAS, REDES } from "@/lib/site";
+import { metaPagina } from "@/lib/meta";
 
-export const metadata: Metadata = {
-  title: "Conteúdos",
-  description: "Notícias, vídeos e publicações da Associação Indígena Berê Xikrin.",
-};
+export const metadata = metaPagina({
+  titulo: "Notícias e conteúdos",
+  descricao: "Notícias, vídeos e publicações da Associação Indígena Berê Xikrin e do projeto Restaura Amazônia.",
+  caminho: "/conteudos/",
+  foto: "/img/capas/danca.webp",
+});
 
 export default function Conteudos() {
   return (
@@ -14,7 +16,8 @@ export default function Conteudos() {
       <PaginaHero
         rotulo="Conteúdos"
         titulo={<>Notícias e <span className="destaque">histórias</span></>}
-        lead="O que acontece nas aldeias e nos projetos da Berê."
+        lead="O que acontece nas aldeias e nos projetos da Associação."
+        foto="/img/capas/danca.webp"
         trilha={[{ rotulo: "Conteúdos", href: "/conteudos/" }]}
       />
       <section className="secao">

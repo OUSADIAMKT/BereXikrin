@@ -1,11 +1,13 @@
-import type { Metadata } from "next";
 import { PaginaHero } from "@/components/PaginaHero";
 import { REDES, SITE } from "@/lib/site";
+import { metaPagina } from "@/lib/meta";
 
-export const metadata: Metadata = {
-  title: "Contato",
-  description: "Fale com a Associação Indígena Berê Xikrin: e-mail, endereço da sede na Aldeia Krãnh e redes sociais.",
-};
+export const metadata = metaPagina({
+  titulo: "Contato",
+  descricao: "Fale com a Associação Indígena Berê Xikrin: e-mail, sede em Altamira (PA) e redes sociais.",
+  caminho: "/contato/",
+  foto: "/img/capas/rio-canoa.webp",
+});
 
 export default function Contato() {
   return (
@@ -13,7 +15,8 @@ export default function Contato() {
       <PaginaHero
         rotulo="Contato"
         titulo={<>Fale com a <span className="destaque">Berê</span></>}
-        lead="Conheça nossa atuação e nossa luta pelos Xikrin do Bacajá."
+        lead="Para parcerias, imprensa, compras de produtos ou apoio, fale com a Associação."
+        foto="/img/capas/rio-canoa.webp"
         trilha={[{ rotulo: "Contato", href: "/contato/" }]}
       />
       <section className="secao">
@@ -26,7 +29,7 @@ export default function Contato() {
               </dd>
             </div>
             <div>
-              <dt>Sede</dt>
+              <dt>Onde estamos</dt>
               <dd>
                 {SITE.endereco[0]}
                 <br />
