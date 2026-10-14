@@ -1,0 +1,209 @@
+<title>Revisão de Textos Berê</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700&family=Be+Vietnam+Pro:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* Página de revisão em papel: fundo palha, um bloco por texto, perguntas destacadas. Visual único (claro), do design system da Berê. */
+:root {
+  color-scheme: light;
+  --urucum: #C8201A; --jenipapo: #15110E; --palha: #F7EFE3; --palha-escura: #EADFCC;
+  --branco: #FFFFFF; --pequi: #F6B800; --texto-suave: #5A5047; --floresta: #0B6E3F;
+  --display: "Unbounded", system-ui, sans-serif; --texto: "Be Vietnam Pro", system-ui, sans-serif;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--palha); color: var(--jenipapo); font: 400 17px/1.65 var(--texto); }
+.pagina { max-width: 860px; margin: 0 auto; padding: 48px 20px 80px; }
+h1, h2, h3 { font-family: var(--display); line-height: 1.12; text-wrap: balance; margin: 0; }
+h1 { font-size: clamp(1.9rem, 1.4rem + 2.4vw, 2.8rem); }
+h2 { font-size: clamp(1.3rem, 1.1rem + 1vw, 1.7rem); margin: 56px 0 8px; }
+h3 { font-size: 1.15rem; }
+p { margin: 0; }
+.rotulo { font-family: var(--display); font-size: 12px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--urucum); }
+.faixa { height: 14px; margin: 28px 0 0; background: var(--urucum); border-radius: 2px;
+  background-image: repeating-linear-gradient(135deg, transparent 0 6px, rgb(247 239 227 / .9) 6px 9px, transparent 9px 15px); }
+.intro { display: grid; gap: 14px; margin-top: 20px; max-width: 68ch; }
+.intro .suave { color: var(--texto-suave); }
+.como { background: var(--branco); border: 1px solid var(--palha-escura); border-radius: 14px; padding: 18px 20px; display: grid; gap: 6px; margin-top: 8px; }
+.como ol { margin: 0; padding-left: 1.2rem; }
+.subtitulo { color: var(--texto-suave); max-width: 68ch; }
+.item { background: var(--branco); border: 1px solid var(--palha-escura); border-radius: 18px; overflow: hidden; margin-top: 22px; }
+.item__topo { display: grid; grid-template-columns: minmax(0, 1fr) 200px; gap: 0; }
+.item__texto { padding: 22px 24px; display: grid; gap: 12px; align-content: start; min-width: 0; }
+.item img { width: 100%; height: 100%; object-fit: cover; min-height: 160px; }
+.proposto { border-left: 5px solid var(--urucum); padding-left: 14px; }
+.perguntas { background: #FFF6D6; border-top: 1px solid var(--palha-escura); padding: 16px 24px; }
+.perguntas h4 { margin: 0 0 6px; font: 700 13px/1.4 var(--texto); letter-spacing: .08em; text-transform: uppercase; color: #6B4E00; }
+.perguntas ul { margin: 0; padding-left: 1.1rem; display: grid; gap: 4px; }
+.decisao { display: flex; flex-wrap: wrap; gap: 10px 22px; padding: 14px 24px; border-top: 1px solid var(--palha-escura); font-size: 15px; color: var(--texto-suave); }
+.decisao span::before { content: ""; display: inline-block; width: 15px; height: 15px; border: 2px solid var(--jenipapo); border-radius: 3px; margin-right: 8px; vertical-align: -2px; }
+.fonte { font-size: 13px; color: var(--texto-suave); }
+.fonte a { color: inherit; }
+.tag { display: inline-block; font-size: 12px; font-weight: 700; padding: 2px 10px; border-radius: 999px; background: var(--jenipapo); color: var(--palha); }
+.tag--ok { background: var(--floresta); color: var(--branco); }
+.lista { background: var(--branco); border: 1px solid var(--palha-escura); border-radius: 18px; padding: 8px 24px; margin-top: 22px; }
+.lista > div { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 6px 16px; padding: 14px 0; border-bottom: 1px solid var(--palha-escura); align-items: start; }
+.lista > div:last-child { border-bottom: 0; }
+.lista p { color: var(--texto-suave); font-size: 15px; grid-column: 1 / -1; }
+.no-ar { display: grid; gap: 8px; margin-top: 18px; padding-left: 1.2rem; }
+.rodape { margin-top: 56px; font-size: 13px; color: var(--texto-suave); }
+a:focus-visible { outline: 3px solid #1F3A93; outline-offset: 2px; }
+@media (max-width: 640px) {
+  .item__topo { grid-template-columns: 1fr; }
+  .item img { height: 200px; order: -1; }
+}
+</style>
+
+<div class="pagina">
+  <span class="rotulo">Associação Indígena Berê Xikrin · Site novo</span>
+  <h1 style="margin-top:14px">Textos para aprovação da Associação</h1>
+  <div class="faixa" aria-hidden="true"></div>
+
+  <div class="intro">
+    <p>O site novo vai ao ar só com os textos que já estavam no site antigo. Os textos abaixo são <strong>novos</strong>: só entram no site depois que a Associação aprovar.</p>
+    <p class="suave">Os textos de Cultura foram escritos a partir de estudos publicados sobre os Mẽbêngôkre. Parte desses estudos fala dos Kayapó e dos Xikrin em geral, não só do Bacajá. Por isso a palavra final é da comunidade e dos Kubengêt.</p>
+    <div class="como">
+      <h3>Como revisar</h3>
+      <ol>
+        <li>Leia cada texto e marque <strong>Aprovado</strong>, <strong>Aprovado com mudanças</strong> ou <strong>Não publicar</strong>.</li>
+        <li>Responda às perguntas em amarelo. Elas são o que só a comunidade sabe.</li>
+        <li>Correções podem vir do jeito mais fácil: escritas, em áudio ou ditadas. A Ousadia ajusta o texto.</li>
+      </ol>
+    </div>
+  </div>
+
+  <h2>1. Cultura</h2>
+  <p class="subtitulo">Seis temas da página Cultura. Ngàb e Rituais já estão no site porque vieram do site antigo.</p>
+
+  <article class="item">
+    <div class="item__topo">
+      <div class="item__texto">
+        <h3>Pinturas corporais</h3>
+        <p class="proposto">Pintar o corpo é trabalho das mulheres. Com a tinta preta do jenipapo, aplicada com a mão ou com uma lasca fina de palmeira, elas traçam os grafismos; o vermelho do urucum cobre o rosto e partes do corpo. A pintura mostra quem somos e acompanha os rituais, as reuniões e as festas.</p>
+        <p class="fonte">Fonte: Lux Vidal, “A pintura corporal xikrin” (ISA), e Povos Indígenas no Brasil (ISA)</p>
+      </div>
+      <img src="img/rituais-5.webp" alt="Mulher Xikrin pinta o corpo de uma jovem com jenipapo">
+    </div>
+    <div class="perguntas"><h4>Perguntas para a comunidade</h4><ul>
+      <li>No Bacajá, a pintura também é feita só pelas mulheres?</li>
+      <li>Os grafismos têm nomes em Mẽbêngôkre? Algum pode ser citado no site?</li>
+      <li>A foto ao lado pode ser usada neste tema?</li>
+    </ul></div>
+    <div class="decisao"><span>Aprovado</span><span>Aprovado com mudanças</span><span>Não publicar</span></div>
+  </article>
+
+  <article class="item">
+    <div class="item__topo">
+      <div class="item__texto">
+        <h3>Artesanato e adornos</h3>
+        <p class="proposto">Os homens fazem a maior parte dos adornos, cestos, arcos, flechas, bordunas e instrumentos musicais. As menire fiam e tecem o algodão e hoje também pintam nossos grafismos em tecidos e costuram bolsas nas oficinas das aldeias. Penas, contas e algodão estão nos cocares, colares e braçadeiras.</p>
+        <p class="fonte">Fonte: Povos Indígenas no Brasil (ISA) e fotos das oficinas no site antigo</p>
+      </div>
+      <img src="img/menire-6.webp" alt="Três artesãs Xikrin mostram bolsas com grafismos">
+    </div>
+    <div class="perguntas"><h4>Perguntas para a comunidade</h4><ul>
+      <li>A divisão entre o que homens e mulheres fazem está correta para o Bacajá?</li>
+      <li>Como se chamam as oficinas das menire? Há um grupo ou nome para elas?</li>
+    </ul></div>
+    <div class="decisao"><span>Aprovado</span><span>Aprovado com mudanças</span><span>Não publicar</span></div>
+  </article>
+
+  <article class="item">
+    <div class="item__topo" style="grid-template-columns:1fr">
+      <div class="item__texto">
+        <h3>Língua Mẽbêngôkre</h3>
+        <p class="proposto">Falamos Mẽbêngôkre, língua da família Jê. Na aldeia, conversamos entre nós na nossa língua. O português aparece sobretudo no contato com os kuben, e os jovens costumam falá-lo mais que os mais velhos.</p>
+        <p class="fonte">Fonte: Povos Indígenas no Brasil (ISA)</p>
+      </div>
+    </div>
+    <div class="perguntas"><h4>Perguntas para a comunidade</h4><ul>
+      <li>Querem incluir algumas palavras ou uma saudação em Mẽbêngôkre, com tradução?</li>
+      <li>Há escola indígena ou professores Xikrin que possam ser citados?</li>
+    </ul></div>
+    <div class="decisao"><span>Aprovado</span><span>Aprovado com mudanças</span><span>Não publicar</span></div>
+  </article>
+
+  <article class="item">
+    <div class="item__topo">
+      <div class="item__texto">
+        <h3>Caça, pesca e coleta</h3>
+        <p class="proposto">Caçamos anta, queixada, veado, caititu, paca e cutia. No tempo das chuvas pescamos com linha e anzol; no tempo seco, a pesca coletiva com timbó reúne a aldeia. Da floresta vêm a castanha, o babaçu, o açaí, a bacaba, o cacau do mato e o mel. Antes das festas, os homens passam dias na mata buscando carne.</p>
+        <p class="fonte">Fonte: Povos Indígenas no Brasil (ISA) e lista de produtos do site antigo</p>
+      </div>
+      <img src="img/canoa.webp" alt="Dois jovens Xikrin numa canoa no rio">
+    </div>
+    <div class="perguntas"><h4>Perguntas para a comunidade</h4><ul>
+      <li>Falar da pesca com timbó no site é adequado?</li>
+      <li>Os animais e as épocas estão certos para o Bacajá?</li>
+    </ul></div>
+    <div class="decisao"><span>Aprovado</span><span>Aprovado com mudanças</span><span>Não publicar</span></div>
+  </article>
+
+  <article class="item">
+    <div class="item__topo">
+      <div class="item__texto">
+        <h3>Kubengêt e as histórias</h3>
+        <p class="proposto">Os Kubengêt, os mais velhos, contam as histórias do nosso povo em narrativas, cantos e falas na Ngàb. Ao longo da vida, cada pessoa recebe muitos nomes, em cerimônias que marcam sua passagem pelas idades. Aprender com os anciões é o que mantém vivo o Kukradjà.</p>
+        <p class="fonte">Fonte: Povos Indígenas no Brasil (ISA) e texto “Quem somos” do site antigo</p>
+      </div>
+      <img src="img/kubenget.webp" alt="Ancião Xikrin com cocar de penas">
+    </div>
+    <div class="perguntas"><h4>Perguntas para a comunidade</h4><ul>
+      <li>Podemos citar as cerimônias de nominação no site, ou é assunto interno?</li>
+      <li>Quem é o ancião da foto? Ele autoriza aparecer neste tema?</li>
+    </ul></div>
+    <div class="decisao"><span>Aprovado</span><span>Aprovado com mudanças</span><span>Não publicar</span></div>
+  </article>
+
+  <article class="item">
+    <div class="item__topo">
+      <div class="item__texto">
+        <h3>Comida e roça</h3>
+        <p class="proposto">Das roças vêm mandioca, batata-doce, cará, milho, abóbora, mamão e banana. As mulheres preparam a farinha e o beiju. Nas festas, o alimento é assado no ki, o forno de pedras aquecidas, com a carne envolvida em folhas e coberta para cozinhar devagar.</p>
+        <p class="fonte">Fonte: Povos Indígenas no Brasil (ISA)</p>
+      </div>
+      <img src="img/cacau-fruto.webp" alt="Frutos de cacau no pé, na mata">
+    </div>
+    <div class="perguntas"><h4>Perguntas para a comunidade</h4><ul>
+      <li>O forno de pedras se chama ki também no Bacajá?</li>
+      <li>Há uma comida típica que a comunidade gostaria de destacar?</li>
+      <li>Têm uma foto melhor para este tema (roça, farinha ou ki)?</li>
+    </ul></div>
+    <div class="decisao"><span>Aprovado</span><span>Aprovado com mudanças</span><span>Não publicar</span></div>
+  </article>
+
+  <h2>2. Produtos</h2>
+  <article class="item">
+    <div class="item__topo">
+      <div class="item__texto">
+        <h3>Artesanato das menire</h3>
+        <p class="proposto">As menire, as mulheres Xikrin, pintam à mão os grafismos do nosso povo em tecidos e costuram bolsas e outras peças nas oficinas das aldeias. O artesanato também faz parte do Restaura Amazônia.</p>
+        <p class="fonte">Baseado nas fotos das oficinas do site antigo. No ar, por enquanto, só a última frase, que já estava no site antigo.</p>
+      </div>
+      <img src="img/menire-4.webp" alt="Artesã pinta um grafismo à mão sobre o tecido">
+    </div>
+    <div class="decisao"><span>Aprovado</span><span>Aprovado com mudanças</span><span>Não publicar</span></div>
+  </article>
+
+  <h2>3. Outros pontos para confirmar</h2>
+  <div class="lista">
+    <div><h3>Fotos da diretoria</h3><span class="tag">Confirmar</span>
+      <p>Cada foto foi ligada a um nome pela ordem do site antigo. Conferir se todas estão certas. Koitunggri Xikrin não tinha foto: enviar uma, se quiser.</p></div>
+    <div><h3>Grafia de Kukradjà</h3><span class="tag">Confirmar</span>
+      <p>O site antigo escrevia “Kukradjá” e “kukradjà”. O site novo usa <strong>Kukradjà</strong>. Qual é a forma correta?</p></div>
+    <div><h3>Crédito das fotos de drone</h3><span class="tag">Confirmar</span>
+      <p>Hoje aparece “Foto: Ousadia Marketing para a Associação Berê Xikrin”. Fica assim ou entra o nome de quem pilotou?</p></div>
+    <div><h3>Textos dos projetos</h3><span class="tag tag--ok">Do site antigo</span>
+      <p>Os textos das páginas de projeto vêm do site antigo, com correções leves de ortografia e pontuação. Os 300 hectares do Restaura Amazônia foram retirados, como pedido.</p></div>
+  </div>
+
+  <h2>4. O que já está no site</h2>
+  <ul class="no-ar">
+    <li>Início, Sobre (com diretoria e Plano de Vida), Projetos e uma página para cada projeto, com as fotos do site antigo.</li>
+    <li>Cultura com Ngàb e Rituais; os outros temas aparecem como “em breve”.</li>
+    <li>Território com o mapa da TI; as 16 aldeias entram quando os nomes e as fotos chegarem.</li>
+    <li>Produtos com a sociobiodiversidade e as fotos das menire; loja “em breve”.</li>
+    <li>Transparência e Apoie aguardando documentos e chave PIX.</li>
+  </ul>
+
+  <p class="rodape">Preparado pela Ousadia Marketing em 13/10/2026 · Fontes: <a href="https://pib.socioambiental.org/en/Povo:Xikrin_Mebeng%C3%B4kre">Povos Indígenas no Brasil (ISA)</a> · <a href="https://pib.socioambiental.org/files/file/bac/xirkin/A_pintura_corporal_xikrin.pdf">Lux Vidal, A pintura corporal xikrin</a></p>
+</div>
