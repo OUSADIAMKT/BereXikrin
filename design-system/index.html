@@ -3,264 +3,365 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Berê Xikrin — Design System</title>
-<meta name="description" content="Cores, tipografia, grafismos e componentes do site da Associação Indígena Berê Xikrin.">
+<title>Berê Xikrin Design System</title>
+<meta name="description" content="Design system em uso no site berexikrin.org.br: cores, tipografia, grafismos, componentes e regras de conteúdo.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700&family=Be+Vietnam+Pro:wght@400;500;700&display=swap" rel="stylesheet">
+<!-- O mesmo CSS que o site usa: tokens + componentes + globals (sem os @import). -->
 <link rel="stylesheet" href="tokens.css">
 <link rel="stylesheet" href="componentes.css">
+<link rel="stylesheet" href="../app/globals.css">
 <style>
-  /* Só desta página de demonstração */
-  .topo { background: var(--palha); border-bottom: 1px solid var(--palha-escura); position: sticky; top: 0; z-index: 10; }
-  .topo .container { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 76px; }
-  .topo img { height: 44px; width: auto; }
-  .menu { display: flex; align-items: center; gap: 1.4rem; font-size: var(--texto-sm); font-weight: 500; }
-  .menu a { text-decoration: none; }
-  .menu .links { display: flex; gap: 1.4rem; }
-  .botao-menu { display: none; font: 600 var(--texto-sm) var(--fonte-display); background: none; border: 2px solid var(--jenipapo); border-radius: var(--raio-pilula); padding: 0.55rem 1rem; color: var(--jenipapo); }
-  .menu a:hover { color: var(--urucum); }
-  .idioma { font-size: var(--texto-xs); font-weight: 700; color: var(--cor-texto-suave); }
-  .idioma b { color: var(--jenipapo); }
-  @media (max-width: 1020px) { .menu .links { display: none; } .botao-menu { display: inline-flex; } }
-  @media (max-width: 480px) { .topo img { height: 36px; } .menu { gap: 0.6rem; } .menu .idioma, .menu .btn--marca { display: none; } }
-
-  .hero { position: relative; min-height: min(88vh, 760px); display: grid; align-items: end; color: var(--palha); background: var(--jenipapo); overflow: hidden; }
-  .hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 62%; }
-  .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgb(21 17 14 / 0.10) 0%, rgb(21 17 14 / 0.45) 38%, rgb(21 17 14 / 0.93) 78%), linear-gradient(90deg, rgb(21 17 14 / 0.55) 0%, rgb(21 17 14 / 0) 65%); }
-  .hero .container { position: relative; z-index: 1; padding-block: 5rem 3.5rem; }
-  .hero h1 { max-width: 14ch; }
-  .hero .lead { color: var(--palha); max-width: 44ch; margin: 1.25rem 0 2rem; }
-  .hero .acoes { display: flex; flex-wrap: wrap; gap: 0.75rem; }
-  .hero .credito { margin-top: 2.5rem; }
-  .hero-base { position: relative; z-index: 1; height: 26px; color: var(--urucum-vivo); background: var(--jenipapo); }
-
-  .intro { display: grid; gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); align-items: center; }
-  .intro img { border-radius: var(--raio-lg); aspect-ratio: 4/5; object-fit: cover; width: 100%; }
-
-  .paleta { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 140px), 1fr)); }
-  .cor { border-radius: var(--raio-md); padding: 1rem; min-height: 150px; display: flex; flex-direction: column; justify-content: flex-end; font-size: var(--texto-xs); border: 1px solid rgb(0 0 0 / 0.06); }
+  /* Só desta página. No site, as fontes chegam pelo next/font com estes nomes. */
+  :root { --font-unbounded: "Unbounded"; --font-vietnam: "Be Vietnam Pro"; color-scheme: light; }
+  body { background: var(--palha); }
+  .ds-indice { position: sticky; top: 0; z-index: 40; background: var(--jenipapo); color: var(--palha); }
+  .ds-indice .container { display: flex; flex-wrap: wrap; gap: 0.4rem 1.25rem; align-items: center; min-height: 54px; font-size: var(--texto-xs); font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
+  .ds-indice b { font-family: var(--fonte-display); color: var(--pequi); letter-spacing: 0; text-transform: none; font-size: var(--texto-sm); margin-right: .5rem; }
+  .ds-indice a { text-decoration: none; color: rgb(247 239 227 / .85); }
+  .ds-indice a:hover { color: var(--pequi); }
+  .ds-bloco { display: grid; gap: 2rem; }
+  .ds-nota { font-size: var(--texto-sm); color: var(--cor-texto-suave); max-width: 72ch; }
+  .escuro .ds-nota { color: rgb(247 239 227 / .75); }
+  .ds-palco { border: 1px dashed var(--palha-escura); border-radius: var(--raio-lg); padding: clamp(1rem, .5rem + 2vw, 2rem); background: rgb(255 255 255 / .35); }
+  .ds-palco--escuro { background: var(--jenipapo); border-color: transparent; color: var(--palha); }
+  .ds-rotulo { font: 600 11px/1.4 var(--fonte-texto); letter-spacing: .12em; text-transform: uppercase; color: var(--cor-texto-suave); margin-bottom: .75rem; }
+  .ds-palco--escuro .ds-rotulo { color: rgb(247 239 227 / .6); }
+  .paleta { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 128px), 1fr)); }
+  .cor { border-radius: var(--raio-md); padding: 1rem; min-height: 150px; display: flex; flex-direction: column; justify-content: flex-end; gap: .15rem; font-size: var(--texto-xs); border: 1px solid rgb(0 0 0 / .06); }
   .cor b { font-family: var(--fonte-display); font-size: var(--texto-sm); }
-  .papel { opacity: 0.85; }
-
-  .escala > * + * { margin-top: 1.1rem; }
-  .escala small { display: block; font-family: var(--fonte-texto); font-size: var(--texto-xs); color: var(--cor-texto-suave); font-weight: 500; letter-spacing: 0; }
-
-  .grafs { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); }
-  .graf-card { background: var(--branco); border-radius: var(--raio-md); padding: 1.25rem; border: 1px solid var(--palha-escura); }
-  .graf-card .amostra { height: 36px; margin-bottom: 1rem; }
-  .graf-card h3 { font-size: var(--texto-base); margin-bottom: 0.35rem; }
-  .graf-card p { font-size: var(--texto-sm); color: var(--cor-texto-suave); }
-
-
-  .opcoes { display: grid; gap: 3rem; }
-  .opcao h3 { font-size: var(--titulo-sm); }
-  .opcao h3 span { color: var(--urucum); }
-  .opcao p { color: var(--cor-texto-suave); font-size: var(--texto-sm); margin: 0.35rem 0 1rem; max-width: var(--largura-texto); }
-  .costura { border-radius: var(--raio-md); overflow: hidden; border: 1px solid var(--palha-escura); }
-  .costura .claro, .costura .escuro { min-height: 72px; display: flex; align-items: center; padding-inline: 1.25rem; font-size: var(--texto-xs); font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
-  .costura .claro { background: var(--palha); color: var(--cor-texto-suave); }
-  .costura .escuro { color: rgb(247 239 227 / 0.7); }
-  .costura .divisor-secao.graf { color: var(--urucum); background-color: var(--urucum); }
-  .costura .sobre-escuro { background: var(--jenipapo); }
-  .costura .sobre-escuro .divisor-secao.graf { background-color: var(--pequi); }
-
-  .demo-linha { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; }
-
-  .cultura { position: relative; overflow: hidden; }
-  .cultura .fundo { position: absolute; inset: 0; color: var(--palha); opacity: 0.06; -webkit-mask-size: auto 64px; mask-size: auto 64px; -webkit-mask-repeat: repeat; mask-repeat: repeat; }
-  .cultura .container { position: relative; display: grid; gap: 2.5rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); align-items: center; }
-  .cultura img { border-radius: var(--raio-lg); width: 100%; aspect-ratio: 4/3; object-fit: cover; }
-
-  .rodape { padding-block: 0 2.5rem; }
-  .rodape .divisor { margin-bottom: 3rem; }
-  .rodape-grade { display: grid; gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); }
-  .rodape img { width: 240px; height: auto; }
-  .rodape h2 { font-size: var(--texto-sm); color: var(--pequi); margin-bottom: 0.75rem; }
-  .rodape ul { list-style: none; padding: 0; display: grid; gap: 0.35rem; font-size: var(--texto-sm); }
-  .rodape a { text-decoration: none; }
-  .rodape a:hover { text-decoration: underline; }
-  .rodape .fim { margin-top: 2.5rem; padding-top: 1.25rem; border-top: 1px solid rgb(247 239 227 / 0.15); font-size: var(--texto-xs); color: rgb(247 239 227 / 0.7); }
+  .tabela { overflow-x: auto; border: 1px solid var(--palha-escura); border-radius: var(--raio-md); background: var(--branco); }
+  .tabela table { border-collapse: collapse; width: 100%; min-width: 520px; font-size: var(--texto-sm); }
+  .tabela th, .tabela td { text-align: left; padding: .65rem 1rem; border-bottom: 1px solid var(--palha-escura); vertical-align: top; }
+  .tabela th { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--cor-texto-suave); background: #FBF7F0; }
+  .tabela tr:last-child td { border-bottom: 0; }
+  .amostra-par { display: inline-block; padding: .2rem .6rem; border-radius: var(--raio-sm); font-weight: 700; }
+  .escala > * + * { margin-top: 1rem; }
+  .escala small { display: block; font: 500 var(--texto-xs) var(--fonte-texto); color: var(--cor-texto-suave); letter-spacing: 0; }
+  .demo-linha { display: flex; flex-wrap: wrap; gap: .75rem; align-items: center; }
+  .marcas { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); }
+  .marca-dagua { position: relative; isolation: isolate; height: 180px; border-radius: var(--raio-md); overflow: hidden; display: grid; place-items: center; font-weight: 700; border: 1px solid var(--palha-escura); }
+  .marca-dagua::before { content: ""; position: absolute; inset: 0; z-index: -1; -webkit-mask-composite: source-in; mask-composite: intersect; -webkit-mask-repeat: repeat, no-repeat; mask-repeat: repeat, no-repeat; }
+  .marca-dagua--clara { background: var(--palha); }
+  .marca-dagua--clara::before { background: var(--jenipapo); opacity: .045; -webkit-mask-image: var(--graf-quadrados), linear-gradient(90deg, transparent 40%, #000 100%); mask-image: var(--graf-quadrados), linear-gradient(90deg, transparent 40%, #000 100%); -webkit-mask-size: 96px auto, 100% 100%; mask-size: 96px auto, 100% 100%; }
+  .marca-dagua--escura { background: var(--jenipapo); color: var(--palha); border-color: transparent; }
+  .marca-dagua--escura::before { background: var(--palha); opacity: .07; -webkit-mask-image: var(--graf-listras), linear-gradient(270deg, transparent 35%, #000 100%); mask-image: var(--graf-listras), linear-gradient(270deg, transparent 35%, #000 100%); -webkit-mask-size: 72px auto, 100% 100%; mask-size: 72px auto, 100% 100%; }
+  .regras { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
+  .regra { background: var(--branco); border: 1px solid var(--palha-escura); border-radius: var(--raio-md); padding: 1.1rem 1.25rem; display: grid; gap: .4rem; align-content: start; }
+  .regra h3 { font-size: var(--texto-base); }
+  .regra p { font-size: var(--texto-sm); color: var(--cor-texto-suave); }
+  .sim { color: var(--floresta); font-weight: 700; }
+  .nao { color: var(--urucum); font-weight: 700; }
+  .ds-topo-demo .topo { position: static; }
+  .ds-hero .hero { min-height: 520px; }
+  .ds-rodape .rodape { margin-top: 0; }
+  @media (max-width: 1080px) { .ds-topo-demo .menu__links { display: flex; flex-wrap: wrap; gap: .75rem; } }
 </style>
 </head>
 <body>
 
-<header class="topo">
+<nav class="ds-indice" aria-label="Seções do design system">
   <div class="container">
-    <a href="#"><img src="../Logo/leves/bere-xikrin-horizontal-600.webp" alt="Associação Indígena Berê Xikrin — início" width="600" height="277"></a>
-    <nav class="menu" aria-label="Principal">
-      <span class="links"><a href="#">Sobre</a><a href="#">Cultura</a><a href="#">Território</a><a href="#">Projetos</a><a href="#">Produtos</a><a href="#">Conteúdos</a><a href="#">Transparência</a></span>
-      <span class="idioma"><b>PT</b> · EN</span>
-      <button class="botao-menu" type="button" aria-expanded="false">Menu</button>
-      <a class="btn btn--marca" href="#">Apoie</a>
-    </nav>
+    <b>Berê Xikrin · Design System</b>
+    <a href="#principios">Princípios</a>
+    <a href="#cores">Cores</a>
+    <a href="#tipografia">Tipografia</a>
+    <a href="#grafismos">Grafismos</a>
+    <a href="#componentes">Componentes</a>
+    <a href="#estrutura">Estrutura</a>
+    <a href="#conteudo">Conteúdo</a>
+    <a href="#tecnica">Técnica</a>
   </div>
-</header>
+</nav>
 
 <main>
-  <section class="hero sobre-foto" aria-labelledby="hero-titulo">
-    <img src="img/aldeia-circular-por-do-sol.webp" alt="Vista aérea de uma aldeia Xikrin circular ao entardecer, cercada pela floresta, com o Rio Bacajá ao fundo" width="1920" height="1440">
+  <!-- ===================== Abertura ===================== -->
+  <section class="hero sobre-foto ds-hero" aria-labelledby="ds-titulo" style="min-height:540px">
+    <img class="hero__foto" src="../public/img/aldeia-circular-por-do-sol.webp" alt="Vista aérea de uma aldeia Xikrin circular ao entardecer, cercada pela floresta" width="1920" height="1440">
     <div class="container">
-      <span class="eyebrow" style="color:var(--pequi)">Povo Mẽbêngôkre-Xikrin · TI Trincheira-Bacajá</span>
-      <h1 id="hero-titulo" class="titulo-lg" style="margin-top:1rem">A floresta é a <span class="destaque">nossa casa</span></h1>
-      <p class="lead">Somos a Associação Indígena Berê Xikrin. Desde 2018 defendemos nosso território, nossa cultura e o futuro das 16 aldeias do Rio Bacajá.</p>
-      <div class="acoes"><a class="btn btn--destaque" href="#">Conheça a Berê</a><a class="btn btn--contorno" href="#">Apoie nossa luta</a></div>
-      <p class="credito">Aldeia na TI Trincheira-Bacajá, set/2026 · Foto: Ousadia Marketing para a Associação Berê Xikrin</p>
+      <span class="eyebrow">Design system em uso · berexikrin.org.br · outubro de 2026</span>
+      <h1 id="ds-titulo" class="titulo-lg">O sistema visual da <span class="destaque">Berê Xikrin</span></h1>
+      <p class="lead">Cores dos pigmentos da pintura corporal, grafismos tirados do próprio logo, fotografia real do território e a voz da Associação. Tudo aqui é o CSS que o site usa hoje, nos dois idiomas.</p>
+      <p class="credito">Aldeia na TI Trincheira Bacajá, set/2026 · Foto: Ousadia Marketing para a Associação Berê Xikrin</p>
     </div>
   </section>
-  <div class="hero-base graf graf--faixa" aria-hidden="true"></div>
 
-  <section class="secao">
-    <div class="container intro">
-      <div>
-        <span class="eyebrow">Quem somos</span>
-        <h2 class="titulo-md" style="margin:1rem 0 1.25rem">Gente da água grande</h2>
-        <p class="texto-corrido">Nos autodenominamos <strong>Mẽbêngôkre</strong>, “gente do buraco d’água ou gente da água grande”. Vivemos em aldeias circulares, e no centro de cada uma fica a <strong>Ngàb</strong>, a Casa do Guerreiro, onde nos reunimos para decidir nosso futuro.</p>
-        <blockquote class="citacao" style="margin-top:2rem">“Proteger e defender a floresta é cuidar da nossa casa e preservar nossa vida.”<cite>Associação Indígena Berê Xikrin</cite></blockquote>
+  <!-- ===================== Princípios ===================== -->
+  <section id="principios" class="secao" aria-labelledby="t-principios">
+    <div class="container ds-bloco">
+      <div class="prosa">
+        <span class="eyebrow">Princípios</span>
+        <h2 id="t-principios" class="titulo-md">Cinco regras que valem para tudo</h2>
       </div>
-      <img src="img/aldeia-circular-vista-de-cima.webp" alt="Aldeia circular vista de cima: casas ao redor de um grande pátio de terra" loading="lazy" width="1600" height="2133">
+      <ul class="frentes frentes--claro" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr))">
+        <li><strong>Território real</strong><span>Só fotografia real da TI e das pessoas, com crédito e autorização. Nenhuma imagem gerada por IA ou de banco.</span></li>
+        <li><strong>Grafismo próprio</strong><span>Os grafismos vêm do logo da Berê, validados pela Associação. Nunca grafismo de outro povo.</span></li>
+        <li><strong>Voz da Associação</strong><span>Quem fala é a Associação ou a pessoa nomeada, com autorização. Nada de falar pelos Xikrin na primeira pessoa.</span></li>
+        <li><strong>Acessível por padrão</strong><span>Contraste AA em todo texto, foco visível, textos alternativos, nada que dependa só de cor.</span></li>
+        <li><strong>Leve no celular</strong><span>Fotos responsivas, sem rastreadores, sem scripts de terceiros. Boa parte do público acessa de conexões lentas.</span></li>
+      </ul>
     </div>
   </section>
 
-  <section class="escuro secao" aria-label="Números">
-    <div class="container numeros">
-      <div class="numero"><strong>16</strong><span>aldeias representadas</span></div>
-      <div class="numero"><strong>387</strong><span>pessoas</span></div>
-      <div class="numero"><strong>111</strong><span>famílias</span></div>
-    </div>
-  </section>
-
-  <section class="secao" aria-labelledby="t-projetos">
-    <div class="container">
-      <span class="eyebrow">Projetos</span>
-      <h2 id="t-projetos" class="titulo-md" style="margin:1rem 0 2rem">O que fazemos</h2>
-      <div class="grade">
-        <article class="card"><img class="card__img" src="img/aldeia-entardecer.webp" alt="Casas da aldeia diante da floresta e do rio ao pôr do sol" loading="lazy"><div class="card__corpo"><span><span class="tag">Território</span></span><h3 class="titulo-sm">Restaura Amazônia</h3><p>Floresta voltando a crescer, com agroflorestas e brigadas Xikrin.</p><a class="card__link" href="#">Conheça o projeto</a></div></article>
-        <article class="card"><img class="card__img" src="img/ngab-comunidade.webp" alt="Comunidade reunida em frente à Ngàb, a Casa do Guerreiro" loading="lazy"><div class="card__corpo"><span><span class="tag tag--urucum">Cultura</span></span><h3 class="titulo-sm">Casa do Guerreiro</h3><p>A Ngàb no centro da aldeia, onde decidimos, celebramos e aprendemos com os anciões.</p><a class="card__link" href="#">Conheça o projeto</a></div></article>
-        <article class="card"><img class="card__img" src="img/aldeia-e-rio.webp" alt="Aldeia na mata, com o rio em primeiro plano" loading="lazy"><div class="card__corpo"><span><span class="tag tag--arara">Rio Bacajá</span></span><h3 class="titulo-sm">Monitoramento do Pescado</h3><p>Jovens Xikrin registrando os peixes para acompanhar as mudanças no rio.</p><a class="card__link" href="#">Conheça o projeto</a></div></article>
+  <!-- ===================== Cores ===================== -->
+  <section id="cores" class="secao" style="padding-top:0" aria-labelledby="t-cores">
+    <div class="container ds-bloco">
+      <div class="prosa">
+        <span class="eyebrow">Cores</span>
+        <h2 id="t-cores" class="titulo-md">Urucum, jenipapo e as penas do logo</h2>
+        <p class="ds-nota">Três cores carregam a marca. Pequi, arara e floresta entram como acento, um por vez. O urucum vivo é reservado para grafismo e ilustração.</p>
       </div>
-    </div>
-  </section>
-
-  <section class="escuro secao cultura" aria-labelledby="t-cultura">
-    <div class="fundo graf graf--listras" aria-hidden="true"></div>
-    <div class="container">
-      <div>
-        <span class="eyebrow">Cultura</span>
-        <h2 id="t-cultura" class="titulo-md" style="margin:1rem 0 1.25rem">Kukradjà, nosso modo de viver</h2>
-        <p class="lead" style="margin-bottom:1.75rem">Viver com a floresta, junto à floresta e para a floresta.</p>
-        <ul class="lista-grafismo"><li>Pinturas corporais com urucum e jenipapo</li><li>Artesanato das menire</li><li>Língua Mẽbêngôkre</li><li>Rituais e calendário tradicional</li></ul>
-        <p style="margin-top:2rem"><a class="btn btn--destaque" href="#">Explore a cultura</a></p>
-      </div>
-      <img src="img/ngab-comunidade.webp" alt="Comunidade Xikrin reunida na aldeia" loading="lazy">
-    </div>
-  </section>
-
-  <section class="secao" aria-labelledby="t-divisores">
-    <div class="container">
-      <span class="eyebrow">Divisores entre seções</span>
-      <h2 id="t-divisores" class="titulo-md" style="margin:1rem 0 0.75rem">5 opções para costurar as seções</h2>
-      <p class="lead texto-corrido" style="margin-bottom:2.5rem">Todos saem de um padrão do logo. Cada um aparece na passagem do claro para o escuro e do escuro para o claro: em urucum sobre palha e em pequi sobre jenipapo. Escolha um como padrão; um segundo pode entrar só em momentos especiais.</p>
-      <div class="opcoes">
-        <div class="opcao">
-          <h3><span>Opção 1</span> · Fita do R</h3>
-          <p><strong>De onde vem:</strong> a faixa vermelha com zigue-zague e triângulos dentro do “R” de Berê. <strong>Melhor uso:</strong> a mais marcante. Ótima como assinatura entre as seções principais da home.</p>
-          <div class="costura"><div class="claro">Seção clara</div><div class="divisor-secao divisor-secao--fita" aria-hidden="true"><span></span></div><div class="escuro">Seção escura</div><div class="divisor-secao divisor-secao--fita" aria-hidden="true"><span></span></div><div class="claro">Seção clara</div></div>
-        </div>
-        <div class="opcao">
-          <h3><span>Opção 2</span> · Quadrados do selo</h3>
-          <p><strong>De onde vem:</strong> os quadrados concêntricos da metade de baixo do selo, ligados por um traço. <strong>Melhor uso:</strong> páginas institucionais (Sobre, Transparência). É a mais sóbria das cinco.</p>
-          <div class="costura"><div class="claro">Seção clara</div><div class="divisor-secao divisor-secao--quadrados graf" aria-hidden="true"></div><div class="escuro">Seção escura</div><div class="sobre-escuro"><div class="divisor-secao divisor-secao--quadrados graf" aria-hidden="true"></div></div><div class="claro">Seção clara</div></div>
-        </div>
-        <div class="opcao">
-          <h3><span>Opção 3</span> · Pontas de flecha</h3>
-          <p><strong>De onde vem:</strong> as flechas que atravessam o selo, reduzidas a pontas duplas. <strong>Melhor uso:</strong> passagem que conduz a uma ação, como antes de “Apoie” ou de “Projetos”.</p>
-          <div class="costura"><div class="claro">Seção clara</div><div class="divisor-secao divisor-secao--flechas graf" aria-hidden="true"></div><div class="escuro">Seção escura</div><div class="sobre-escuro"><div class="divisor-secao divisor-secao--flechas graf" aria-hidden="true"></div></div><div class="claro">Seção clara</div></div>
-        </div>
-        <div class="opcao">
-          <h3><span>Opção 4</span> · Listras em V</h3>
-          <p><strong>De onde vem:</strong> as listras diagonais em V do centro do selo, presas entre duas linhas. <strong>Melhor uso:</strong> seções de Cultura e Território. Lembra a pintura de traço fino.</p>
-          <div class="costura"><div class="claro">Seção clara</div><div class="divisor-secao divisor-secao--listras graf" aria-hidden="true"></div><div class="escuro">Seção escura</div><div class="sobre-escuro"><div class="divisor-secao divisor-secao--listras graf" aria-hidden="true"></div></div><div class="claro">Seção clara</div></div>
-        </div>
-        <div class="opcao">
-          <h3><span>Opção 5</span> · Triângulos alternados</h3>
-          <p><strong>De onde vem:</strong> os triângulos da faixa geométrica e do “R”, um para cima e um para baixo. <strong>Melhor uso:</strong> rodapé e fechamento de páginas. Tem bastante presença sem pesar.</p>
-          <div class="costura"><div class="claro">Seção clara</div><div class="divisor-secao divisor-secao--dentes graf" aria-hidden="true"></div><div class="escuro">Seção escura</div><div class="sobre-escuro"><div class="divisor-secao divisor-secao--dentes graf" aria-hidden="true"></div></div><div class="claro">Seção clara</div></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ======================= Guia do sistema ======================= -->
-  <section class="secao" aria-labelledby="t-cores">
-    <div class="container">
-      <span class="eyebrow">Design system · Cores</span>
-      <h2 id="t-cores" class="titulo-md" style="margin:1rem 0 0.75rem">Urucum, jenipapo e as penas do logo</h2>
-      <p class="lead texto-corrido" style="margin-bottom:2rem">Três cores carregam a marca. As outras três aparecem uma por vez, como acento. Todo texto respeita o contraste mínimo AA.</p>
       <div class="paleta">
-        <div class="cor" style="background:var(--urucum);color:#fff"><b>Urucum</b>#C8201A<span class="papel">Marca, botões, títulos de destaque</span></div>
-        <div class="cor" style="background:var(--jenipapo);color:var(--palha)"><b>Jenipapo</b>#15110E<span class="papel">Texto e fundos escuros</span></div>
-        <div class="cor" style="background:var(--palha)"><b>Palha</b>#F7EFE3<span class="papel">Fundo base</span></div>
-        <div class="cor" style="background:var(--pequi)"><b>Pequi</b>#F6B800<span class="papel">Destaque, só sobre escuro</span></div>
-        <div class="cor" style="background:var(--arara);color:#fff"><b>Arara</b>#1F3A93<span class="papel">Acento, foco de teclado</span></div>
-        <div class="cor" style="background:var(--floresta);color:#fff"><b>Floresta</b>#0B6E3F<span class="papel">Acento, território</span></div>
-        <div class="cor" style="background:var(--urucum-vivo);color:#fff"><b>Urucum vivo</b>#E3141B<span class="papel">Só grafismo, nunca atrás de texto pequeno</span></div>
+        <div class="cor" style="background:var(--urucum);color:#fff"><b>Urucum</b>#C8201A<span>Marca, botões, rótulos</span></div>
+        <div class="cor" style="background:var(--jenipapo);color:var(--palha)"><b>Jenipapo</b>#15110E<span>Texto e fundos escuros</span></div>
+        <div class="cor" style="background:var(--palha)"><b>Palha</b>#F7EFE3<span>Fundo base</span></div>
+        <div class="cor" style="background:var(--pequi)"><b>Pequi</b>#F6B800<span>Destaque, só sobre escuro</span></div>
+        <div class="cor" style="background:var(--arara);color:#fff"><b>Arara</b>#1F3A93<span>Acento, foco de teclado</span></div>
+        <div class="cor" style="background:var(--floresta);color:#fff"><b>Floresta</b>#0B6E3F<span>Acento, território</span></div>
+        <div class="cor" style="background:var(--urucum-claro);color:var(--jenipapo)"><b>Urucum claro</b>#FF5A43<span>Detalhe sobre escuro</span></div>
+        <div class="cor" style="background:var(--texto-suave);color:#fff"><b>Texto suave</b>#5A5047<span>Texto secundário</span></div>
+      </div>
+      <div class="tabela">
+        <table>
+          <thead><tr><th>Par de texto aprovado</th><th>Contraste</th><th>Uso</th></tr></thead>
+          <tbody>
+            <tr><td><span class="amostra-par" style="background:var(--palha);color:var(--jenipapo)">jenipapo sobre palha</span></td><td>16,5 : 1</td><td>Corpo de texto</td></tr>
+            <tr><td><span class="amostra-par" style="background:var(--urucum);color:#fff">branco sobre urucum</span></td><td>5,7 : 1</td><td>Botão principal</td></tr>
+            <tr><td><span class="amostra-par" style="background:var(--urucum);color:var(--palha)">palha sobre urucum</span></td><td>5,0 : 1</td><td>Bloco da newsletter</td></tr>
+            <tr><td><span class="amostra-par" style="background:var(--jenipapo);color:var(--pequi)">pequi sobre jenipapo</span></td><td>10,5 : 1</td><td>Números, títulos em seção escura</td></tr>
+            <tr><td><span class="amostra-par" style="background:#fff;color:var(--arara)">arara sobre branco</span></td><td>10,1 : 1</td><td>Links, foco</td></tr>
+            <tr><td><span class="amostra-par" style="background:var(--floresta);color:#fff">branco sobre floresta</span></td><td>6,3 : 1</td><td>Etiquetas</td></tr>
+            <tr><td><span class="amostra-par" style="background:var(--palha);color:var(--texto-suave)">texto suave sobre palha</span></td><td>6,9 : 1</td><td>Legendas, apoio</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="ds-nota"><span class="nao">Proibido:</span> pequi sobre branco ou palha (1,6 : 1) e urucum vivo atrás de texto pequeno.</p>
+    </div>
+  </section>
+
+  <!-- ===================== Tipografia ===================== -->
+  <section id="tipografia" class="escuro secao" aria-labelledby="t-tipo">
+    <div class="container ds-bloco">
+      <div class="prosa">
+        <span class="eyebrow">Tipografia</span>
+        <h2 id="t-tipo" class="titulo-md">Unbounded nos títulos, Be Vietnam Pro no texto</h2>
+        <p class="ds-nota">As duas têm o subconjunto vietnamita do Google Fonts, que traz o “ẽ” de Mẽbêngôkre. Qualquer fonte nova precisa passar nesse teste.</p>
+      </div>
+      <div class="escala">
+        <p class="titulo-lg" style="font-family:var(--fonte-display);font-weight:700;line-height:1.05">Mẽbêngôkre <small style="color:rgb(247 239 227 / .6)">titulo-lg · 36 a 68 px · página</small></p>
+        <p class="titulo-md" style="font-family:var(--fonte-display);font-weight:700">Povo do buraco d’água <small style="color:rgb(247 239 227 / .6)">titulo-md · 28 a 44 px · seção</small></p>
+        <p class="titulo-sm" style="font-family:var(--fonte-display);font-weight:700">Kukradjà · Ngàb · Kubengêt <small style="color:rgb(247 239 227 / .6)">titulo-sm · 20 a 26 px · card</small></p>
+        <p class="lead">Organização indígena que reúne 16 aldeias Mẽbêngôkre-Xikrin da Terra Indígena Trincheira Bacajá. <small style="color:rgb(247 239 227 / .6)">lead · 18 a 22 px · abertura de seção</small></p>
+        <p class="texto-corrido">Os Xikrin se autodenominam Mẽbêngôkre, “povo do buraco d’água”. A relação com a água está no centro da cultura. <small style="color:rgb(247 239 227 / .6)">corpo · 17 px · entrelinha 1,65 · até 68 caracteres por linha</small></p>
+        <p><span class="eyebrow">Rótulo de seção</span> <small style="color:rgb(247 239 227 / .6)">eyebrow · 13 px · caixa alta · com a seta do “R”</small></p>
       </div>
     </div>
   </section>
 
-  <div class="container"><div class="divisor graf graf--zigue-zague" aria-hidden="true"></div></div>
-
-  <section class="secao" aria-labelledby="t-tipo">
-    <div class="container escala">
-      <span class="eyebrow">Tipografia</span>
-      <h2 id="t-tipo" class="visualmente-oculto">Tipografia</h2>
-      <p class="titulo-lg" style="font-family:var(--fonte-display);font-weight:700;line-height:1.05">Mẽbêngôkre <small>Unbounded 700 · título de página</small></p>
-      <p class="titulo-md" style="font-family:var(--fonte-display);font-weight:700">Nossa terra, nosso futuro <small>Unbounded 700 · título de seção</small></p>
-      <p class="titulo-sm" style="font-family:var(--fonte-display);font-weight:600">Kukradjà · Ngàb · Kubengêt <small>Unbounded 600 · título de card</small></p>
-      <p class="texto-corrido">Be Vietnam Pro no texto corrido, 17 px, entrelinha 1,65. As duas fontes têm o “ẽ” de Mẽbêngôkre, o que muitas fontes de título não têm. <small>Be Vietnam Pro 400 · corpo</small></p>
-    </div>
-  </section>
-
-  <div class="container"><div class="divisor graf graf--quadrados" aria-hidden="true" style="color:var(--jenipapo)"></div></div>
-
-  <section class="secao" aria-labelledby="t-graf">
-    <div class="container">
-      <span class="eyebrow">Grafismos</span>
-      <h2 id="t-graf" class="titulo-md" style="margin:1rem 0 0.75rem">Desenhados a partir do nosso logo</h2>
-      <p class="lead texto-corrido" style="margin-bottom:2rem">Cada grafismo vem de um padrão do selo ou do nome Berê Xikrin. São vetores leves, tingidos com qualquer cor da paleta. Validados pela Associação em 13/10/2026.</p>
-      <div class="grafs">
-        <div class="graf-card"><div class="amostra graf graf--faixa" style="color:var(--urucum)"></div><h3>Faixa</h3><p>Base do hero e topo do rodapé. Junta o triângulo e o quadrado do logo.</p></div>
-        <div class="graf-card"><div class="amostra graf graf--zigue-zague" style="color:var(--urucum-vivo)"></div><h3>Zigue-zague</h3><p>Do “R” vermelho do nome. Divisor fino e topo dos cards.</p></div>
-        <div class="graf-card"><div class="amostra graf graf--quadrados" style="color:var(--jenipapo)"></div><h3>Quadrados</h3><p>Da base do selo. Divisor entre blocos de conteúdo.</p></div>
-        <div class="graf-card"><div class="amostra graf graf--listras" style="color:var(--floresta)"></div><h3>Listras em V</h3><p>Do centro do selo. Textura de fundo a 6% sobre o escuro.</p></div>
+  <!-- ===================== Grafismos ===================== -->
+  <section id="grafismos" class="secao" aria-labelledby="t-graf">
+    <div class="container ds-bloco">
+      <div class="prosa">
+        <span class="eyebrow">Grafismos</span>
+        <h2 id="t-graf" class="titulo-md">Do logo para o fundo das seções</h2>
+        <p class="ds-nota">Os padrões vêm do selo e do “R” do logo e foram validados pela Associação em 13/10/2026. Desde 14/10 o grafismo aparece só como marca d’água e como marcador. As faixas entre seções foram aposentadas.</p>
       </div>
-      <h3 class="titulo-sm" style="margin:2.5rem 0 1rem">Marcadores</h3>
-      <ul class="lista-grafismo"><li>Marcador de lista: quadrado concêntrico do selo</li><li>Rótulo de seção: a pequena seta em zigue-zague, antes do texto</li></ul>
+      <div class="marcas">
+        <div><p class="ds-rotulo">Marca d’água em seção clara</p><div class="marca-dagua marca-dagua--clara">Quadrados do selo · 4,5% · surgem pela direita</div></div>
+        <div><p class="ds-rotulo">Marca d’água em seção escura</p><div class="marca-dagua marca-dagua--escura">Listras em V · 7% · surgem pela esquerda</div></div>
+      </div>
+      <div class="duas-colunas" style="align-items:start">
+        <div class="ds-palco">
+          <p class="ds-rotulo">Marcador de lista</p>
+          <ul class="lista-grafismo"><li>Quadrado concêntrico do selo</li><li>Em urucum no claro, pequi no escuro</li></ul>
+        </div>
+        <div class="ds-palco">
+          <p class="ds-rotulo">Rótulo de seção</p>
+          <span class="eyebrow">Seta em zigue-zague do “R”</span>
+        </div>
+      </div>
+      <p class="ds-nota"><span class="nao">Não fazer:</span> grafismo cheio atrás de texto, mais de 7% de opacidade como textura, grafismo esticado (sempre por máscara CSS, repetido) ou padrões de outros povos.</p>
     </div>
   </section>
 
-  <section class="secao" style="padding-top:0" aria-labelledby="t-comp">
-    <div class="container">
-      <span class="eyebrow">Componentes</span>
-      <h2 id="t-comp" class="titulo-md" style="margin:1rem 0 2rem">Botões e etiquetas</h2>
-      <div class="demo-linha"><a class="btn btn--marca" href="#">Apoie</a><a class="btn btn--contorno" href="#">Saiba mais</a><span class="tag">Território</span><span class="tag tag--urucum">Cultura</span><span class="tag tag--arara">Rio Bacajá</span><span class="tag tag--jenipapo">Notícia</span></div>
-      <div class="escuro" style="margin-top:1.5rem;padding:1.5rem;border-radius:var(--raio-lg)"><div class="demo-linha"><a class="btn btn--destaque" href="#">Conheça a Berê</a><a class="btn btn--contorno" href="#">Apoie nossa luta</a></div></div>
+  <!-- ===================== Componentes ===================== -->
+  <section id="componentes" class="secao" style="padding-top:0" aria-labelledby="t-comp">
+    <div class="container ds-bloco">
+      <div class="prosa">
+        <span class="eyebrow">Componentes</span>
+        <h2 id="t-comp" class="titulo-md">As peças do site</h2>
+      </div>
+
+      <div class="ds-palco">
+        <p class="ds-rotulo">Botões e etiquetas · claro</p>
+        <div class="demo-linha"><a class="btn btn--marca" href="#componentes">Apoie</a><a class="btn btn--contorno" href="#componentes">Todos os projetos</a><span class="tag">Território</span><span class="tag tag--urucum">Cultura</span><span class="tag tag--arara">Rio Bacajá</span><span class="tag tag--jenipapo">Belo Monte</span></div>
+      </div>
+      <div class="ds-palco ds-palco--escuro escuro">
+        <p class="ds-rotulo">Botões · escuro e sobre foto</p>
+        <div class="demo-linha"><a class="btn btn--destaque" href="#componentes">Conheça a Berê</a><a class="btn btn--contorno" href="#componentes">Apoie a Berê</a></div>
+      </div>
+
+      <div>
+        <p class="ds-rotulo">Card de projeto</p>
+        <div class="grade">
+          <article class="card"><img class="card__img" src="../public/img/projetos/casa-do-guerreiro-1.webp" alt="A Ngàb recém-construída, coberta de palha de babaçu" loading="lazy"><div class="card__corpo"><span><span class="tag tag--urucum">Cultura</span></span><h3 class="titulo-sm">Casa do Guerreiro</h3><p>A construção da Ngàb, espaço político onde cada aldeia toma suas decisões.</p><a class="card__link" href="#componentes">Conheça o projeto</a></div></article>
+          <article class="card"><img class="card__img" src="../public/img/projetos/pescado-2.webp" alt="Jovem pesa um peixe numa canoa" loading="lazy"><div class="card__corpo"><span><span class="tag tag--arara">Rio Bacajá</span></span><h3 class="titulo-sm">Monitoramento do Pescado</h3><p>Jovens de cinco aldeias registram os peixes do Rio Bacajá.</p><a class="card__link" href="#componentes">Conheça o projeto</a></div></article>
+          <article class="noticia"><span><span class="tag tag--jenipapo">Restaura Amazônia</span></span><time datetime="2026-10-07">7 a 23 de outubro de 2026</time><h3 class="titulo-sm">Diagnóstico Inicial percorre as 16 aldeias</h3><p>Card de notícia: sem foto, com categoria e data.</p></article>
+        </div>
+      </div>
+
+      <div class="ds-palco ds-palco--escuro escuro">
+        <p class="ds-rotulo">Números com fonte</p>
+        <div class="numeros">
+          <div class="numero"><strong>16</strong><span>aldeias da Associação, de 53 na Terra Indígena</span></div>
+          <div class="numero"><strong>387</strong><span>pessoas nas aldeias da Berê</span></div>
+          <div class="numero"><strong>98%</strong><span>ou mais do território preservado</span></div>
+          <p class="fonte-dado" style="grid-column:1/-1">Todo número leva fonte e data. Números de área ficam fora do site.</p>
+        </div>
+      </div>
+
+      <div class="duas-colunas" style="align-items:start">
+        <div class="ds-palco">
+          <p class="ds-rotulo">Citação com nome</p>
+          <blockquote class="citacao">“Penso que se a mata vai sumindo, nosso futuro some também.”<cite>Beptok Xikrin, aldeia Pytakô · Plano de Vida Xikrin, 2021</cite></blockquote>
+        </div>
+        <div class="ds-palco">
+          <p class="ds-rotulo">Aviso de página em construção</p>
+          <div class="aviso"><p><strong>Página em construção.</strong> Usado só onde falta material da Associação.</p></div>
+        </div>
+      </div>
+
+      <div class="ds-palco">
+        <p class="ds-rotulo">Ficha de projeto</p>
+        <dl class="ficha"><div><dt>Situação</dt><dd>Em andamento</dd></div><div><dt>Período</dt><dd>ago/2026 a jul/2030</dd></div><div><dt>Parceiros</dt><dd>CI-Brasil, Fundo Amazônia/BNDES</dd></div><div><dt>Quem conduz</dt><dd>Associação Indígena Berê Xikrin</dd></div></dl>
+      </div>
+
+      <div class="ds-palco">
+        <p class="ds-rotulo">Frentes e governança</p>
+        <ul class="frentes frentes--claro"><li><strong>Kubengêt</strong><span>Os anciãos, “aqueles que sabem de verdade”.</span></li><li><strong>Ngàb</strong><span>Espaço político das decisões em cada aldeia.</span></li><li><strong>Assembleias gerais</strong><span>Onde as 16 aldeias deliberam juntas.</span></li></ul>
+      </div>
+
+      <div class="ds-palco ds-palco--escuro escuro">
+        <p class="ds-rotulo">Linha do tempo</p>
+        <ol class="linha-tempo"><li><strong>2018</strong><p>Fundação da Associação na Ngàb da aldeia Krãnh.</p></li><li><strong>2026</strong><p>Contrato do Restaura Amazônia assinado em 2 de setembro.</p></li></ol>
+      </div>
+
+      <div class="ds-palco">
+        <p class="ds-rotulo">Cartões da diretoria · com foto ou iniciais, mesma altura</p>
+        <div class="governanca"><div><h3 class="titulo-sm">Diretoria Executiva</h3>
+          <ul class="diretoria diretoria--fotos">
+            <li><img src="../public/img/diretoria/bep-kamati.webp" alt="Retrato de Bep Kamaty Xikrin" width="480" height="520" loading="lazy"><div class="nome"><strong>Bep Kamaty Xikrin</strong><span>Presidente</span></div></li>
+            <li><div class="sem-foto" aria-hidden="true">M</div><div class="nome"><strong>Mryare Xikrin</strong><span>Vice-presidente</span></div></li>
+            <li><div class="sem-foto" aria-hidden="true">K</div><div class="nome"><strong>Kroire Xikrin</strong><span>Secretário</span></div></li>
+            <li><div class="sem-foto" aria-hidden="true">I</div><div class="nome"><strong>Irei Xikrin</strong><span>Presidente das Menires</span><span class="nome__aldeia">aldeia Krendjãn</span></div></li>
+          </ul></div></div>
+      </div>
+
+      <div class="ds-palco">
+        <p class="ds-rotulo">Galeria · abre em tela cheia com legenda, setas e Esc</p>
+        <figure class="galeria"><ul>
+          <li><button type="button"><img src="../public/img/menire/menire-6.webp" alt="Três artesãs Xikrin mostram bolsas com grafismos" loading="lazy"></button></li>
+          <li><button type="button"><img src="../public/img/menire/menire-4.webp" alt="Artesã pinta um grafismo à mão sobre o tecido" loading="lazy"></button></li>
+          <li><button type="button"><img src="../public/img/projetos/rituais-5.webp" alt="Mulher Xikrin pinta o corpo de uma jovem com jenipapo" loading="lazy"></button></li>
+          <li><button type="button"><img src="../public/img/projetos/casa-do-guerreiro-4.webp" alt="Canoa carregada de palha de babaçu" loading="lazy"></button></li>
+        </ul><figcaption>Fotos: acervo da Associação Indígena Berê Xikrin</figcaption></figure>
+      </div>
+
+      <div class="ds-palco">
+        <p class="ds-rotulo">Glossário · termos em Mẽbêngôkre marcados com lang="txu"</p>
+        <dl class="glossario"><div><dt lang="txu">Kukradjà</dt><dd>Modo de ser e de viver Xikrin.<small>Fonte: PGTA Xikrin</small></dd></div><div><dt lang="txu">Menire</dt><dd>As mulheres Xikrin.<small>Fonte: Anexo 1 do projeto Restaura Amazônia</small></dd></div></dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== Estrutura ===================== -->
+  <section id="estrutura" class="secao" style="padding-top:0" aria-labelledby="t-estrutura">
+    <div class="container ds-bloco">
+      <div class="prosa">
+        <span class="eyebrow">Estrutura</span>
+        <h2 id="t-estrutura" class="titulo-md">Cabeçalho, abertura de página e rodapé</h2>
+        <p class="ds-nota">O cabeçalho fixa no topo e tem o seletor PT · EN, que leva à página equivalente no outro idioma. No celular, o menu vira gaveta. Toda página interna abre com foto escurecida, trilha e título.</p>
+      </div>
+      <div class="ds-topo-demo" style="border-radius:var(--raio-lg);overflow:hidden;border:1px solid var(--palha-escura)">
+        <header class="topo"><div class="container topo__linha">
+          <a href="#estrutura" class="topo__logo"><img src="../Logo/leves/bere-xikrin-horizontal-600.webp" alt="Associação Indígena Berê Xikrin" width="600" height="277"></a>
+          <nav class="menu" aria-label="Exemplo de menu"><ul class="menu__links"><li><a href="#estrutura" aria-current="page">Sobre</a></li><li><a href="#estrutura">Cultura</a></li><li><a href="#estrutura">Território</a></li><li><a href="#estrutura">Projetos</a></li><li><a href="#estrutura">Produtos</a></li></ul><span class="idioma"><b>PT</b> · <a href="#estrutura">EN</a></span><a class="btn btn--marca" href="#estrutura">Apoie</a></nav>
+        </div></header>
+        <section class="pagina-hero sobre-foto">
+          <img src="../public/img/capas/reuniao-ngab.webp" alt="">
+          <div class="container"><nav class="trilha" aria-label="Exemplo de trilha"><a href="#estrutura">Início</a> / <a href="#estrutura">Sobre</a></nav><span class="eyebrow">Sobre a Berê</span><h2 class="titulo-lg" style="margin-top:1rem">Povo do <span class="destaque">buraco d’água</span></h2></div>
+        </section>
+      </div>
+      <div class="ds-rodape" style="border-radius:var(--raio-lg);overflow:hidden">
+        <footer class="escuro rodape" style="--fundo-rodape:url(../public/img/capas/aldeia-aerea-1280w.webp)"><div class="container">
+          <div class="rodape__grade">
+            <div class="rodape__marca"><img src="../Logo/leves/bere-xikrin-horizontal-negativo-600.webp" alt="Associação Indígena Berê Xikrin" width="600" height="277" loading="lazy"><p class="ds-nota" style="margin-top:1rem">Redes em ícones redondos, que ficam pequi ao passar o mouse.</p></div>
+            <nav class="rodape__links" aria-label="Exemplo de rodapé"><ul class="rodape__principais"><li><a href="#estrutura">Sobre</a></li><li><a href="#estrutura">Projetos</a></li></ul><ul class="rodape__secundarios"><li><a href="#estrutura">Apoie</a></li><li><a href="#estrutura">Glossário Mẽbêngôkre</a></li></ul></nav>
+            <section class="newsletter" aria-label="Exemplo de newsletter"><h3 style="font-size:var(--titulo-sm)">Receba notícias da Berê. Assine nossa newsletter!</h3><div class="newsletter__form" style="margin-top:1rem"><input type="text" placeholder="Nome *" aria-label="Nome"><input type="email" placeholder="E-mail *" aria-label="E-mail"><span class="btn newsletter__botao">Cadastrar</span></div></section>
+          </div>
+          <div class="rodape__fim"><span>Rodapé com foto da aldeia escurecida ao fundo.</span></div>
+        </div></footer>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== Conteúdo ===================== -->
+  <section id="conteudo" class="escuro secao" aria-labelledby="t-conteudo">
+    <div class="container ds-bloco">
+      <div class="prosa">
+        <span class="eyebrow">Conteúdo e linguagem</span>
+        <h2 id="t-conteudo" class="titulo-md">Como a Berê fala</h2>
+        <p class="ds-nota">Baseado no Panorama da Coordenação do projeto (25/09/2026). Vale para português e inglês.</p>
+      </div>
+      <div class="tabela" style="color:var(--jenipapo)">
+        <table>
+          <thead><tr><th>Preferir</th><th>Evitar</th></tr></thead>
+          <tbody>
+            <tr><td><span class="sim">Povo Mẽbêngôkre-Xikrin, Xikrin do Bacajá, aldeias, Terra Indígena</span></td><td><span class="nao">“Índio”, “tribo”, “aldeia indígena” genérica</span></td></tr>
+            <tr><td><span class="sim">Voz da Associação; falas com nome, aldeia e autorização</span></td><td><span class="nao">Falar pelos Xikrin na primeira pessoa</span></td></tr>
+            <tr><td><span class="sim">Protagonismo, autonomia, saber tradicional junto com técnica</span></td><td><span class="nao">“Salvar a Amazônia”, “dar voz”, “ajudar os indígenas”, “vulnerabilidade”</span></td></tr>
+            <tr><td><span class="sim">Mudanças reais: floresta de pé, renda da floresta, decisões das aldeias</span></td><td><span class="nao">Contagens de entrega como resultado; números de área antes do diagnóstico</span></td></tr>
+            <tr><td><span class="sim">16 aldeias da Associação Berê</span></td><td><span class="nao">Confundir com as 53 aldeias da TI</span></td></tr>
+            <tr><td><span class="sim">Termos em Mẽbêngôkre conferidos com Kroire Xikrin, mantidos no original também em inglês</span></td><td><span class="nao">Traduzir ou criar palavras em Mẽbêngôkre</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="regras" style="color:var(--jenipapo)">
+        <div class="regra"><h3>Fotografia</h3><p>Real, do território e das atividades, com termo de uso de imagem e crédito. Texto alternativo descritivo em toda foto.</p></div>
+        <div class="regra"><h3>Aprovação</h3><p>Texto novo sobre cultura só vai ao ar depois da Associação. Material do Restaura passa pela Coordenação e, quando for o caso, pela CI.</p></div>
+        <div class="regra"><h3>Dois idiomas</h3><p>Português na raiz, inglês em /en/. Toda mudança em um idioma tem a equivalente no outro.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== Técnica ===================== -->
+  <section id="tecnica" class="secao" aria-labelledby="t-tecnica">
+    <div class="container ds-bloco">
+      <div class="prosa">
+        <span class="eyebrow">Técnica</span>
+        <h2 id="t-tecnica" class="titulo-md">Onde cada coisa mora</h2>
+      </div>
+      <div class="tabela">
+        <table>
+          <thead><tr><th>Arquivo</th><th>O que guarda</th></tr></thead>
+          <tbody>
+            <tr><td><code>design-system/tokens.css</code></td><td>Cores, fontes, tamanhos, espaços, raios e os grafismos como variáveis</td></tr>
+            <tr><td><code>design-system/componentes.css</code></td><td>Botões, etiquetas, cards, números, listas, citação, rótulo</td></tr>
+            <tr><td><code>app/globals.css</code></td><td>Cabeçalho, rodapé, newsletter, marca d’água, galeria, diretoria, glossário, linha do tempo</td></tr>
+            <tr><td><code>design-system/grafismos/*.svg</code></td><td>Grafismos vetoriais derivados do logo (usados como máscara)</td></tr>
+            <tr><td><code>Logo/leves/</code></td><td>Logo em PNG e WebP, versão negativa, ícones e avatar</td></tr>
+            <tr><td><code>scripts/gera-variantes.cjs</code> · <code>gera-og.cjs</code></td><td>Fotos responsivas (640, 960, 1280 px) e imagens de compartilhamento JPG 1200×630</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ul class="frentes frentes--claro">
+        <li><strong>100</strong><span>Acessibilidade, SEO e boas práticas (Lighthouse, nos dois idiomas)</span></li>
+        <li><strong>0</strong><span>Cookies, rastreadores e scripts de terceiros</span></li>
+        <li><strong>AA</strong><span>Contraste mínimo de todo texto (WCAG 2.1)</span></li>
+      </ul>
     </div>
   </section>
 </main>
-
-<footer class="escuro rodape">
-  <div class="divisor divisor--grosso graf graf--faixa" aria-hidden="true" style="color:var(--urucum-vivo)"></div>
-  <div class="container">
-    <div class="rodape-grade">
-      <div><img src="../Logo/leves/bere-xikrin-horizontal-negativo-600.webp" alt="Associação Indígena Berê Xikrin" width="600" height="277" loading="lazy"><p style="margin-top:1rem;font-size:var(--texto-sm)">Associação Indígena Berê Xikrin da TI Bacajá. Organização indígena sem fins lucrativos, criada em 2018.</p></div>
-      <div><h2>Navegue</h2><ul><li><a href="#">Sobre</a></li><li><a href="#">Projetos</a></li><li><a href="#">Produtos</a></li><li><a href="#">Transparência</a></li></ul></div>
-      <div><h2>Contato</h2><ul><li><a href="mailto:xikrinbere@gmail.com">xikrinbere@gmail.com</a></li><li>Aldeia Krãnh, TI Trincheira-Bacajá</li><li>Anapu/PA · CEP 68365-000</li></ul></div>
-      <div><h2>Redes</h2><ul><li><a href="https://www.instagram.com/associacaoberexikrin/">Instagram</a></li><li><a href="https://www.tiktok.com/@bere_xikrin">TikTok</a></li><li><a href="https://www.youtube.com/@BereXikrin">YouTube</a></li><li><a href="https://www.linkedin.com/in/associa%C3%A7%C3%A3o-ind%C3%ADgena-ber%C3%AA-xikrin-43a670427/">LinkedIn</a></li></ul></div>
-    </div>
-    <p class="fim">© 2026 Associação Indígena Berê Xikrin. Imagens e grafismos pertencem ao povo Mẽbêngôkre-Xikrin; uso somente com autorização.</p>
-  </div>
-</footer>
 </body>
 </html>

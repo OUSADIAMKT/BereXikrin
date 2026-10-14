@@ -1,7 +1,8 @@
 """Gera uma cópia autocontida de design-system/index.html para publicar como página.
 
-Embute tokens.css e componentes.css, troca os grafismos por data URIs e
-ajusta os caminhos do logo. Uso: python -I scripts/publica-design-system.py <pasta-saida>
+Embute tokens.css, componentes.css e app/globals.css (o mesmo CSS do site),
+troca os grafismos por data URIs e copia as imagens usadas para img/.
+Uso: python -I scripts/publica-design-system.py <pasta-saida>
 """
 import os
 import re
@@ -13,7 +14,6 @@ RAIZ = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 DS = os.path.join(RAIZ, "design-system")
 saida = sys.argv[1]
 os.makedirs(os.path.join(saida, "img"), exist_ok=True)
-os.makedirs(os.path.join(saida, "logo"), exist_ok=True)
 
 
 def ler(*p):
@@ -26,26 +26,30 @@ def data_uri(m):
     return 'url("data:image/svg+xml,' + urllib.parse.quote(svg, safe=" =:/,'") + '")'
 
 
-css = ler(DS, "tokens.css") + "\n" + ler(DS, "componentes.css")
+globais = re.sub(r'@import "[^"]+";\n', "", ler(RAIZ, "app", "globals.css"))
+css = ler(DS, "tokens.css") + "\n" + ler(DS, "componentes.css") + "\n" + globais
 css = re.sub(r'url\("grafismos/([\w-]+\.svg)"\)', data_uri, css)
 
 h = ler(DS, "index.html")
-h = re.sub(r'<link rel="stylesheet" href="(tokens|componentes)\.css">\n', "", h)
+h = re.sub(r'<link rel="stylesheet" href="[^"]+\.css">\n', "", h)
+h = re.sub(r"<!--[^>]*-->\n", "", h, count=1)
 h = re.sub(r"<!doctype html>\s*<html[^>]*>\s*<head>\s*", "", h)
 h = re.sub(r'<meta (charset|name="viewport"|name="description")[^>]*>\n', "", h)
-h = h.replace("<title>Berê Xikrin — Design System</title>", "<title>Berê Xikrin Design System</title>")
-h = h.replace("<style>\n", "<style>\n" + css + "\n:root{color-scheme:light}\n", 1)
+h = h.replace("<style>\n", "<style>\n" + css + "\n", 1)
 h = re.sub(r"</head>\s*<body>\s*", "", h)
 h = re.sub(r"\s*</body>\s*</html>\s*$", "\n", h)
-h = h.replace("position: sticky; top: 0;", "position: sticky; top: env(safe-area-inset-top, 0px);")
-h = h.replace("min-height: min(88vh, 760px);", "min-height: clamp(520px, 72vh, 700px);")
+h = h.replace("position: sticky; top: 0; z-index: 40;", "position: sticky; top: env(safe-area-inset-top, 0px); z-index: 40;")
 
-for src in sorted(set(re.findall(r'src="(img/[\w-]+\.webp)"', h))):
-    shutil.copy(os.path.join(DS, src), os.path.join(saida, src))
-for nome in sorted(set(re.findall(r'src="\.\./Logo/leves/([\w-]+\.webp)"', h))):
-    shutil.copy(os.path.join(RAIZ, "Logo", "leves", nome), os.path.join(saida, "logo", nome))
-h = h.replace("../Logo/leves/", "logo/")
+# Imagens: ../public/img/x/y.webp e ../Logo/leves/z.webp viram img/x-y.webp e img/z.webp
+copiadas = 0
+for ref in sorted(set(re.findall(r"\.\./(?:public/img|Logo/leves)/[\w./-]+\.webp", h))):
+    origem = os.path.join(RAIZ, ref[3:])
+    nome = ref.split("/img/", 1)[-1] if "/img/" in ref else ref.rsplit("/", 1)[-1]
+    nome = nome.replace("/", "-")
+    shutil.copy(origem, os.path.join(saida, "img", nome))
+    h = h.replace(ref, f"img/{nome}")
+    copiadas += 1
 
 with open(os.path.join(saida, "berexikrin-design-system.html"), "w", encoding="utf-8") as f:
     f.write(h)
-print("ok:", len(h), "caracteres,", h.count("data:image/svg+xml"), "grafismos embutidos")
+print(f"ok: {len(h)} caracteres, {h.count('data:image/svg+xml')} grafismos, {copiadas} imagens")
