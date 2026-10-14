@@ -1,0 +1,336 @@
+<title>Auditoria do Site Berê Xikrin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700&family=Be+Vietnam+Pro:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* Relatório de auditoria: coluna de leitura larga, bloqueadores primeiro, cada achado com evidência e proposta. Visual claro, do design system da Berê. */
+:root {
+  color-scheme: light;
+  --urucum: #C8201A; --jenipapo: #15110E; --palha: #F7EFE3; --palha-escura: #EADFCC; --branco: #FFFFFF;
+  --pequi: #F6B800; --arara: #1F3A93; --floresta: #0B6E3F; --suave: #5A5047;
+  --display: "Unbounded", system-ui, sans-serif; --texto: "Be Vietnam Pro", system-ui, sans-serif;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--palha); color: var(--jenipapo); font: 400 16.5px/1.65 var(--texto); }
+.pagina { max-width: 980px; margin: 0 auto; padding: 44px 18px 80px; }
+h1, h2, h3 { font-family: var(--display); line-height: 1.15; text-wrap: balance; margin: 0; }
+h1 { font-size: clamp(1.9rem, 1.3rem + 2.6vw, 2.9rem); }
+h2 { font-size: clamp(1.25rem, 1.05rem + 1vw, 1.65rem); margin: 64px 0 6px; }
+h3 { font-size: 1.05rem; }
+p { margin: 0; }
+.rotulo { font: 600 12px/1.2 var(--display); letter-spacing: .16em; text-transform: uppercase; color: var(--urucum); }
+.meta { color: var(--suave); font-size: 14px; margin-top: 12px; }
+.sub { color: var(--suave); max-width: 72ch; margin-top: 6px; }
+.veredito { margin-top: 28px; background: var(--jenipapo); color: var(--palha); border-radius: 18px; padding: 26px 28px; display: grid; gap: 12px; }
+.veredito h2 { margin: 0; color: var(--pequi); font-size: 1.2rem; }
+.veredito p { color: rgb(247 239 227 / .9); max-width: 76ch; }
+.notas { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); margin-top: 22px; }
+.nota { background: var(--branco); border: 1px solid var(--palha-escura); border-radius: 14px; padding: 16px 18px; display: grid; gap: 4px; }
+.nota strong { font: 700 1.8rem/1 var(--display); font-variant-numeric: tabular-nums; }
+.nota span { font-size: 14px; color: var(--suave); }
+.nota.ruim strong { color: var(--urucum); }
+.nota.bom strong { color: var(--floresta); }
+.forcas { margin-top: 18px; background: var(--branco); border: 1px solid var(--palha-escura); border-radius: 14px; padding: 16px 20px; }
+.forcas ul { margin: 8px 0 0; padding-left: 1.1rem; display: grid; gap: 4px; }
+.achado { background: var(--branco); border: 1px solid var(--palha-escura); border-radius: 16px; margin-top: 16px; overflow: hidden; }
+.achado__topo { display: flex; gap: 10px 14px; align-items: baseline; flex-wrap: wrap; padding: 18px 22px 0; }
+.achado__corpo { padding: 10px 22px 18px; display: grid; gap: 8px; }
+.achado__corpo p { max-width: 80ch; }
+.evid { color: var(--suave); font-size: 15px; }
+.prop { border-left: 4px solid var(--floresta); padding-left: 12px; }
+.tag { display: inline-block; font: 700 11px/1.6 var(--texto); letter-spacing: .06em; text-transform: uppercase; padding: 2px 9px; border-radius: 999px; white-space: nowrap; }
+.p0 { background: var(--urucum); color: var(--branco); }
+.p1 { background: var(--pequi); color: var(--jenipapo); }
+.p2 { background: var(--palha-escura); color: var(--jenipapo); }
+.dono { background: var(--jenipapo); color: var(--palha); }
+.dono.bere { background: var(--arara); color: var(--branco); }
+.tabela { overflow-x: auto; margin-top: 16px; border: 1px solid var(--palha-escura); border-radius: 14px; background: var(--branco); }
+table { border-collapse: collapse; width: 100%; min-width: 560px; font-size: 15px; }
+th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--palha-escura); vertical-align: top; }
+th { font: 700 12px/1.4 var(--texto); letter-spacing: .08em; text-transform: uppercase; color: var(--suave); background: #FBF7F0; }
+td.num { font-variant-numeric: tabular-nums; white-space: nowrap; }
+td.ruim { color: var(--urucum); font-weight: 700; }
+td.bom { color: var(--floresta); font-weight: 700; }
+tr:last-child td { border-bottom: 0; }
+.fases { display: grid; gap: 14px; margin-top: 16px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); }
+.fase { background: var(--branco); border: 1px solid var(--palha-escura); border-radius: 16px; padding: 18px 20px; display: grid; gap: 8px; align-content: start; }
+.fase ol { margin: 0; padding-left: 1.15rem; display: grid; gap: 4px; font-size: 15px; }
+.fase .quem { font-size: 13px; color: var(--suave); }
+.rodape { margin-top: 56px; font-size: 13px; color: var(--suave); }
+a { color: var(--arara); }
+a:focus-visible { outline: 3px solid var(--arara); outline-offset: 2px; }
+</style>
+
+<div class="pagina">
+  <span class="rotulo">Associação Indígena Berê Xikrin · berexikrin.org.br</span>
+  <h1 style="margin-top:12px">Auditoria do site: design, usabilidade, conteúdo e segurança</h1>
+  <p class="meta">14 de outubro de 2026 · Ousadia Marketing · 18 páginas inspecionadas no ar · 6 medições Lighthouse (celular e computador) · revisão visual, de conteúdo e de segurança (conexão, cabeçalhos, arquivos expostos, DNS e e-mail, dependências, contas)</p>
+
+  <div class="veredito">
+    <h2>Veredito: ainda não está pronto para o mercado internacional</h2>
+    <p>A base técnica é de primeira linha: acessibilidade e SEO com nota máxima, site rápido no computador, fotos reais do território e respeito cultural na identidade. O que impede o site de convencer um financiador, comprador ou parceiro estrangeiro hoje não é o visual. São cinco ausências: não há versão em inglês, não há como doar, não há transparência (nem o CNPJ aparece), 5 das 11 páginas principais estão “em construção” e há contradições de dados que uma due diligence encontra em minutos.</p>
+    <p>Na segurança, o site em si está bem protegido. Os riscos estão em volta dele: o e-mail do domínio pode ser falsificado, o banco de dados do WordPress antigo continua na hospedagem e as contas que controlam o site precisam de verificação em duas etapas.</p>
+    <p>A boa notícia: metade das correções a Ousadia faz sozinha em poucos dias. A outra metade depende de documentos e decisões da Associação.</p>
+  </div>
+
+  <div class="notas" aria-label="Notas Lighthouse">
+    <div class="nota ruim"><strong>74</strong><span>Desempenho no celular (meta: 90+)</span></div>
+    <div class="nota bom"><strong>100</strong><span>Desempenho no computador</span></div>
+    <div class="nota bom"><strong>100</strong><span>Acessibilidade</span></div>
+    <div class="nota bom"><strong>100</strong><span>SEO técnico</span></div>
+    <div class="nota"><strong>96</strong><span>Boas práticas (erros no console)</span></div>
+  </div>
+
+  <div class="forcas">
+    <h3>O que já está em nível internacional</h3>
+    <ul>
+      <li>Acessibilidade 100: textos alternativos em todas as fotos, foco de teclado visível, link “pular para o conteúdo”, contraste AA em toda a paleta.</li>
+      <li>Fotos reais da TI e das pessoas, sem imagem gerada por IA; grafismos derivados do próprio logo e validados pela Associação.</li>
+      <li>Endereços do site antigo redirecionados (nenhum link compartilhado quebrou), https forçado, cabeçalhos de segurança, nenhum link interno quebrado.</li>
+      <li>Layout estável (CLS 0), página de erro própria, newsletter com consentimento registrado (LGPD).</li>
+    </ul>
+  </div>
+
+  <h2>1. Bloqueadores para o mercado internacional</h2>
+  <p class="sub">Sem estes cinco, o site não passa por uma triagem de fundo internacional, comprador de comércio justo ou parceiro institucional.</p>
+
+  <article class="achado">
+    <div class="achado__topo"><span class="tag p0">P0</span><span class="tag dono">Ousadia</span><span class="tag dono bere">Berê</span><h3>Não existe versão em inglês, e o seletor “PT · EN” não funciona</h3></div>
+    <div class="achado__corpo">
+      <p class="evid">O cabeçalho mostra “PT · EN” em todas as páginas, mas é texto parado: quem clica em “EN” não vai a lugar nenhum. Para um visitante estrangeiro, parece um site quebrado. Não há marcação de idiomas (hreflang).</p>
+      <p class="prop"><strong>Proposta:</strong> tirar o “EN” agora, até a versão existir. Depois, criar <code>/en/</code> com as páginas essenciais (início, sobre, projetos, apoie, transparência, contato), tradução profissional revisada pela Berê, termos Mẽbêngôkre mantidos no original com explicação. Espanhol é um bom terceiro idioma pela rede amazônica.</p>
+    </div>
+  </article>
+
+  <article class="achado">
+    <div class="achado__topo"><span class="tag p0">P0</span><span class="tag dono bere">Berê</span><span class="tag dono">Ousadia</span><h3>O botão “Apoie” está em todo o site, mas não há como doar</h3></div>
+    <div class="achado__corpo">
+      <p class="evid">O botão vermelho do cabeçalho leva a uma página com aviso de construção. Não há PIX, conta bancária, cartão, nem meio internacional. Isso frustra justamente quem já decidiu ajudar.</p>
+      <p class="prop"><strong>Proposta:</strong> 1) PIX e dados bancários (com SWIFT para transferência internacional) assim que a Berê enviar; 2) doação online em dólar e euro por um serviço que aceite ONG brasileira (PayPal Doações, Stripe via plataforma de doação, ou parceria com fiscal sponsor nos EUA para recibo dedutível); 3) explicar para onde vai o dinheiro, com valores de referência (“R$ 100 compram…”), só com números que a Associação confirme.</p>
+    </div>
+  </article>
+
+  <article class="achado">
+    <div class="achado__topo"><span class="tag p0">P0</span><span class="tag dono bere">Berê</span><h3>Transparência vazia e nenhuma identificação legal no site</h3></div>
+    <div class="achado__corpo">
+      <p class="evid">Razão social completa e CNPJ não aparecem em nenhuma página. A Transparência só tem o aviso de construção e a lista de parceiros. Financiadores internacionais fazem due diligence antes do primeiro contato: sem estatuto, ata da diretoria e prestação de contas, a conversa não começa.</p>
+      <p class="prop"><strong>Proposta:</strong> CNPJ e razão social no rodapé e no contato. Na Transparência: estatuto, ata de eleição da diretoria com mandato, relatório anual, prestação de contas por projeto (valor, financiador, período, resultado), e uma política de salvaguarda (proteção de crianças e de dados), que fundos internacionais exigem.</p>
+    </div>
+  </article>
+
+  <article class="achado">
+    <div class="achado__topo"><span class="tag p0">P0</span><span class="tag dono bere">Berê</span><span class="tag dono">Ousadia</span><h3>5 das 11 páginas principais estão “em construção”</h3></div>
+    <div class="achado__corpo">
+      <p class="evid">Cultura (6 dos 8 temas), Território (aldeias), Conteúdos, Transparência e Apoie. Para quem chega de fora, o site parece abandonado ou recém-começado.</p>
+      <p class="prop"><strong>Proposta:</strong> aprovar os textos de Cultura já entregues (documento de revisão), listar as aldeias e enquanto faltar conteúdo, esconder do menu as páginas vazias em vez de mostrar o aviso. Um site menor e completo convence mais que um grande e incompleto.</p>
+    </div>
+  </article>
+
+  <article class="achado">
+    <div class="achado__topo"><span class="tag p0">P0</span><span class="tag dono bere">Berê</span><span class="tag dono">Ousadia</span><h3>Contradições de dados e um mapa publicado sem crédito</h3></div>
+    <div class="achado__corpo">
+      <p class="evid">O site diz “16 aldeias representadas”, mas o mapa publicado em Território marca 7 aldeias da Associação (Krãnh, Kenoro, Prindjãm, Kameredjãm, Krimei, Kabakro e Kenkudjoy). Fontes públicas falam em mais de 30 aldeias e cerca de 2.200 Xikrin na TI Trincheira-Bacajá; o site diz 387 pessoas. Os números podem estar certos para a base da Associação, mas sem contexto parecem errados. O mapa tem autoria (“POJO S., Pedro Rafael / 2021”) e aparece sem crédito: risco de direito autoral.</p>
+      <p class="prop"><strong>Proposta:</strong> explicar o escopo (“16 das X aldeias da TI, com 387 pessoas e 111 famílias associadas”), atualizar o mapa ou dizer que é de 2021, e creditar o autor com autorização. Toda afirmação numérica do site deve ter data e fonte.</p>
+    </div>
+  </article>
+
+  <h2>2. Conteúdo e narrativa</h2>
+
+  <article class="achado">
+    <div class="achado__topo"><span class="tag p1">P1</span><span class="tag dono bere">Berê</span><h3>Falta a voz das pessoas</h3></div>
+    <div class="achado__corpo">
+      <p class="evid">Só há uma citação, atribuída à Associação em geral. Nenhuma liderança, menire ou jovem fala em primeira pessoa. Para o público internacional, protagonismo indígena se prova com vozes nomeadas.</p>
+      <p class="prop"><strong>Proposta:</strong> 3 a 5 depoimentos curtos com nome, foto e cargo (presidente, uma artesã, um jovem do monitoramento), gravados em vídeo de 30 a 60 s no YouTube da Berê, com legenda em português e inglês.</p>
+    </div>
+  </article>
+
+  <article class="achado">
+    <div class="achado__topo"><span class="tag p1">P1</span><span class="tag dono bere">Berê</span><span class="tag dono">Ousadia</span><h3>Projetos contam o que foi feito, mas não o resultado</h3></div>
+    <div class="achado__corpo">
+      <p class="evid">As páginas de projeto não têm indicadores, orçamento, documentos nem atualizações. Belo Monte, tema delicado, não tem links para fontes.</p>
+      <p class="prop"><strong>Proposta:</strong> ficha padrão por projeto: objetivo, período, financiador, valor, 3 indicadores de resultado, próximos passos, relatório em PDF. Belo Monte com linha do tempo e referências (licenciamento, PBA-CI) num tom firme e factual.</p>
+    </div>
+  </article>
+
+  <article class="achado">
+    <div class="achado__topo"><span class="tag p1">P1</span><span class="tag dono">Ousadia</span><span class="tag dono bere">Berê</span><h3>Notícias sem página própria e canal de vídeo sem uso</h3></div>
+    <div class="achado__corpo">
+      <p class="evid">Duas notícias, sem link para ler mais. O YouTube da Berê não aparece incorporado em nenhuma página. Parceiros aparecem só como texto, sem logo nem link.</p>
+      <p class="prop"><strong>Proposta:</strong> sistema de notícias com página própria (já usado no site da Ousadia), uma por mês no mínimo; relato da expedição de outubro como primeira; vídeos incorporados de forma leve; parceiros com logo e link, mediante autorização.</p>
+    </div>
+  </article>
+
+  <article class="achado">
+    <div class="achado__topo"><span class="tag p2">P2</span><span class="tag dono">Ousadia</span><span class="tag dono bere">Berê</span><h3>Glossário Mẽbêngôkre, produtos e governança</h3></div>
+    <div class="achado__corpo">
+      <p class="prop"><strong>Glossário</strong> (Ngàb, Kukradjà, Kubengêt, kuben, menire), que valoriza a língua e orienta o estrangeiro. <strong>Produtos:</strong> para compradores internacionais, origem, volume, sazonalidade e um formulário de interesse para atacado, antes mesmo da loja. <strong>Governança:</strong> como a Associação decide (assembleias, Ngàb), mandato da diretoria, foto do Koitunggri.</p>
+    </div>
+  </article>
+
+  <h2>3. Design</h2>
+
+  <article class="achado">
+    <div class="achado__topo"><span class="tag p1">P1</span><span class="tag dono">Ousadia</span><h3>Mesma foto de capa em cinco páginas</h3></div>
+    <div class="achado__corpo">
+      <p class="evid">Apoie, Transparência, Conteúdos, Contato e Privacidade abrem com a mesma foto da aldeia ao entardecer, que também é a da home. A navegação perde ritmo e sensação de lugar.</p>
+      <p class="prop"><strong>Proposta:</strong> uma foto por página, do acervo (ex.: Apoie com as menire; Transparência com reunião na Ngàb; Contato com o rio). Nas páginas institucionais curtas, um cabeçalho mais baixo.</p>
+    </div>
+  </article>
+
+  <article class="achado">
+    <div class="achado__topo"><span class="tag p1">P1</span><span class="tag dono">Ousadia</span><h3>Galeria abre a foto crua em outra aba</h3></div>
+    <div class="achado__corpo">
+      <p class="evid">Clicar numa foto de projeto abre o arquivo solto numa aba nova, sem legenda e sem voltar ao site.</p>
+      <p class="prop"><strong>Proposta:</strong> visualizador em tela cheia, acessível por teclado, com legenda, crédito e setas para a próxima foto.</p>
+    </div>
+  </article>
+
+  <article class="achado">
+    <div class="achado__topo"><span class="tag p2">P2</span><span class="tag dono">Ousadia</span><h3>Detalhes de acabamento</h3></div>
+    <div class="achado__corpo">
+      <p class="prop"><strong>Logo:</strong> no cabeçalho, com 44 px de altura, o selo fica ilegível; no celular, usar só o nome “Berê Xikrin”. <strong>Ícone do navegador:</strong> o selo detalhado vira uma mancha em 16 px; criar um ícone simplificado. <strong>Ícones das redes:</strong> o do TikTok, desenhado à mão, não é reconhecido de imediato; usar os desenhos padrão das redes. <strong>Marca d'água:</strong> em todas as seções claras, pode virar padrão repetitivo; alternar ou reservar para aberturas. <strong>Grades:</strong> card sozinho na última linha da Transparência; diretoria com “Foto em breve” (usar iniciais).</p>
+    </div>
+  </article>
+
+  <h2>4. Usabilidade</h2>
+
+  <article class="achado">
+    <div class="achado__topo"><span class="tag p1">P1</span><span class="tag dono">Ousadia</span><span class="tag dono bere">Berê</span><h3>Contato só por e-mail pessoal, e newsletter ainda desligada</h3></div>
+    <div class="achado__corpo">
+      <p class="evid">O único canal é um e-mail @gmail.com. Não há formulário, telefone, WhatsApp institucional nem fuso horário. A newsletter mostra o aviso de que está sendo ligada (falta liberar o acesso público no Apps Script).</p>
+      <p class="prop"><strong>Proposta:</strong> e-mail no próprio domínio (contato@berexikrin.org.br, incluso na Hostinger), que passa muito mais credibilidade lá fora; formulário de contato com assunto (imprensa, parceria, compras, doação); WhatsApp institucional; idiomas de atendimento e fuso (Brasília, UTC−3). Ligar a newsletter.</p>
+    </div>
+  </article>
+
+  <article class="achado">
+    <div class="achado__topo"><span class="tag p2">P2</span><span class="tag dono">Ousadia</span><h3>Pequenos atritos de navegação</h3></div>
+    <div class="achado__corpo">
+      <p class="prop">“Mapa do site” no rodapé abre um arquivo XML técnico: trocar por página legível ou remover. “Projetos” no menu do computador só abre o submenu com clique; abrir também ao passar o mouse. Cards de notícia não são clicáveis. Páginas longas de projeto sem atalho de volta à lista.</p>
+    </div>
+  </article>
+
+  <h2>5. Desempenho, SEO e técnica</h2>
+
+  <div class="tabela">
+    <table>
+      <thead><tr><th>Página</th><th>Desempenho celular</th><th>Conteúdo principal visível (celular)</th><th>Peso total</th><th>Computador</th></tr></thead>
+      <tbody>
+        <tr><td>Início</td><td class="num ruim">74</td><td class="num ruim">7,8 s</td><td class="num">2,0 MB</td><td class="num bom">100</td></tr>
+        <tr><td>Sobre</td><td class="num ruim">74</td><td class="num ruim">7,5 s</td><td class="num">1,7 MB</td><td class="num bom">100</td></tr>
+        <tr><td>Casa do Guerreiro</td><td class="num ruim">74</td><td class="num ruim">7,1 s</td><td class="num">1,6 MB</td><td class="num bom">100</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="sub" style="margin-top:8px">Meta do Google para “conteúdo principal visível” (LCP): até 2,5 s. Medido com Lighthouse 12, simulando 4G.</p>
+
+  <article class="achado">
+    <div class="achado__topo"><span class="tag p0">P0</span><span class="tag dono">Ousadia</span><h3>Fotos em tamanho de computador sendo baixadas no celular</h3></div>
+    <div class="achado__corpo">
+      <p class="evid">A foto de abertura (1920 px) é a mesma no celular. A aldeia vista de cima pesa 727 KB para aparecer com ~460 px; a da Ngàb, 459 KB; o mapa, 402 KB. Economia estimada pelo Lighthouse: cerca de 1 MB na home. Grande parte do público estará em conexões lentas, inclusive nas aldeias.</p>
+      <p class="prop"><strong>Proposta:</strong> gerar cada foto em 4 larguras (640, 960, 1280, 1920) e deixar o navegador escolher; capas internas em no máximo 1280 px. Meta: desempenho no celular acima de 90.</p>
+    </div>
+  </article>
+
+  <article class="achado">
+    <div class="achado__topo"><span class="tag p1">P1</span><span class="tag dono">Ousadia</span><h3>Erros no console e compartilhamento em redes</h3></div>
+    <div class="achado__corpo">
+      <p class="evid">Cada página gera dois erros 404: o Next pede arquivos de pré-carregamento com nome diferente do que a exportação grava, e não existe <code>/favicon.ico</code>. A imagem de compartilhamento é a mesma em todas as páginas e está em WebP, que LinkedIn e versões do WhatsApp não exibem. Nenhuma página declara endereço canônico. O título da página de Belo Monte carrega um caractere invisível. Os títulos são curtos (“Sobre | Berê Xikrin”).</p>
+      <p class="prop"><strong>Proposta:</strong> regra no .htaccess para os arquivos de pré-carregamento; favicon.ico; imagem de compartilhamento JPG 1200×630 por página, com título e foto do tema; canônico em todas as páginas; títulos com “Associação Indígena Berê Xikrin”; dados estruturados de projetos e notícias.</p>
+    </div>
+  </article>
+
+  <article class="achado">
+    <div class="achado__topo"><span class="tag p2">P2</span><span class="tag dono">Ousadia</span><span class="tag dono bere">Berê</span><h3>Medição e presença em buscadores</h3></div>
+    <div class="achado__corpo">
+      <p class="prop">Cadastrar o site no Google Search Console e no Bing; medir visitas com uma ferramenta que respeite a privacidade (sem cookies) para saber de onde vêm os visitantes estrangeiros; política de privacidade em inglês com identificação do controlador dos dados (razão social e CNPJ), exigência do GDPR para doadores europeus.</p>
+    </div>
+  </article>
+
+  <h2>6. Segurança</h2>
+  <p class="sub">Site estático (sem banco de dados, sem painel de login, sem código rodando no servidor): a superfície de ataque é pequena. Os riscos que sobram estão nas contas, no e-mail do domínio e nos restos do WordPress.</p>
+
+  <div class="tabela">
+    <table>
+      <thead><tr><th>Item verificado</th><th>Situação</th><th>Detalhe</th></tr></thead>
+      <tbody>
+        <tr><td>Conexão segura (https)</td><td class="bom">OK</td><td>TLS 1.2 e 1.3, certificado Let's Encrypt válido até 11/01/2027 (renovação automática), http redireciona para https, HSTS de 1 ano.</td></tr>
+        <tr><td>Cabeçalhos de proteção</td><td class="bom">OK</td><td>nosniff, proteção contra o site ser embutido em outro (X-Frame-Options), Referrer-Policy e Permissions-Policy ativos. CSP ainda mínima.</td></tr>
+        <tr><td>Arquivos sensíveis expostos</td><td class="bom">OK</td><td>.git, .env e .htaccess bloqueados (403); pastas não listam conteúdo; nenhum zip ou código-fonte publicado; wp-login e wp-admin redirecionam para a home.</td></tr>
+        <tr><td>Scripts de terceiros</td><td class="bom">OK</td><td>Nenhum: fontes e imagens servidas pelo próprio site, sem rastreadores.</td></tr>
+        <tr><td>Dependências do site</td><td class="bom">OK</td><td>0 vulnerabilidades nas bibliotecas que vão ao ar. A ferramenta local de imagens (sharp) tem alerta alto; não vai ao ar, mas deve ser atualizada.</td></tr>
+        <tr><td>E-mail do domínio contra falsificação</td><td class="ruim">Corrigir</td><td>Sem assinatura DKIM e com DMARC em “p=none”: hoje alguém pode mandar e-mail se passando por @berexikrin.org.br (golpe de doação, por exemplo).</td></tr>
+        <tr><td>Restos do WordPress</td><td class="ruim">Corrigir</td><td>O banco de dados do WordPress continua na Hostinger, com usuários e senhas; o site ainda aparece conectado pelo Jetpack na conta WordPress.com; a senha do usuário “xikrinbere” foi compartilhada em conversa. O backup no computador contém o wp-config.php com a senha do banco.</td></tr>
+        <tr><td>Contas que controlam o site</td><td class="ruim">Verificar</td><td>Hostinger, GitHub (OUSADIAMKT e xikrinbere), Google (xikrinbere@gmail.com) e Registro.br: cada uma, se invadida, derruba ou sequestra o site. Confirmar verificação em duas etapas em todas.</td></tr>
+        <tr><td>Newsletter (Apps Script)</td><td>Atenção</td><td>Endereço público por natureza. Já valida dados, bloqueia fórmulas e tem isca contra robôs; falta limite de cadastros por hora para impedir que alguém encha a planilha.</td></tr>
+        <tr><td>Registro CAA e security.txt</td><td>Atenção</td><td>Sem registro CAA (qualquer autoridade pode emitir certificado para o domínio) e sem /.well-known/security.txt para quem quiser reportar falhas.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <article class="achado">
+    <div class="achado__topo"><span class="tag p0">P0</span><span class="tag dono bere">Berê</span><span class="tag dono">Ousadia</span><h3>Fechar os restos do WordPress e proteger as contas</h3></div>
+    <div class="achado__corpo">
+      <p class="prop"><strong>Proposta:</strong> 1) guardar o backup do WordPress num lugar seguro (pasta compactada com senha, fora da área de trabalho) e então apagar o banco de dados antigo na Hostinger; 2) remover o site da conta WordPress.com (desconectar o Jetpack); 3) trocar a senha da conta Google, Hostinger e GitHub se tiverem sido reaproveitadas; 4) ativar verificação em duas etapas em Hostinger, GitHub (as duas contas), Google e Registro.br, com códigos de recuperação guardados pela diretoria; 5) conferir no Registro.br se o domínio está em nome da Associação (CNPJ), com renovação automática.</p>
+    </div>
+  </article>
+
+  <article class="achado">
+    <div class="achado__topo"><span class="tag p1">P1</span><span class="tag dono">Ousadia</span><span class="tag dono bere">Berê</span><h3>Blindar o e-mail do domínio e completar os cabeçalhos</h3></div>
+    <div class="achado__corpo">
+      <p class="prop"><strong>Proposta:</strong> ativar DKIM no e-mail da Hostinger; DMARC em “quarantine” com relatórios para o e-mail da Associação (depois “reject”); SPF em “-all”. Registro CAA autorizando só a Let's Encrypt. Política de segurança de conteúdo (CSP) completa, liberando só o próprio site e o endereço da newsletter, testada antes de publicar. HSTS com subdomínios. Arquivo security.txt. Limite de cadastros por hora na newsletter. Atualizar a ferramenta local de imagens.</p>
+    </div>
+  </article>
+
+  <h2>7. Plano de ação</h2>
+  <div class="fases">
+    <div class="fase">
+      <span class="tag p0" style="justify-self:start">Fase 1 · esta semana</span>
+      <h3>O que a Ousadia faz sozinha</h3>
+      <ol>
+        <li>Fotos responsivas (meta celular 90+)</li>
+        <li>Tirar o “EN” até a versão existir</li>
+        <li>Crédito do mapa e data “2021”</li>
+        <li>Corrigir erros 404, favicon, canônico, títulos</li>
+        <li>Imagens de compartilhamento por página</li>
+        <li>Uma foto de capa por página</li>
+        <li>Visualizador de galeria</li>
+        <li>Esconder do menu páginas vazias</li>
+        <li>Trocar “Mapa do site”, ícones das redes, ícone do navegador</li>
+        <li>CSP completa, HSTS com subdomínios, security.txt, limite na newsletter</li>
+      </ol>
+      <p class="quem">Sem depender de material da Associação.</p>
+    </div>
+    <div class="fase">
+      <span class="tag p1" style="justify-self:start">Fase 2 · depende da Berê</span>
+      <h3>Confiança e doação</h3>
+      <ol>
+        <li>CNPJ, razão social, estatuto, ata, relatório anual</li>
+        <li>PIX, conta bancária com SWIFT, decisão sobre doação internacional</li>
+        <li>Aprovação dos textos de Cultura</li>
+        <li>Lista das aldeias e números com escopo e data</li>
+        <li>Autorização do autor do mapa</li>
+        <li>E-mail no domínio e WhatsApp institucional</li>
+        <li>Liberar o acesso público da newsletter</li>
+        <li>Apagar o banco do WordPress, desconectar o Jetpack, verificação em duas etapas em todas as contas</li>
+        <li>DKIM, DMARC e CAA no painel de DNS da Hostinger (a Ousadia orienta)</li>
+      </ol>
+      <p class="quem">A Ousadia publica assim que os materiais chegarem.</p>
+    </div>
+    <div class="fase">
+      <span class="tag p2" style="justify-self:start">Fase 3 · lançamento internacional</span>
+      <h3>Inglês e narrativa</h3>
+      <ol>
+        <li>Versão em inglês das páginas essenciais</li>
+        <li>Depoimentos em vídeo com legenda</li>
+        <li>Fichas de resultado por projeto</li>
+        <li>Notícias mensais e vídeos incorporados</li>
+        <li>Parceiros com logo; política de salvaguarda</li>
+        <li>Página para compradores de produtos</li>
+        <li>Search Console e medição de visitas</li>
+      </ol>
+      <p class="quem">Ousadia e Berê juntas.</p>
+    </div>
+  </div>
+
+  <p class="rodape">Método: inspeção das 18 páginas publicadas em berexikrin.org.br; Lighthouse 12 em início, Sobre e Casa do Guerreiro (perfis celular e computador); varredura de títulos, descrições, cabeçalhos, imagens, links e metadados; revisão visual a 1440 e 390 px. Fontes dos números da TI: Povos Indígenas no Brasil (ISA) e estudos acadêmicos citados na pesquisa de conteúdo.</p>
+</div>
