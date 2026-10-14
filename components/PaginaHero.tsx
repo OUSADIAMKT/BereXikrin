@@ -1,6 +1,5 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { Divisor } from "@/components/Divisor";
 
 type Props = {
   rotulo: string;
@@ -10,7 +9,7 @@ type Props = {
   trilha?: { rotulo: string; href: string }[];
 };
 
-/** Abertura das páginas internas: foto escurecida, trilha, título e o divisor. */
+/** Abertura das páginas internas: foto escurecida, trilha e título. */
 export function PaginaHero({
   rotulo,
   titulo,
@@ -19,7 +18,6 @@ export function PaginaHero({
   trilha = [],
 }: Props) {
   return (
-    <>
       <section className="pagina-hero sobre-foto">
         <img src={foto} alt="" />
         <div className="container">
@@ -37,7 +35,5 @@ export function PaginaHero({
           {lead && <p className="lead">{lead}</p>}
         </div>
       </section>
-      <Divisor />
-    </>
   );
 }

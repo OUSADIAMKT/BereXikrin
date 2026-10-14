@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { CardProjeto } from "@/components/CardProjeto";
-import { Divisor } from "@/components/Divisor";
 import { CREDITO_FOTO, DESTAQUES_HOME, NOTICIAS, NUMEROS, PARCEIROS, PROJETOS, REDES } from "@/lib/site";
 
 export default function Home() {
@@ -38,7 +37,6 @@ export default function Home() {
           <p className="credito">Aldeia na TI Trincheira-Bacajá, set/2026 · {CREDITO_FOTO}</p>
         </div>
       </section>
-      <Divisor />
 
       {/* 2 e 4. Apresentação e quem somos */}
       <section className="secao" aria-labelledby="t-quem">
@@ -94,7 +92,6 @@ export default function Home() {
           ))}
         </div>
       </section>
-      <Divisor />
 
       {/* 5. Projetos em destaque */}
       <section className="secao" aria-labelledby="t-projetos">
@@ -120,7 +117,6 @@ export default function Home() {
 
       {/* 6. Cultura */}
       <section className="escuro secao faixa-cultura" aria-labelledby="t-cultura">
-        <div className="fundo graf graf--listras" aria-hidden="true" />
         <div className="container duas-colunas">
           <div>
             <span className="eyebrow">Cultura</span>
@@ -153,7 +149,6 @@ export default function Home() {
           />
         </div>
       </section>
-      <Divisor />
 
       {/* 7. Notícias */}
       <section className="secao" aria-labelledby="t-noticias">

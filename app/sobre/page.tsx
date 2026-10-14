@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Divisor } from "@/components/Divisor";
 import { PaginaHero } from "@/components/PaginaHero";
 
 export const metadata: Metadata = {
@@ -81,7 +80,6 @@ export default function Sobre() {
           </p>
         </div>
       </section>
-      <Divisor />
 
       <section className="secao" aria-labelledby="t-associacao">
         <div className="container prosa">

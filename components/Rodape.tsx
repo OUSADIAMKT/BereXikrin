@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Divisor } from "@/components/Divisor";
 import { IconeRede } from "@/components/IconeRede";
 import { Newsletter } from "@/components/Newsletter";
 import { MENU, REDES, SITE } from "@/lib/site";
@@ -18,7 +17,6 @@ export function Rodape() {
       className="escuro rodape"
       style={{ ["--fundo-rodape" as string]: "url(/img/capas/aldeia-aerea.webp)" }}
     >
-      <Divisor />
       <div className="container">
         <div className="rodape__grade">
           <div className="rodape__marca">

@@ -205,3 +205,29 @@ main { flex: 1; }
 .rodape__links { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .rodape__contato { grid-column: 1 / -1; }
 .rodape__contato a { overflow-wrap: normal; word-break: normal; }
+
+/* ===== Grafismo só como marca d'água (decisão do cliente em 14/10/2026) =====
+   A Fita do R saiu das costuras entre seções. O grafismo fica no fundo de cada
+   seção, grande e quase transparente, esmaecendo para um dos lados.
+   Claras: quadrados concêntricos do selo, surgindo pela direita.
+   Escuras: listras em V do centro do selo, surgindo pela esquerda. */
+.secao { position: relative; isolation: isolate; }
+.secao::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background-color: var(--jenipapo); opacity: 0.045;
+  -webkit-mask-image: var(--graf-quadrados), linear-gradient(90deg, transparent 40%, #000 100%);
+          mask-image: var(--graf-quadrados), linear-gradient(90deg, transparent 40%, #000 100%);
+  -webkit-mask-size: 96px auto, 100% 100%; mask-size: 96px auto, 100% 100%;
+  -webkit-mask-repeat: repeat, no-repeat; mask-repeat: repeat, no-repeat;
+  -webkit-mask-composite: source-in; mask-composite: intersect;
+}
+.escuro.secao::before {
+  background-color: var(--palha); opacity: 0.07;
+  -webkit-mask-image: var(--graf-listras), linear-gradient(270deg, transparent 35%, #000 100%);
+          mask-image: var(--graf-listras), linear-gradient(270deg, transparent 35%, #000 100%);
+  -webkit-mask-size: 72px auto, 100% 100%; mask-size: 72px auto, 100% 100%;
+}
+@supports not ((mask-composite: intersect) or (-webkit-mask-composite: source-in)) { .secao::before { display: none; } }
+
+/* A tira de zigue-zague dos cards era o mesmo grafismo da faixa: sai também. */
+.card::before { display: none; }

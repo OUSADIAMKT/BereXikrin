@@ -9,6 +9,7 @@
 | 13/10/2026 | Mapa do site aprovado (`mapa-do-site.md`). **Belo Monte vai dentro do menu Projetos.** |
 | 13/10/2026 | **Produtos e Loja** entram no site. No lançamento, catálogo com "em breve"; a venda abre logo depois. |
 | 13/10/2026 | Números da home confirmados: 16 aldeias · 387 pessoas · 111 famílias. |
+| 14/10/2026 | **Grafismo só como marca d'água.** A faixa "Fita do R" saiu das costuras entre seções (e do topo dos cards); cada seção tem o grafismo no fundo, grande e quase transparente: quadrados do selo nas claras, listras em V nas escuras. Rótulos e marcadores de lista continuam. |
 | 14/10/2026 | **Rodapé novo** inspirado no Fundo Brasil: marca, redes em ícones redondos, links, contato e newsletter (nome, e-mail, consentimento LGPD) sobre foto da aldeia escurecida. Política de privacidade atualizada para a newsletter. |
 | 13/10/2026 | **No ar, só conteúdo do site antigo.** Rascunhos de Cultura (revisado: false) e o parágrafo das menire ficam fora até a Associação aprovar; a página Cultura publica só os temas revisados. |
 | 13/10/2026 | **Conteúdo antes de subir:** fotos reais do site antigo em todo o site (galeria por projeto, diretoria com fotos, Plano de Vida, mapa da TI, artesanato das menire, capas); rascunhos de Cultura. A branch deploy NÃO foi atualizada: ainda tem a versão anterior. |
