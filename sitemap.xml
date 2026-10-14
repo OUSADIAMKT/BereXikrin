@@ -1,60 +1,193 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 <url>
 <loc>https://berexikrin.org.br/</loc>
+<xhtml:link rel="alternate" hreflang="pt-BR" href="https://berexikrin.org.br/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://berexikrin.org.br/en/" />
+</url>
+<url>
+<loc>https://berexikrin.org.br/en/</loc>
+<xhtml:link rel="alternate" hreflang="pt-BR" href="https://berexikrin.org.br/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://berexikrin.org.br/en/" />
 </url>
 <url>
 <loc>https://berexikrin.org.br/sobre/</loc>
+<xhtml:link rel="alternate" hreflang="pt-BR" href="https://berexikrin.org.br/sobre/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://berexikrin.org.br/en/about/" />
+</url>
+<url>
+<loc>https://berexikrin.org.br/en/about/</loc>
+<xhtml:link rel="alternate" hreflang="pt-BR" href="https://berexikrin.org.br/sobre/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://berexikrin.org.br/en/about/" />
 </url>
 <url>
 <loc>https://berexikrin.org.br/cultura/</loc>
+<xhtml:link rel="alternate" hreflang="pt-BR" href="https://berexikrin.org.br/cultura/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://berexikrin.org.br/en/culture/" />
+</url>
+<url>
+<loc>https://berexikrin.org.br/en/culture/</loc>
+<xhtml:link rel="alternate" hreflang="pt-BR" href="https://berexikrin.org.br/cultura/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://berexikrin.org.br/en/culture/" />
 </url>
 <url>
 <loc>https://berexikrin.org.br/territorio/</loc>
+<xhtml:link rel="alternate" hreflang="pt-BR" href="https://berexikrin.org.br/territorio/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://berexikrin.org.br/en/territory/" />
+</url>
+<url>
+<loc>https://berexikrin.org.br/en/territory/</loc>
+<xhtml:link rel="alternate" hreflang="pt-BR" href="https://berexikrin.org.br/territorio/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://berexikrin.org.br/en/territory/" />
 </url>
 <url>
 <loc>https://berexikrin.org.br/projetos/</loc>
+<xhtml:link rel="alternate" hreflang="pt-BR" href="https://berexikrin.org.br/projetos/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://berexikrin.org.br/en/projects/" />
+</url>
+<url>
+<loc>https://berexikrin.org.br/en/projects/</loc>
+<xhtml:link rel="alternate" hreflang="pt-BR" href="https://berexikrin.org.br/projetos/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://berexikrin.org.br/en/projects/" />
 </url>
 <url>
 <loc>https://berexikrin.org.br/produtos/</loc>
+<xhtml:link rel="alternate" hreflang="pt-BR" href="https://berexikrin.org.br/produtos/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://berexikrin.org.br/en/products/" />
+</url>
+<url>
+<loc>https://berexikrin.org.br/en/products/</loc>
+<xhtml:link rel="alternate" hreflang="pt-BR" href="https://berexikrin.org.br/produtos/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://berexikrin.org.br/en/products/" />
 </url>
 <url>
 <loc>https://berexikrin.org.br/conteudos/</loc>
+<xhtml:link rel="alternate" hreflang="pt-BR" href="https://berexikrin.org.br/conteudos/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://berexikrin.org.br/en/news/" />
+</url>
+<url>
+<loc>https://berexikrin.org.br/en/news/</loc>
+<xhtml:link rel="alternate" hreflang="pt-BR" href="https://berexikrin.org.br/conteudos/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://berexikrin.org.br/en/news/" />
 </url>
 <url>
 <loc>https://berexikrin.org.br/transparencia/</loc>
+<xhtml:link rel="alternate" hreflang="pt-BR" href="https://berexikrin.org.br/transparencia/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://berexikrin.org.br/en/transparency/" />
+</url>
+<url>
+<loc>https://berexikrin.org.br/en/transparency/</loc>
+<xhtml:link rel="alternate" hreflang="pt-BR" href="https://berexikrin.org.br/transparencia/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://berexikrin.org.br/en/transparency/" />
 </url>
 <url>
 <loc>https://berexikrin.org.br/apoie/</loc>
+<xhtml:link rel="alternate" hreflang="pt-BR" href="https://berexikrin.org.br/apoie/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://berexikrin.org.br/en/support/" />
+</url>
+<url>
+<loc>https://berexikrin.org.br/en/support/</loc>
+<xhtml:link rel="alternate" hreflang="pt-BR" href="https://berexikrin.org.br/apoie/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://berexikrin.org.br/en/support/" />
 </url>
 <url>
 <loc>https://berexikrin.org.br/contato/</loc>
+<xhtml:link rel="alternate" hreflang="pt-BR" href="https://berexikrin.org.br/contato/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://berexikrin.org.br/en/contact/" />
+</url>
+<url>
+<loc>https://berexikrin.org.br/en/contact/</loc>
+<xhtml:link rel="alternate" hreflang="pt-BR" href="https://berexikrin.org.br/contato/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://berexikrin.org.br/en/contact/" />
 </url>
 <url>
 <loc>https://berexikrin.org.br/privacidade/</loc>
+<xhtml:link rel="alternate" hreflang="pt-BR" href="https://berexikrin.org.br/privacidade/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://berexikrin.org.br/en/privacy/" />
+</url>
+<url>
+<loc>https://berexikrin.org.br/en/privacy/</loc>
+<xhtml:link rel="alternate" hreflang="pt-BR" href="https://berexikrin.org.br/privacidade/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://berexikrin.org.br/en/privacy/" />
 </url>
 <url>
 <loc>https://berexikrin.org.br/glossario/</loc>
+<xhtml:link rel="alternate" hreflang="pt-BR" href="https://berexikrin.org.br/glossario/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://berexikrin.org.br/en/glossary/" />
+</url>
+<url>
+<loc>https://berexikrin.org.br/en/glossary/</loc>
+<xhtml:link rel="alternate" hreflang="pt-BR" href="https://berexikrin.org.br/glossario/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://berexikrin.org.br/en/glossary/" />
 </url>
 <url>
 <loc>https://berexikrin.org.br/projetos/belo-monte/</loc>
+<xhtml:link rel="alternate" hreflang="pt-BR" href="https://berexikrin.org.br/projetos/belo-monte/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://berexikrin.org.br/en/projects/belo-monte/" />
+</url>
+<url>
+<loc>https://berexikrin.org.br/en/projects/belo-monte/</loc>
+<xhtml:link rel="alternate" hreflang="pt-BR" href="https://berexikrin.org.br/projetos/belo-monte/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://berexikrin.org.br/en/projects/belo-monte/" />
 </url>
 <url>
 <loc>https://berexikrin.org.br/projetos/restaura-amazonia/</loc>
+<xhtml:link rel="alternate" hreflang="pt-BR" href="https://berexikrin.org.br/projetos/restaura-amazonia/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://berexikrin.org.br/en/projects/restaura-amazonia/" />
+</url>
+<url>
+<loc>https://berexikrin.org.br/en/projects/restaura-amazonia/</loc>
+<xhtml:link rel="alternate" hreflang="pt-BR" href="https://berexikrin.org.br/projetos/restaura-amazonia/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://berexikrin.org.br/en/projects/restaura-amazonia/" />
 </url>
 <url>
 <loc>https://berexikrin.org.br/projetos/casa-do-guerreiro/</loc>
+<xhtml:link rel="alternate" hreflang="pt-BR" href="https://berexikrin.org.br/projetos/casa-do-guerreiro/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://berexikrin.org.br/en/projects/warriors-house/" />
+</url>
+<url>
+<loc>https://berexikrin.org.br/en/projects/warriors-house/</loc>
+<xhtml:link rel="alternate" hreflang="pt-BR" href="https://berexikrin.org.br/projetos/casa-do-guerreiro/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://berexikrin.org.br/en/projects/warriors-house/" />
 </url>
 <url>
 <loc>https://berexikrin.org.br/projetos/rituais-tradicionais/</loc>
+<xhtml:link rel="alternate" hreflang="pt-BR" href="https://berexikrin.org.br/projetos/rituais-tradicionais/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://berexikrin.org.br/en/projects/traditional-rituals/" />
+</url>
+<url>
+<loc>https://berexikrin.org.br/en/projects/traditional-rituals/</loc>
+<xhtml:link rel="alternate" hreflang="pt-BR" href="https://berexikrin.org.br/projetos/rituais-tradicionais/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://berexikrin.org.br/en/projects/traditional-rituals/" />
 </url>
 <url>
 <loc>https://berexikrin.org.br/projetos/monitoramento-do-pescado/</loc>
+<xhtml:link rel="alternate" hreflang="pt-BR" href="https://berexikrin.org.br/projetos/monitoramento-do-pescado/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://berexikrin.org.br/en/projects/fish-monitoring/" />
+</url>
+<url>
+<loc>https://berexikrin.org.br/en/projects/fish-monitoring/</loc>
+<xhtml:link rel="alternate" hreflang="pt-BR" href="https://berexikrin.org.br/projetos/monitoramento-do-pescado/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://berexikrin.org.br/en/projects/fish-monitoring/" />
 </url>
 <url>
 <loc>https://berexikrin.org.br/projetos/internet-nas-aldeias/</loc>
+<xhtml:link rel="alternate" hreflang="pt-BR" href="https://berexikrin.org.br/projetos/internet-nas-aldeias/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://berexikrin.org.br/en/projects/internet-in-the-villages/" />
+</url>
+<url>
+<loc>https://berexikrin.org.br/en/projects/internet-in-the-villages/</loc>
+<xhtml:link rel="alternate" hreflang="pt-BR" href="https://berexikrin.org.br/projetos/internet-nas-aldeias/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://berexikrin.org.br/en/projects/internet-in-the-villages/" />
 </url>
 <url>
 <loc>https://berexikrin.org.br/projetos/mudas-citricas/</loc>
+<xhtml:link rel="alternate" hreflang="pt-BR" href="https://berexikrin.org.br/projetos/mudas-citricas/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://berexikrin.org.br/en/projects/citrus-seedlings/" />
+</url>
+<url>
+<loc>https://berexikrin.org.br/en/projects/citrus-seedlings/</loc>
+<xhtml:link rel="alternate" hreflang="pt-BR" href="https://berexikrin.org.br/projetos/mudas-citricas/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://berexikrin.org.br/en/projects/citrus-seedlings/" />
 </url>
 </urlset>
