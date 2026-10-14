@@ -1,6 +1,8 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { textos } from "@/lib/i18n";
+import type { Idioma } from "@/lib/rotas";
 
 type FotoVisor = { src: string; alt: string; srcSet?: string };
 
@@ -8,7 +10,8 @@ type FotoVisor = { src: string; alt: string; srcSet?: string };
  * Visualizador em tela cheia com <dialog>: Esc fecha, setas do teclado e
  * botões passam as fotos, o foco volta para a miniatura ao fechar.
  */
-export function GaleriaVisor({ fotos, credito }: { fotos: FotoVisor[]; credito: string }) {
+export function GaleriaVisor({ fotos, credito, lang = "pt" }: { fotos: FotoVisor[]; credito: string; lang?: Idioma }) {
+  const t = textos(lang);
   const [atual, setAtual] = useState<number | null>(null);
   const dialogo = useRef<HTMLDialogElement>(null);
   const origem = useRef<HTMLButtonElement | null>(null);
@@ -52,7 +55,7 @@ export function GaleriaVisor({ fotos, credito }: { fotos: FotoVisor[]; credito: 
       <ul>
         {fotos.map((f, i) => (
           <li key={f.src}>
-            <button type="button" onClick={(e) => abrir(i, e.currentTarget)} aria-label={`Ampliar: ${f.alt}`}>
+            <button type="button" onClick={(e) => abrir(i, e.currentTarget)} aria-label={`${t.ampliar}: ${f.alt}`}>
               <img
                 src={f.src}
                 srcSet={f.srcSet}
@@ -71,7 +74,7 @@ export function GaleriaVisor({ fotos, credito }: { fotos: FotoVisor[]; credito: 
       <dialog
         ref={dialogo}
         className="visor"
-        aria-label="Foto ampliada"
+        aria-label={t.fotoAmpliada}
         onClick={(e) => {
           if (e.target === e.currentTarget) fechar();
         }}
@@ -82,20 +85,20 @@ export function GaleriaVisor({ fotos, credito }: { fotos: FotoVisor[]; credito: 
             <p className="visor__legenda">
               {foto.alt}
               <span>
-                {credito} · {atual! + 1} de {fotos.length}
+                {credito} · {atual! + 1} {t.de} {fotos.length}
               </span>
             </p>
             {fotos.length > 1 && (
               <>
-                <button type="button" className="visor__seta visor__seta--ant" onClick={() => passar(-1)} aria-label="Foto anterior">
+                <button type="button" className="visor__seta visor__seta--ant" onClick={() => passar(-1)} aria-label={t.anterior}>
                   ‹
                 </button>
-                <button type="button" className="visor__seta visor__seta--prox" onClick={() => passar(1)} aria-label="Próxima foto">
+                <button type="button" className="visor__seta visor__seta--prox" onClick={() => passar(1)} aria-label={t.proxima}>
                   ›
                 </button>
               </>
             )}
-            <button type="button" className="visor__fechar" onClick={fechar} aria-label="Fechar">
+            <button type="button" className="visor__fechar" onClick={fechar} aria-label={t.fechar}>
               ×
             </button>
           </div>

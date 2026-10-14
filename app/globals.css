@@ -48,7 +48,7 @@ main { flex: 1; }
 
 .gaveta { display: none; }
 @media (max-width: 1080px) {
-  .menu__links, .menu .idioma { display: none; }
+  .menu__links { display: none; }
   .botao-menu { display: inline-flex; }
   .gaveta[data-aberta="true"] {
     display: block; position: fixed; inset: var(--altura-topo) 0 0 0; z-index: 49; overflow-y: auto;
@@ -273,3 +273,9 @@ main { flex: 1; }
 .glossario small { display: block; margin-top: 0.35rem; font-size: var(--texto-xs); color: var(--cor-texto-suave); }
 @media (max-width: 600px) { .glossario > div { grid-template-columns: 1fr; gap: 0.35rem; } }
 .prosa--espaco > * + * { margin-top: 1rem; }
+
+/* ===== Seletor de idioma ===== */
+.idioma a { color: var(--cor-texto-suave); text-decoration: none; padding: 0.25rem 0.1rem; }
+.idioma a:hover { color: var(--urucum); text-decoration: underline; text-underline-offset: 3px; }
+.gaveta__idioma { margin-top: 1.25rem; }
+.gaveta__idioma .idioma { display: inline; font-size: var(--texto-base); }

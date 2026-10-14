@@ -1,18 +1,17 @@
 import Link from "next/link";
 import { IconeRede } from "@/components/IconeRede";
 import { Newsletter } from "@/components/Newsletter";
+import { textos } from "@/lib/i18n";
 import { versao } from "@/lib/imagens";
+import type { Idioma } from "@/lib/rotas";
 import { MENU, REDES, SITE } from "@/lib/site";
+import { MENU_EN, SITE_EN } from "@/lib/site-en";
 
-/** Links secundários do rodapé (a coluna da direita). */
-const LINKS_APOIO = [
-  { rotulo: "Apoie", href: "/apoie/" },
-  { rotulo: "Contato", href: "/contato/" },
-  { rotulo: "Política de privacidade", href: "/privacidade/" },
-  { rotulo: "Glossário Mẽbêngôkre", href: "/glossario/" },
-];
-
-export function Rodape() {
+export function Rodape({ lang = "pt" }: { lang?: Idioma }) {
+  const t = textos(lang);
+  const menu = lang === "en" ? MENU_EN : MENU;
+  const nome = lang === "en" ? SITE_EN.nome : SITE.nome;
+  const endereco = lang === "en" ? SITE_EN.endereco : SITE.endereco;
   return (
     <footer
       className="escuro rodape"
@@ -21,17 +20,11 @@ export function Rodape() {
       <div className="container">
         <div className="rodape__grade">
           <div className="rodape__marca">
-            <img
-              src="/marca/bere-xikrin-horizontal-negativo-600.webp"
-              alt={SITE.nome}
-              width={600}
-              height={277}
-              loading="lazy"
-            />
-            <ul className="rodape__redes" aria-label="Redes sociais">
+            <img src="/marca/bere-xikrin-horizontal-negativo-600.webp" alt={nome} width={600} height={277} loading="lazy" />
+            <ul className="rodape__redes" aria-label={t.redes}>
               {REDES.map((r) => (
                 <li key={r.nome}>
-                  <a href={r.url} target="_blank" rel="noopener" aria-label={`${r.nome} da Berê Xikrin`} title={r.nome}>
+                  <a href={r.url} target="_blank" rel="noopener" aria-label={t.redeDe(r.nome)} title={r.nome}>
                     <IconeRede rede={r.nome} />
                   </a>
                 </li>
@@ -39,42 +32,39 @@ export function Rodape() {
             </ul>
           </div>
 
-          <nav className="rodape__links" aria-label="Rodapé">
+          <nav className="rodape__links" aria-label={t.rodape}>
             <ul className="rodape__principais">
-              {MENU.map((i) => (
+              {menu.map((i) => (
                 <li key={i.href}>
                   <Link href={i.href}>{i.rotulo}</Link>
                 </li>
               ))}
             </ul>
             <ul className="rodape__secundarios">
-              {LINKS_APOIO.map((i) => (
+              {t.linksApoio.map((i) => (
                 <li key={i.href}>
                   <Link href={i.href}>{i.rotulo}</Link>
                 </li>
               ))}
             </ul>
             <div className="rodape__contato">
-              <h2>Contato</h2>
+              <h2>{t.contatoTitulo}</h2>
               <ul>
                 <li>
                   <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
                 </li>
-                {SITE.endereco.map((l) => (
+                {endereco.map((l) => (
                   <li key={l}>{l}</li>
                 ))}
               </ul>
             </div>
           </nav>
 
-          <Newsletter />
+          <Newsletter lang={lang} />
         </div>
 
         <div className="rodape__fim">
-          <span>
-            © 2026 {SITE.nome}. Organização indígena sem fins lucrativos, criada em {SITE.fundacao}. Imagens e grafismos
-            pertencem ao povo Mẽbêngôkre-Xikrin; uso somente com autorização.
-          </span>
+          <span>{t.direitos(2026, nome, SITE.fundacao)}</span>
         </div>
       </div>
     </footer>

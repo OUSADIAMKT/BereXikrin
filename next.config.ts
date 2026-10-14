@@ -18,6 +18,12 @@ const nextConfig: NextConfig = {
   images: { unoptimized: true },
 
   /**
+   * Página 404 única para os dois layouts raiz (português e inglês), em
+   * app/global-not-found.tsx. Sem um layout raiz comum, é o jeito de ter 404.
+   */
+  experimental: { globalNotFound: true },
+
+  /**
    * Amarra o id do build ao commit. Sem isso cada build sorteia um id, embute
    * em todo HTML e a branch `deploy` mostra o site inteiro como alterado.
    */

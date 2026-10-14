@@ -11,3 +11,4 @@ Antes de qualquer trabalho neste projeto, leia `README.md` e os arquivos de `doc
 - Antes de mexer em APIs do Next, consulte `node_modules/next/dist/docs/`: esta versão difere do que você conhece (ex.: `params` é Promise, `PageProps`/`LayoutProps` são globais).
 - Redirecionamento só pelo `public/.htaccess` (a exportação estática não suporta `redirects`).
 - Para capturas de celular, o Chrome headless no Windows não desenha viewport menor que ~500 px: use um iframe de 390 px.
+- **Dois idiomas:** português em `app/(pt)/` (raiz) e inglês em `app/(en)/en/`, cada um com layout raiz próprio (`components/Moldura.tsx`). Toda mudança de conteúdo em português precisa da equivalente em inglês. Pares de endereço em `lib/rotas.ts`; textos da interface em `lib/i18n.ts`; dados em inglês em `lib/site-en.ts`. 404 bilíngue em `app/global-not-found.tsx`.
