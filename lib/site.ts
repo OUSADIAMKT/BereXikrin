@@ -199,3 +199,11 @@ export const NOTICIAS = [
 export const PARCEIROS = ["CI-Brasil", "Fundo Amazônia/BNDES", "Fundo Casa Socioambiental", "Prefeitura de Anapu"];
 
 export const CREDITO_FOTO = "Foto: Ousadia Marketing para a Associação Berê Xikrin";
+
+/**
+ * URL do Web App do Google Apps Script que grava as inscrições da newsletter
+ * numa planilha da Associação (código e passo a passo em
+ * docs/apps-script/newsletter-bere.gs). Termina em `/exec`.
+ * Vazia = o formulário avisa que a newsletter ainda não está ligada, sem fingir sucesso.
+ */
+export const NEWSLETTER_ENDPOINT = "";

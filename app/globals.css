@@ -125,16 +125,43 @@ main { flex: 1; }
 .diretoria strong { display: block; font-family: var(--fonte-display); font-size: var(--texto-base); }
 .diretoria span { font-size: var(--texto-sm); color: var(--cor-texto-suave); }
 
-/* ===== Rodapé ===== */
+/* ===== Rodapé (inspirado no Fundo Brasil: marca + redes, links, newsletter em destaque) ===== */
 .rodape { padding-block: 0 2.5rem; margin-top: auto; }
-.rodape__grade { display: grid; gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); padding-top: 3.5rem; }
-.rodape__marca img { width: 240px; height: auto; }
-.rodape__marca p { margin-top: 1rem; font-size: var(--texto-sm); max-width: 34ch; }
-.rodape h2 { font-size: var(--texto-sm); color: var(--pequi); margin-bottom: 0.75rem; }
-.rodape ul { list-style: none; padding: 0; display: grid; gap: 0.4rem; font-size: var(--texto-sm); }
+.rodape__grade { display: grid; gap: 2.5rem; padding-top: 3.5rem; grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr) minmax(0, 1.25fr); align-items: start; }
+@media (max-width: 1080px) { .rodape__grade { grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); } .newsletter { grid-column: 1 / -1; } }
+@media (max-width: 680px) { .rodape__grade { grid-template-columns: minmax(0, 1fr); } }
+.rodape__marca img { width: 230px; height: auto; }
+.rodape__redes { list-style: none; padding: 0; margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.rodape__redes a { width: 46px; height: 46px; display: grid; place-items: center; border: 2px solid var(--palha); border-radius: 50%; color: var(--palha); transition: background-color .15s ease, color .15s ease, border-color .15s ease; }
+.rodape__redes a:hover { background: var(--pequi); border-color: var(--pequi); color: var(--jenipapo); }
+.rodape__links { display: grid; gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr)); }
+.rodape ul { list-style: none; padding: 0; display: grid; gap: 0.55rem; }
+.rodape__principais a { font-family: var(--fonte-display); font-weight: 600; font-size: var(--texto-base); }
+.rodape__secundarios a, .rodape__contato li { font-size: var(--texto-sm); }
+.rodape__contato h2 { font-size: var(--texto-sm); color: var(--pequi); margin-bottom: 0.75rem; }
+.rodape__contato a { overflow-wrap: anywhere; }
 .rodape a { text-decoration: none; }
 .rodape a:hover { text-decoration: underline; text-underline-offset: 3px; }
-.rodape__fim { margin-top: 2.5rem; padding-top: 1.25rem; border-top: 1px solid rgb(247 239 227 / 0.15); font-size: var(--texto-xs); color: rgb(247 239 227 / 0.72); display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; justify-content: space-between; }
+.rodape__fim { margin-top: 3rem; padding-top: 1.25rem; border-top: 1px solid rgb(247 239 227 / 0.15); font-size: var(--texto-xs); color: rgb(247 239 227 / 0.72); }
+
+/* Newsletter: bloco em urucum, texto palha (5,0:1) */
+.newsletter { background: var(--urucum); color: var(--palha); border-radius: var(--raio-lg); padding: clamp(1.5rem, 1rem + 2vw, 2.25rem); }
+.newsletter h2 { font-size: var(--titulo-sm); line-height: 1.2; margin-bottom: 1.5rem; }
+.newsletter__form { display: grid; gap: 0.75rem; }
+.newsletter input[type="text"], .newsletter input[type="email"] {
+  width: 100%; min-height: 52px; padding: 0.75rem 1rem; font: 500 var(--texto-base) var(--fonte-texto);
+  color: var(--palha); background: transparent; border: 2px solid rgb(247 239 227 / 0.75); border-radius: var(--raio-sm);
+}
+.newsletter input::placeholder { color: rgb(247 239 227 / 0.85); }
+.newsletter input:focus-visible { outline: 3px solid var(--pequi); outline-offset: 2px; }
+.newsletter__isca { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+.newsletter__aceite { display: flex; gap: 0.6rem; align-items: flex-start; font-weight: 700; font-size: var(--texto-sm); margin-top: 0.25rem; cursor: pointer; }
+.newsletter__aceite input { width: 20px; height: 20px; flex: none; margin-top: 0.15rem; accent-color: var(--pequi); }
+.newsletter__lgpd { font-size: var(--texto-sm); }
+.newsletter__lgpd a, .newsletter__retorno a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+.newsletter__botao { justify-self: start; margin-top: 0.5rem; background: var(--palha); color: var(--jenipapo); padding-inline: 2rem; }
+.newsletter__botao:hover { background: var(--branco); }
+.newsletter__retorno { font-weight: 600; background: rgb(21 17 14 / 0.25); padding: 0.75rem 1rem; border-radius: var(--raio-sm); }
 
 /* ===== Galeria de fotos ===== */
 .galeria ul { list-style: none; padding: 0; display: grid; gap: 0.75rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr)); }
@@ -159,3 +186,22 @@ main { flex: 1; }
   -webkit-mask: var(--graf-listras) repeat center / 48px auto; mask: var(--graf-listras) repeat center / 48px auto; }
 .tema__corpo { padding: var(--espaco-6); display: grid; gap: 0.6rem; align-content: start; }
 .tema__corpo p { color: var(--cor-texto-suave); }
+
+/* Fundo em destaque do rodapé: foto real da TI sob uma camada de jenipapo.
+   A foto aparece mais no alto e escurece para baixo, onde ficam os textos menores. */
+.rodape { position: relative; isolation: isolate; background-color: var(--jenipapo); }
+.rodape::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background:
+    linear-gradient(180deg, rgb(21 17 14 / 0.62) 0%, rgb(21 17 14 / 0.84) 45%, rgb(21 17 14 / 0.96) 100%),
+    var(--fundo-rodape, none) center 40% / cover no-repeat;
+}
+.rodape .divisor-secao { position: relative; z-index: 1; }
+
+/* Ajustes do rodapé: listas não esticam com a altura da coluna; redes lado a lado;
+   contato ocupa a linha inteira das colunas de links, para o e-mail não quebrar. */
+.rodape ul { align-content: start; }
+.rodape .rodape__redes { display: flex; }
+.rodape__links { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.rodape__contato { grid-column: 1 / -1; }
+.rodape__contato a { overflow-wrap: normal; word-break: normal; }
