@@ -279,3 +279,14 @@ main { flex: 1; }
 .idioma a:hover { color: var(--urucum); text-decoration: underline; text-underline-offset: 3px; }
 .gaveta__idioma { margin-top: 1.25rem; }
 .gaveta__idioma .idioma { display: inline; font-size: var(--texto-base); }
+
+/* ===== Governança (Sobre) ===== */
+.governanca { display: grid; gap: 2.5rem; }
+.governanca h3 { margin-bottom: 1rem; color: var(--urucum); }
+.diretoria--fotos .nome__aldeia { display: block; margin-top: 0.15rem; font-size: var(--texto-xs); color: var(--cor-texto-suave); }
+.governanca .diretoria { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+@media (max-width: 1000px) { .governanca .diretoria { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .governanca .diretoria { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.governanca .diretoria--fotos .nome { padding: 0.75rem 0.9rem 0.9rem; }
+.governanca .diretoria--fotos strong { font-size: var(--texto-sm); }
+.diretoria--fotos li { grid-template-rows: auto 1fr; align-content: start; }

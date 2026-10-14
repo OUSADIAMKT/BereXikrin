@@ -9,6 +9,7 @@
 | 13/10/2026 | Mapa do site aprovado (`mapa-do-site.md`). **Belo Monte vai dentro do menu Projetos.** |
 | 13/10/2026 | **Produtos e Loja** entram no site. No lançamento, catálogo com "em breve"; a venda abre logo depois. |
 | 13/10/2026 | Números da home confirmados: 16 aldeias · 387 pessoas · 111 famílias. |
+| 14/10/2026 | **Diretoria nova publicada** (lista enviada pelo cliente). Grafia "Nhàkrim" conforme o cliente (o Panorama escrevia "Nhôkrim"). |
 | 14/10/2026 | **Versão em inglês no ar (decisão do cliente: site inteiro, publicar direto).** /en/ com endereços em inglês, layout próprio com lang="en", seletor PT · EN que leva à página equivalente, hreflang e sitemap bilíngue, 404 bilíngue (global-not-found). Tradução feita pela Ousadia a partir do conteúdo aprovado em português; termos em Mẽbêngôkre mantidos. Só os temas de Cultura aprovados. Recomendado: revisão por falante nativo e pela Coordenação. |
 | 14/10/2026 | **Fase 1 da auditoria + conteúdo do Panorama publicados.** Fotos responsivas (srcset), visualizador de galeria, imagens de compartilhamento JPG por página, canônico e títulos completos, erros 404 de pré-carregamento corrigidos no .htaccess, favicon.ico, CSP completa, HSTS com subdomínios, security.txt, "EN" removido. Conteúdo na voz da Associação: Sobre com missão, visão, governança, Rede Berê e trajetória; Território com dados e Belo Monte; Restaura completo (sem números de área nem valores); menire; Transparência com registro e financiadores; Glossário novo. Diretoria mantida como estava (cliente atualiza depois). Sede: Altamira. |
 | 14/10/2026 | **Publicação pelo GitHub funcionando.** A Hostinger da Bere implanta a branch `deploy` de `xikrinbere/site` em `public_html`. Pegadinha: a primeira implantação só gravou depois que a `public_html` foi esvaziada (com os arquivos do zip lá, falhava sem aviso). Versão com rodapé novo e marca d'água no ar às 22h47 de 13/10 (Belém). |
@@ -41,7 +42,8 @@
 - [x] **Autorizações de uso de imagem**: o cliente confirmou em 13/10/2026 que a Associação tem as autorizações
 - [x] Banco de dados do WordPress apagado pelo cliente (14/10/2026)
 - [ ] (depois) Endereço completo da sede em Altamira e confirmação no estatuto de 2023 (a ata de 2018 registra a Krãnh)
-- [ ] (depois) Diretoria atual com fotos (atualizar também em app/(en)/en/about)
+- [x] Diretoria atualizada em 14/10/2026 (Diretoria Executiva, Conselho Fiscal, Coordenação das Menires), em lib/diretoria.ts, PT e EN
+- [ ] Fotos dos novos membros (só Bep Kamaty tem foto); salvar em public/img/diretoria e apontar em lib/diretoria.ts
 - [ ] Revisão da versão em inglês por falante nativo e pela Coordenação (Panorama traz a nova composição)
 - [ ] Autorização de Pedro Rafael Pojo S. para o mapa (crédito já publicado)
 - [ ] Valores do Restaura e nomes da equipe: publicar? Régua de logos e manual da CI

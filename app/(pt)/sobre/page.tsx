@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Diretoria } from "@/components/Diretoria";
 import { Foto } from "@/components/Foto";
 import { PaginaHero } from "@/components/PaginaHero";
 import { metaPagina } from "@/lib/meta";
@@ -11,27 +12,6 @@ export const metadata = metaPagina({
   caminho: "/sobre/",
   foto: "/img/capas/reuniao-ngab.webp",
 });
-
-/** Diretoria como estava no site antigo; o cliente vai atualizar depois (14/10/2026). */
-const DIRETORIA: [nome: string, cargo: string, foto?: string][] = [
-  ["Bep Kamati Xikrin", "Presidente", "bep-kamati"],
-  ["Kadjore Xikrin", "Vice-presidente", "kadjore"],
-  ["Bep Ketoj Xikrin", "1º Secretário", "bep-ketoj"],
-  ["Kangore Xikrin", "1º Tesoureiro", "kangore"],
-  ["Piydjo Xikrin", "2º Secretário", "piydjo"],
-  ["Bep Djyre Xikrin", "2º Tesoureiro", "bep-djyre"],
-  ["Koitunggri Xikrin", "Titular"],
-  ["Irekoti Xikrin", "Titular", "irekoti"],
-  ["Nhoko Xikrin", "Suplente", "nhoko"],
-];
-
-const iniciais = (nome: string) =>
-  nome
-    .split(" ")
-    .filter((p) => p !== "Xikrin")
-    .map((p) => p[0])
-    .join("")
-    .slice(0, 2);
 
 export default function Sobre() {
   return (
@@ -177,23 +157,7 @@ export default function Sobre() {
           <h2 id="t-diretoria" className="titulo-md" style={{ margin: "1rem 0 2rem" }}>
             Quem conduz a Berê
           </h2>
-          <ul className="diretoria diretoria--fotos">
-            {DIRETORIA.map(([nome, cargo, foto]) => (
-              <li key={nome}>
-                {foto ? (
-                  <img src={`/img/diretoria/${foto}.webp`} alt={`Retrato de ${nome}`} width={480} height={520} loading="lazy" />
-                ) : (
-                  <div className="sem-foto" aria-hidden="true">
-                    {iniciais(nome)}
-                  </div>
-                )}
-                <div className="nome">
-                  <strong>{nome}</strong>
-                  <span>{cargo}</span>
-                </div>
-              </li>
-            ))}
-          </ul>
+          <Diretoria />
         </div>
       </section>
 

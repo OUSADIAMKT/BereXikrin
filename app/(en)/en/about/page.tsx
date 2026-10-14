@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Diretoria } from "@/components/Diretoria";
 import { Foto } from "@/components/Foto";
 import { PaginaHero } from "@/components/PaginaHero";
 import { metaPagina } from "@/lib/meta";
@@ -12,27 +13,6 @@ export const metadata = metaPagina({
   caminho: "/en/about/",
   foto: "/img/capas/reuniao-ngab.webp",
 });
-
-/** Same board as the Portuguese page (to be updated by the Association). */
-const DIRETORIA: [nome: string, cargo: string, foto?: string][] = [
-  ["Bep Kamati Xikrin", "President", "bep-kamati"],
-  ["Kadjore Xikrin", "Vice-president", "kadjore"],
-  ["Bep Ketoj Xikrin", "1st Secretary", "bep-ketoj"],
-  ["Kangore Xikrin", "1st Treasurer", "kangore"],
-  ["Piydjo Xikrin", "2nd Secretary", "piydjo"],
-  ["Bep Djyre Xikrin", "2nd Treasurer", "bep-djyre"],
-  ["Koitunggri Xikrin", "Member"],
-  ["Irekoti Xikrin", "Member", "irekoti"],
-  ["Nhoko Xikrin", "Alternate member", "nhoko"],
-];
-
-const iniciais = (nome: string) =>
-  nome
-    .split(" ")
-    .filter((p) => p !== "Xikrin")
-    .map((p) => p[0])
-    .join("")
-    .slice(0, 2);
 
 export default function AboutEn() {
   return (
@@ -178,23 +158,7 @@ export default function AboutEn() {
           <h2 id="t-diretoria" className="titulo-md" style={{ margin: "1rem 0 2rem" }}>
             Who leads Berê
           </h2>
-          <ul className="diretoria diretoria--fotos">
-            {DIRETORIA.map(([nome, cargo, foto]) => (
-              <li key={nome}>
-                {foto ? (
-                  <img src={`/img/diretoria/${foto}.webp`} alt={`Portrait of ${nome}`} width={480} height={520} loading="lazy" />
-                ) : (
-                  <div className="sem-foto" aria-hidden="true">
-                    {iniciais(nome)}
-                  </div>
-                )}
-                <div className="nome">
-                  <strong>{nome}</strong>
-                  <span>{cargo}</span>
-                </div>
-              </li>
-            ))}
-          </ul>
+          <Diretoria lang="en" />
         </div>
       </section>
 
