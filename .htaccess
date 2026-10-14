@@ -11,9 +11,20 @@ DirectoryIndex index.html
 
   # O Next pede os arquivos de pre-carregamento com pontos (__next.sobre.__PAGE__.txt),
   # mas a exportacao grava em subpastas (__next.sobre/__PAGE__.txt). Sem isto, cada
-  # pagina gera erros 404 no console. Cobre rotas de um e de dois niveis.
+  # pagina gera erros 404 no console. O grupo (en) entra codificado (!KGVuKQ), por
+  # isso as paginas em ingles tem 3 ou 4 niveis; o layout tem arquivo proprio.
+  RewriteCond %{REQUEST_FILENAME} !-f
   RewriteRule ^(.*/)?__next\.([^./]+)\.__PAGE__\.txt$ /$1__next.$2/__PAGE__.txt [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
   RewriteRule ^(.*/)?__next\.([^./]+)\.([^./]+)\.__PAGE__\.txt$ /$1__next.$2/$3/__PAGE__.txt [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteRule ^(.*/)?__next\.([^./]+)\.([^./]+)\.([^./]+)\.__PAGE__\.txt$ /$1__next.$2/$3/$4/__PAGE__.txt [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteRule ^(.*/)?__next\.([^./]+)\.([^./]+)\.([^./]+)\.([^./]+)\.__PAGE__\.txt$ /$1__next.$2/$3/$4/$5/__PAGE__.txt [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteRule ^(.*/)?__next\.([^./]+)\.([^./]+)\.txt$ /$1__next.$2/$3.txt [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteRule ^(.*/)?__next\.([^./]+)\.([^./]+)\.([^./]+)\.txt$ /$1__next.$2/$3/$4.txt [L]
   RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
   RewriteRule ^ https://%1%{REQUEST_URI} [R=301,L]
 

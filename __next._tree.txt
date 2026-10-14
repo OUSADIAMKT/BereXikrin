@@ -10,4 +10,4 @@
 :HL["/img/aldeia-circular-por-do-sol.webp","image",{"imageSrcSet":"/img/aldeia-circular-por-do-sol-640w.webp 640w, /img/aldeia-circular-por-do-sol-960w.webp 960w, /img/aldeia-circular-por-do-sol-1280w.webp 1280w, /img/aldeia-circular-por-do-sol.webp 1920w","imageSizes":"100vw","fetchPriority":"high"}]
 2:[["children",{"s":"__PAGE__","h":128}]]
 1:[["children",{"s":"(pt)","h":48,"c":"$Q2"}]]
-0:{"b":"f0e225eb7422656c9796a7224197b4c8fc6c8312","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
+0:{"b":"dab130fce79cab4ddbfa043065da16cece8bd340","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
