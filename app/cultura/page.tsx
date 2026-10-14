@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { EmConstrucao } from "@/components/EmConstrucao";
 import { PaginaHero } from "@/components/PaginaHero";
-import { FONTES_CULTURA, TEMAS_CULTURA } from "@/lib/cultura";
+import { TEMAS_CULTURA } from "@/lib/cultura";
 
 export const metadata: Metadata = {
   title: "Cultura",
@@ -9,7 +10,9 @@ export const metadata: Metadata = {
 };
 
 export default function Cultura() {
-  const emRevisao = TEMAS_CULTURA.some((t) => !t.revisado);
+  // Só vai ao ar o que a Associação já aprovou (decisão do cliente em 13/10/2026).
+  const publicados = TEMAS_CULTURA.filter((t) => t.revisado);
+  const emRevisao = publicados.length < TEMAS_CULTURA.length;
 
   return (
     <>
@@ -27,7 +30,7 @@ export default function Cultura() {
             saberes passam dos Kubengêt, os anciões, para as crianças desde cedo, para que cresçam fortes e bonitas.
           </p>
           <div className="temas">
-            {TEMAS_CULTURA.map((t) => (
+            {publicados.map((t) => (
               <article key={t.nome} className="tema">
                 {t.foto ? (
                   <img src={t.foto.src} alt={t.foto.alt} loading="lazy" width={1200} height={800} />
@@ -47,23 +50,9 @@ export default function Cultura() {
             ))}
           </div>
           {emRevisao && (
-            <div className="aviso">
-              <p>
-                <strong>Textos em revisão pela Associação.</strong> Parte desta página foi escrita a partir de estudos
-                publicados sobre os Mẽbêngôkre e está sendo revisada pela Berê e pelos Kubengêt.
-              </p>
-              <p style={{ marginTop: "0.5rem", fontSize: "var(--texto-sm)" }}>
-                Fontes:{" "}
-                {FONTES_CULTURA.map((f, i) => (
-                  <span key={f.url}>
-                    {i > 0 && " · "}
-                    <a href={f.url} target="_blank" rel="noopener">
-                      {f.titulo}
-                    </a>
-                  </span>
-                ))}
-              </p>
-            </div>
+            <EmConstrucao>
+              Em breve, mais sobre {TEMAS_CULTURA.filter((t) => !t.revisado).map((t) => t.nome.toLowerCase()).join(", ").replace(/, ([^,]*)$/, " e $1")}.
+            </EmConstrucao>
           )}
         </div>
       </section>

@@ -64,10 +64,9 @@ export default function Produtos() {
           <div className="prosa">
             <span className="eyebrow">Artesanato das menire</span>
             <h2 id="t-menire" className="titulo-md">Feito pelas mulheres Xikrin</h2>
-            <p>
-              As menire, as mulheres Xikrin, pintam à mão os grafismos do nosso povo em tecidos e costuram bolsas e outras
-              peças nas oficinas das aldeias. O artesanato também faz parte do Restaura Amazônia.
-            </p>
+            {/* Texto descritivo aguardando aprovação da Associação (ver docs/revisao).
+                Esta frase vem do site antigo (página CI Brasil). */}
+            <p>O artesanato das menire faz parte do Restaura Amazônia.</p>
           </div>
           <Galeria fotos={FOTOS_MENIRE} credito={CREDITO_ACERVO} />
         </div>
