@@ -57,8 +57,10 @@ function doPost(e) {
     var aba = SpreadsheetApp.getActiveSpreadsheet().getSheets()[0];
     if (aba.getLastRow() === 0) aba.appendRow(COLUNAS);
 
-    var existentes = aba
-      .getRange(2, 3, Math.max(aba.getLastRow() - 1, 0), 1)
+    // Só o cabeçalho = nenhuma linha para ler (getRange com 0 linhas dá erro).
+    var linhas = aba.getLastRow() - 1;
+    var existentes = linhas < 1 ? [] : aba
+      .getRange(2, 3, linhas, 1)
       .getValues()
       .map(function (l) { return String(l[0]).trim().toLowerCase(); });
     var novo = existentes.indexOf(email) === -1;

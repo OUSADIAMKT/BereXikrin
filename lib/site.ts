@@ -271,4 +271,5 @@ export const CREDITO_FOTO = "Foto: Ousadia Marketing para a Associação Berê X
  * docs/apps-script/newsletter-bere.gs). Termina em `/exec`.
  * Vazia = o formulário avisa que a newsletter ainda não está ligada, sem fingir sucesso.
  */
-export const NEWSLETTER_ENDPOINT = "";
+export const NEWSLETTER_ENDPOINT =
+  "https://script.google.com/macros/s/AKfycby--sYcjgw545gw3OXJy9QLDrZz7VC9wymnpMnzwVV1_ihNeFC9h0vCQHYG9iNVF4Bw/exec";
