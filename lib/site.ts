@@ -20,6 +20,24 @@ export const SITE = {
   fundacaoData: "23 de outubro de 2018",
 } as const;
 
+/** Canais de apoio da página Apoie (enviados pela Associação em 18/10/2026). */
+export const APOIO = {
+  entrega: ["Rua Otaviano Santos, nº 1886", "Bairro Sudam I, Altamira–PA", "CEP 68371-283"],
+  whatsapp: "(93) 98802-5889",
+  whatsappLink: "https://wa.me/5593988025889",
+  pix: "meniredabere@gmail.com",
+  titular: "Associação Indígena Berê Xikrin da TI Bacajá",
+  cnpj: "33.149.338/0001-69",
+  /** Vídeo do hero (youtu.be/bhnmm2-K1lc). */
+  videoId: "bhnmm2-K1lc",
+} as const;
+
+export const FOTOS_APOIO: Foto[] = [
+  { src: "/img/apoie/rio-bacaja-pedral.webp", alt: "Vista aérea do Rio Bacajá entre pedras, com floresta nas duas margens" },
+  { src: "/img/apoie/aldeia-vista-de-cima.webp", alt: "Vista de cima de uma aldeia cercada de floresta, com ramal de terra e um brejo ao lado" },
+  { src: "/img/apoie/familia-caixa-dagua.webp", alt: "Mulher e criança junto às caixas d’água, em frente a casas cobertas de palha" },
+];
+
 export const MISSAO =
   "Representar e fortalecer o povo Mẽbêngôkre Xikrin, promovendo a defesa de seus direitos territoriais e culturais, a preservação da sociobiodiversidade da TI Trincheira Bacajá e o desenvolvimento sustentável das comunidades, com base no etnodesenvolvimento e na autonomia.";
 

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { Foto } from "@/components/Foto";
+import { VideoFundo } from "@/components/VideoFundo";
 import { textos } from "@/lib/i18n";
 import type { Idioma } from "@/lib/rotas";
 
@@ -11,6 +12,8 @@ type Props = {
   foto?: string;
   trilha?: { rotulo: string; href: string }[];
   lang?: Idioma;
+  /** ID de um vídeo do YouTube que toca ao fundo, sobre a foto. */
+  videoId?: string;
 };
 
 /** Abertura das páginas internas: foto escurecida, trilha e título. */
@@ -21,11 +24,13 @@ export function PaginaHero({
   foto = "/img/aldeia-circular-por-do-sol.webp",
   trilha = [],
   lang = "pt",
+  videoId,
 }: Props) {
   const t = textos(lang);
   return (
     <section className="pagina-hero sobre-foto">
       <Foto sizes="100vw" src={foto} alt="" />
+      {videoId && <VideoFundo id={videoId} />}
       <div className="container">
         <nav className="trilha" aria-label={t.voceEsta}>
           <Link href={lang === "en" ? "/en/" : "/"}>{t.inicio}</Link>

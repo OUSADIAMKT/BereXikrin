@@ -264,3 +264,9 @@ export const REGISTRO_EN =
 
 export const CREDITO_FOTO_EN = "Photo: Ousadia Marketing for the Berê Xikrin Association";
 export const CREDITO_ACERVO_EN = "Photos: Berê Xikrin Indigenous Association archive";
+
+export const FOTOS_APOIO_EN: Foto[] = [
+  { src: "/img/apoie/rio-bacaja-pedral.webp", alt: "Aerial view of the Bacajá River between rocks, with forest on both banks" },
+  { src: "/img/apoie/aldeia-vista-de-cima.webp", alt: "Aerial view of a village surrounded by forest, with a dirt road and a wetland beside it" },
+  { src: "/img/apoie/familia-caixa-dagua.webp", alt: "A woman and a child by the water tanks, in front of palm-thatched houses" },
+];
