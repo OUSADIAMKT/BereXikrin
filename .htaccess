@@ -56,9 +56,9 @@ DirectoryIndex index.html
   Header set Referrer-Policy "strict-origin-when-cross-origin"
   Header set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=()"
   # CSP: so o proprio site carrega scripts, estilos, fontes e imagens. A unica
-  # conexao externa e a newsletter (Google Apps Script). 'unsafe-inline' e exigido
+  # conexao externa e a newsletter (Google Apps Script); o unico iframe permitido e o video do YouTube (modo sem cookies) da pagina Apoie. 'unsafe-inline' e exigido
   # pelos scripts que o Next embute no HTML da exportacao estatica.
-  Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://script.google.com https://script.googleusercontent.com; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; upgrade-insecure-requests"
+  Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://script.google.com https://script.googleusercontent.com; frame-src https://www.youtube-nocookie.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; upgrade-insecure-requests"
 </IfModule>
 
 # Pagina 404 do proprio Next (out/404.html), em vez da pagina padrao do servidor.

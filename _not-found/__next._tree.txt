@@ -1,5 +1,5 @@
-:HL["/_next/static/chunks/0t97yx9jblsff.css","style"]
+:HL["/_next/static/chunks/42lruv565osq-.css","style"]
 :HL["/marca/bere-xikrin-horizontal-600.webp","image"]
 2:[["children",{"s":"__PAGE__","h":160}]]
 1:[["children",{"s":"/_not-found","h":96,"c":"$Q2"}]]
-0:{"b":"06f66609241e973913984dc776cd824f039a29c1","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
+0:{"b":"3583faa86845e44a85dda2432a1ea32a8104eb13","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
