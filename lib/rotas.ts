@@ -28,6 +28,7 @@ export const PARES: [pt: string, en: string][] = [
   ["/contato/", "/en/contact/"],
   ["/privacidade/", "/en/privacy/"],
   ["/glossario/", "/en/glossary/"],
+  ["/manual-da-marca/", "/en/brand-guidelines/"],
   ...Object.entries(SLUGS_PROJETOS).map(([pt, en]) => [`/projetos/${pt}/`, `/en/projects/${en}/`] as [string, string]),
 ];
 

@@ -50,6 +50,7 @@ Os SVGs em `Logo/` são os originais exportados do Canva (2,5 a 6,5 MB cada). Us
 |---|---|
 | `bere-xikrin-horizontal.png` / `-1200.webp` / `-600.webp` | Cabeçalho do site, documentos, assinaturas |
 | `bere-xikrin-vertical.png` / `-1200.webp` / `-600.webp` | Rodapé, capas, materiais quadrados ou verticais |
+| `bere-xikrin-*-branco.png` (horizontal, vertical, simbolo) | Logo todo branco, fundo transparente, para foto ou fundo escuro. Gerado por `node scripts/gera-logo-branco.cjs` |
 | `bere-xikrin-simbolo.png` / `-1200.webp` / `-600.webp` | Selo, marca d'água, espaços pequenos |
 | `icone-512.png`, `icone-192.png`, `apple-touch-icon.png`, `favicon-32.png` | Ícone do site no navegador e no celular |
 | `avatar-redes-1080.png` | Foto de perfil nas redes (fundo branco) |

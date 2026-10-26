@@ -19,6 +19,7 @@ export const UI = {
       { rotulo: "Contato", href: "/contato/" },
       { rotulo: "Política de privacidade", href: "/privacidade/" },
       { rotulo: "Glossário Mẽbêngôkre", href: "/glossario/" },
+      { rotulo: "Manual da marca", href: "/manual-da-marca/" },
     ],
     contatoTitulo: "Contato",
     direitos: (ano: number, nome: string, fundacao: number) =>
@@ -63,6 +64,7 @@ export const UI = {
       { rotulo: "Contact", href: "/en/contact/" },
       { rotulo: "Privacy policy", href: "/en/privacy/" },
       { rotulo: "Mẽbêngôkre glossary", href: "/en/glossary/" },
+      { rotulo: "Brand guidelines", href: "/en/brand-guidelines/" },
     ],
     contatoTitulo: "Contact",
     direitos: (ano: number, nome: string, fundacao: number) =>
