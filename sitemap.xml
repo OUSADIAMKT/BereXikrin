@@ -121,6 +121,16 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://berexikrin.org.br/en/glossary/" />
 </url>
 <url>
+<loc>https://berexikrin.org.br/manual-da-marca/</loc>
+<xhtml:link rel="alternate" hreflang="pt-BR" href="https://berexikrin.org.br/manual-da-marca/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://berexikrin.org.br/en/brand-guidelines/" />
+</url>
+<url>
+<loc>https://berexikrin.org.br/en/brand-guidelines/</loc>
+<xhtml:link rel="alternate" hreflang="pt-BR" href="https://berexikrin.org.br/manual-da-marca/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://berexikrin.org.br/en/brand-guidelines/" />
+</url>
+<url>
 <loc>https://berexikrin.org.br/projetos/belo-monte/</loc>
 <xhtml:link rel="alternate" hreflang="pt-BR" href="https://berexikrin.org.br/projetos/belo-monte/" />
 <xhtml:link rel="alternate" hreflang="en" href="https://berexikrin.org.br/en/projects/belo-monte/" />
