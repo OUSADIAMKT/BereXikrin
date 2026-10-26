@@ -323,3 +323,5 @@ main { flex: 1; }
 .manual-nunca { list-style: none; padding: 0; display: grid; gap: 0.75rem 2rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); }
 .manual-nunca li { border-top: 1px solid var(--palha-escura); padding-top: 0.75rem; }
 .manual-nunca span { color: var(--urucum); font-weight: 700; }
+.manual-chamada { background: var(--branco); border: 1px solid var(--palha-escura); border-radius: var(--raio-lg); padding: clamp(1.5rem, 1rem + 3vw, 3rem); display: grid; place-items: center; }
+.manual-chamada img { width: min(100%, 420px); height: auto; }

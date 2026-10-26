@@ -18,7 +18,7 @@ export default function ManualDaMarca() {
         titulo={<>Como usar a marca <span className="destaque">Berê Xikrin</span></>}
         lead="Logo, cores, letras, grafismos e imagens: as regras para falar em nome da Associação do jeito certo."
         foto="/img/aldeia-circular-vista-de-cima.webp"
-        trilha={[{ rotulo: "Manual da marca", href: "/manual-da-marca/" }]}
+        trilha={[{ rotulo: "Sobre", href: "/sobre/" }, { rotulo: "Manual da marca", href: "/manual-da-marca/" }]}
       />
       <ManualMarca email={SITE.email} />
     </>

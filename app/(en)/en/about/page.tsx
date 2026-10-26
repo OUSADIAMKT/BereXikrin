@@ -195,6 +195,27 @@ export default function AboutEn() {
           </figure>
         </div>
       </section>
+
+      <section className="secao" aria-labelledby="t-marca">
+        <div className="container duas-colunas">
+          <div className="prosa">
+            <span className="eyebrow">Visual identity</span>
+            <h2 id="t-marca" className="titulo-md">Brand guidelines</h2>
+            <p className="lead">
+              The brand, graphic patterns and images belong to the Mẽbêngôkre-Xikrin people. To use the Association’s logo,
+              colors and photos, see the rules and download the official files.
+            </p>
+            <p>
+              <Link className="btn btn--marca" href="/en/brand-guidelines/">
+                See the brand guidelines
+              </Link>
+            </p>
+          </div>
+          <div className="manual-chamada">
+            <img src="/marca/bere-xikrin-horizontal-600.webp" alt="Berê Xikrin Indigenous Association logo" width={600} height={277} loading="lazy" />
+          </div>
+        </div>
+      </section>
     </>
   );
 }

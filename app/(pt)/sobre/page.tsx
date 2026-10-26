@@ -194,6 +194,27 @@ export default function Sobre() {
           </figure>
         </div>
       </section>
+
+      <section className="secao" aria-labelledby="t-marca">
+        <div className="container duas-colunas">
+          <div className="prosa">
+            <span className="eyebrow">Identidade visual</span>
+            <h2 id="t-marca" className="titulo-md">Manual de uso da marca</h2>
+            <p className="lead">
+              A marca, os grafismos e as imagens pertencem ao povo Mẽbêngôkre-Xikrin. Para usar o logo, as cores e as
+              fotos da Associação, veja as regras e baixe os arquivos oficiais.
+            </p>
+            <p>
+              <Link className="btn btn--marca" href="/manual-da-marca/">
+                Ver o manual da marca
+              </Link>
+            </p>
+          </div>
+          <div className="manual-chamada">
+            <img src="/marca/bere-xikrin-horizontal-600.webp" alt="Logo da Associação Indígena Berê Xikrin" width={600} height={277} loading="lazy" />
+          </div>
+        </div>
+      </section>
     </>
   );
 }

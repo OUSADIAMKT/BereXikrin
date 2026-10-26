@@ -19,7 +19,7 @@ export default function BrandGuidelines() {
         titulo={<>How to use the <span className="destaque">Berê Xikrin</span> brand</>}
         lead="Logo, colors, type, graphic patterns and images: the rules for speaking on the Association’s behalf the right way."
         foto="/img/aldeia-circular-vista-de-cima.webp"
-        trilha={[{ rotulo: "Brand guidelines", href: "/en/brand-guidelines/" }]}
+        trilha={[{ rotulo: "About", href: "/en/about/" }, { rotulo: "Brand guidelines", href: "/en/brand-guidelines/" }]}
       />
       <ManualMarca lang="en" email={SITE.email} />
     </>
